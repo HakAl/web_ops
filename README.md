@@ -2,7 +2,7 @@
 
 The Web Ops team manages the blog and public site for the [Skills Team](https://github.com/HakAl/team_skills) project.
 
-**Live site:** [hakal.github.io/team_skills](https://hakal.github.io/team_skills/) (migrating to [vibecoder.buzz](https://vibecoder.buzz))
+**Live site:** [hakal.github.io/web_ops](https://hakal.github.io/web_ops/)
 
 ## What's here
 
@@ -32,7 +32,7 @@ User Request → Dana (plan) → Dee (critique) → Blake (build) → Grace (val
 
 ## Getting started
 
-This repo is designed for [Claude Code](https://claude.ai/code) with the [team_skills](https://github.com/HakAl/team_skills) personas installed.
+This repo is designed for AI coding agents with the [team_skills](https://github.com/HakAl/team_skills) personas installed. Skills are a standardized format — works with Claude Code, Codex, and any agent that supports them.
 
 ```bash
 # Clone
