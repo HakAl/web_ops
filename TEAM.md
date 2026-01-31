@@ -98,10 +98,10 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-01-31 (session 2) — Built blog-first site redesign
+**Last Session**: 2026-01-31 (session 3) — Site migration to web_ops repo
 
-**What's done**: Processed dispatch inbox (3 messages from Engineering + QA). Built new blog-first front door: compact header, front door copy, workflow visual (preserved), philosophy blocks (preserved), latest posts, Team-as-a-Template section (new), updated Get Started. Removed 15MB demo.gif. Updated CSS. Grace reviewed and fixed a11y (aria-hidden on arrows, aria-label on read-more links). Closed beads: uap, b9y, fp3, 4h4. User shared API key with QA for dev.to bug.
-**What's next**: Redirect stub for old homepage (fgy), SEO audit (lkq), favicon (0t7), dev.to bug (i2n, QA investigating).
+**What's done**: Migrated GitHub Pages from `HakAl/team_skills` to `HakAl/web_ops`. Site live at `hakal.github.io/web_ops/`. Engineering set up redirects from all old URLs (with `rel=canonical`). Dev.to profile URL updated. QA resolved dev.to posting bug (curl `--data-binary` fix, documented in Nora's skill). Closed beads: f7x, 6sb, i2n, uap, b9y.
+**What's next**: SEO audit (lkq), favicon (0t7). 3 test drafts on dev.to/dashboard need manual cleanup (QA rate-limited during testing). Site copy says "For Claude Code" but scope is broader — positioning update needed.
 
 ---
 
