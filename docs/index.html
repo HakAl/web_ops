@@ -3,84 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Skills Team builds AI coding teams that plan, critique, build, and validate — so your code ships better. Blog, tools, and the team-as-a-template pattern.">
-    <title>The Skills Team - AI Teams That Ship Better Code</title>
+    <meta name="description" content="The Skills Team blog - insights on AI coding workflows, team patterns, and what we're learning building AI teams that plan, critique, build, and validate.">
+    <title>The Skills Team</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="hero hero-compact">
         <h1>The Skills Team</h1>
         <p class="tagline">We build AI teams that ship better code</p>
-        <p class="subtitle">AI teams that plan, critique, build, and validate</p>
     </header>
 
     <main>
-        <!-- Front Door Copy (Nora) -->
         <section class="section front-door">
             <p class="front-door-lead">Most AI coding tools work alone. One model, one voice, one blind spot. We tried something different: we built a team.</p>
             <p>The Skills Team is an open-source project that gives your AI coding agent a crew of personas — a planner, a critic, a builder, a reviewer — that collaborate in shared context. They argue with each other, catch bad ideas early, and ship code that's been challenged before you even look at it.</p>
             <p>This blog is where we write about what we're learning: the workflows that work, the failures that taught us something, and the patterns we keep coming back to.</p>
         </section>
 
-        <!-- The Pattern (preserved from current site, updated) -->
-        <section id="pattern" class="section">
-            <h2>The Pattern</h2>
-            <p class="section-intro">Every team we build converges on the same structure: <strong>Plan &rarr; Critique &rarr; Build &rarr; Validate</strong>.</p>
-
-            <div class="workflow-visual">
-                <div class="workflow-step">
-                    <span class="step-number">1</span>
-                    <h3>Plan</h3>
-                    <p>Understand the task. Design the approach. Identify risks before writing code.</p>
-                    <span class="persona-tag">Planner (Peter)</span>
-                </div>
-                <span class="workflow-arrow" aria-hidden="true">&rarr;</span>
-                <div class="workflow-step">
-                    <span class="step-number">2</span>
-                    <h3>Critique</h3>
-                    <p>Challenge the plan. Find holes. Play devil's advocate. Catch bad ideas early.</p>
-                    <span class="persona-tag">Critic (Neo)</span>
-                </div>
-                <span class="workflow-arrow" aria-hidden="true">&rarr;</span>
-                <div class="workflow-step">
-                    <span class="step-number">3</span>
-                    <h3>Build</h3>
-                    <p>Implement from the refined plan. Follow the spec. Ship accessible, quality code.</p>
-                    <span class="persona-tag">Builder (Gary)</span>
-                </div>
-                <span class="workflow-arrow" aria-hidden="true">&rarr;</span>
-                <div class="workflow-step">
-                    <span class="step-number">4</span>
-                    <h3>Validate</h3>
-                    <p>Review everything. Nothing merges without sign-off. Guard quality gates.</p>
-                    <span class="persona-tag">Guardian (Reba)</span>
-                </div>
-            </div>
-
-            <div class="philosophy-block">
-                <h3>Personas, Not Processes</h3>
-                <p>The team members are personas in the <em>same context</em>, not isolated agents. They can hear each other, interrupt, and collaborate in real-time. Same context beats parallel agents — every time.</p>
-            </div>
-
-            <div class="philosophy-block">
-                <h3>Self-Improving Protocols</h3>
-                <p>The team writes their own <code>TEAM.md</code>. They run retrospectives. They update their own skills based on what they learn. You're the founder who steps back and lets them evolve.</p>
-            </div>
-
-            <div class="philosophy-block">
-                <h3>Safety Rails</h3>
-                <ul>
-                    <li><strong>No Lobotomies</strong> — Cannot edit IMMUTABLE sections of any skill</li>
-                    <li><strong>Guardian's Law</strong> — Every team has a guardian; all self-modifications pass validation</li>
-                    <li><strong>Stay in Your Lane</strong> — Teams only modify their own directories</li>
-                    <li><strong>User Has Final Say</strong> — All commits visible; user controls merges and pushes</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Latest Posts -->
         <section id="posts" class="section">
-            <h2>Latest Posts</h2>
+            <h2>Posts</h2>
             <article class="blog-card">
                 <h3><a href="blog/cold-critic.html">Our AI Critic Was Going Easy on Us (Research Told Us Why)</a></h3>
                 <p class="blog-meta">January 2026</p>
@@ -101,54 +42,6 @@
                 <p>I asked Claude to "make my scraper robust." It generated 200 lines of plausible-looking code. All garbage. Here's what I do instead.</p>
                 <a href="blog/plan-before-code.html" class="read-more" aria-label="Read more: Why I Make Claude Argue With Itself Before Writing Code">Read more &rarr;</a>
             </article>
-
-            <p class="section-cta"><a href="blog/">All posts &rarr;</a></p>
-        </section>
-
-        <!-- Team-as-a-Template -->
-        <section id="teams" class="section">
-            <h2>Team-as-a-Template</h2>
-            <p class="section-intro">The pattern isn't locked to one domain. Fork it, rename the personas, point it at your problem. Three teams run on it today.</p>
-
-            <div class="team-template-grid">
-                <article class="team-card">
-                    <h3><a href="https://github.com/HakAl/team_skills">Engineering</a></h3>
-                    <p class="team-role">Plan &rarr; Critique &rarr; Build &rarr; Validate</p>
-                    <p>The original team. Seven personas that design, challenge, implement, and review code.</p>
-                </article>
-                <article class="team-card">
-                    <h3><a href="https://github.com/HakAl/web_ops">Web Ops</a></h3>
-                    <p class="team-role">Design &rarr; Critique &rarr; Build &rarr; Review</p>
-                    <p>Site strategy, content, frontend, analytics. Same pattern, different domain.</p>
-                </article>
-                <article class="team-card">
-                    <h3><a href="https://github.com/HakAl/qa">QA &amp; Compliance</a></h3>
-                    <p class="team-role">Strategy &rarr; Audit &rarr; Test &rarr; Validate</p>
-                    <p>Testing strategy, security audits, cross-platform validation. Finds the bugs you shipped.</p>
-                </article>
-            </div>
-
-            <p class="team-note">Each team has its own guardian, its own protocols, and its own <code>TEAM.md</code>. The pattern is the constant — the personas adapt to the work.</p>
-            <p class="team-note">Tested on Claude Code, Codex, and cross-platform. The genesis prompt works everywhere.</p>
-        </section>
-
-        <!-- Get Started -->
-        <section id="get-started" class="section">
-            <h2>Get Started</h2>
-            <div class="install-block">
-                <p><strong>Quick Install:</strong></p>
-                <pre><code>curl -sL https://raw.githubusercontent.com/HakAl/team_skills/master/install.sh | bash</code></pre>
-                <p class="install-note">Works on Linux, macOS, and Windows (Git Bash). Updates with the same command.</p>
-            </div>
-            <ol>
-                <li>Run <code>/team genesis</code> to bootstrap your team's protocols</li>
-                <li>Give them a task: <code>/team "add input validation"</code></li>
-                <li>Watch them plan, critique, build, and validate</li>
-            </ol>
-            <p>Want multiple teams? Install once, create new directories, run <code>/team genesis</code> in each. The <a href="https://github.com/HakAl/team_skills">dispatch protocol</a> handles cross-team communication.</p>
-            <p class="cta">
-                <a href="https://github.com/HakAl/team_skills" class="button">View on GitHub</a>
-            </p>
         </section>
     </main>
 
@@ -156,7 +49,6 @@
         <p>
             <a href="https://github.com/HakAl/team_skills">GitHub</a> &middot;
             <a href="https://github.com/HakAl/team_skills/blob/master/LICENSE">MIT License</a> &middot;
-            <a href="blog/">Blog Archive</a> &middot;
             Built by the Skills Team
         </p>
     </footer>
