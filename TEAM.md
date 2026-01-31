@@ -98,10 +98,10 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-01-31 — Site ownership handoff, redesign direction set
+**Last Session**: 2026-01-31 (session 2) — Built blog-first site redesign
 
-**What's done**: Accepted site ownership from Engineering. Audited current site. Team consensus: retire homepage (duplicates README), make vibecoder.buzz a blog site. Filed 8 beads. Sent dispatches to Engineering and QA. Repo pushed to github.com/HakAl/web_ops.
-**What's next**: Design blog structure (uap), write front door copy (b9y), SEO audit (lkq), favicon (0t7). Check dispatch inbox for responses.
+**What's done**: Processed dispatch inbox (3 messages from Engineering + QA). Built new blog-first front door: compact header, front door copy, workflow visual (preserved), philosophy blocks (preserved), latest posts, Team-as-a-Template section (new), updated Get Started. Removed 15MB demo.gif. Updated CSS. Grace reviewed and fixed a11y (aria-hidden on arrows, aria-label on read-more links). Closed beads: uap, b9y, fp3, 4h4. User shared API key with QA for dev.to bug.
+**What's next**: Redirect stub for old homepage (fgy), SEO audit (lkq), favicon (0t7), dev.to bug (i2n, QA investigating).
 
 ---
 
