@@ -98,10 +98,10 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-01-31 (session 3) — Site migration to web_ops repo
+**Last Session**: 2026-01-31 (session 4) — Favicon + bead cleanup
 
-**What's done**: Migrated GitHub Pages from `HakAl/team_skills` to `HakAl/web_ops`. Site live at `hakal.github.io/web_ops/`. Engineering set up redirects from all old URLs (with `rel=canonical`). Dev.to profile URL updated. QA resolved dev.to posting bug (curl `--data-binary` fix, documented in Nora's skill). Closed beads: f7x, 6sb, i2n, uap, b9y.
-**What's next**: SEO audit (lkq), favicon (0t7). 3 test drafts on dev.to/dashboard need manual cleanup (QA rate-limited during testing). Site copy says "For Claude Code" but scope is broader — positioning update needed.
+**What's done**: Site live at `hakal.github.io/web_ops/`. Old homepage (`team_skills/`) redirects with meta refresh + rel=canonical (Engineering handled). Favicon added (SVG, three connected nodes in brand colors). Dev.to profile URL updated. QA resolved dev.to posting bug (curl `--data-binary` fix, documented in Nora's skill). Closed beads: f7x, 6sb, i2n, uap, b9y, fp3, 4h4, fgy, 0t7.
+**What's next**: SEO audit (lkq) — only remaining open bead. 3 test drafts on dev.to/dashboard need manual cleanup (QA rate-limited during testing). Positioning update not yet tracked as a bead (site copy scope is broader than "For Claude Code").
 
 ---
 
