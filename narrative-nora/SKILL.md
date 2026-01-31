@@ -74,7 +74,26 @@ Genesis will define the detailed content workflow and style guide.
 
 <team_knowledge>
 Genesis has not been run. Team protocols undefined.
+Dev.to API key: .keys/devto_key.txt (gitignored).
+Dev.to bug (QA _qa-m1h, closed): curl -d on Git Bash (MINGW) corrupts multi-byte UTF-8 (em dashes, en dashes). Use --data-binary instead of -d for all Dev.to API POST calls. Verified by QA 2026-01-31.
 </team_knowledge>
+
+## Dev.to Cross-Posting
+
+When posting to Dev.to via API, **always use `--data-binary`** instead of `curl -d`:
+
+```bash
+# CORRECT
+curl --data-binary @payload.json \
+  -H "api-key: $(cat .keys/devto_key.txt)" \
+  -H "Content-Type: application/json" \
+  https://dev.to/api/articles
+
+# WRONG — corrupts em dashes and other multi-byte UTF-8 on MINGW/Git Bash
+curl -d @payload.json ...
+```
+
+Root cause: Git Bash (MINGW) `curl -d` mangles multi-byte UTF-8 byte sequences. Dev.to returns HTTP 400 with empty error body. Only affects posts containing em/en dashes in titles or body.
 
 ## Resume
 
