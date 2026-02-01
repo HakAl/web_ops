@@ -98,10 +98,11 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-02-01 (session 7) — Published dispatch protocol blog post
+**Last Session**: 2026-02-01 (session 9) — Hero images + Engineering UX dispatches
 
-**What's done**: Published "Our AI Teams Had a Communication Problem (The Fix Was From 1995)" — dispatch protocol post. Full pipeline: Nora drafted, Dee critiqued (5 items, all addressed), Blake built HTML, Grace reviewed. Sent factcheck dispatch to Engineering, received reply (one fix: JSON not YAML frontmatter). Applied fix, published, closed bead o3e. Added og:image (chasm bridge concept). Cross-posted to dev.to as draft (article ID 3216069, user publishes manually).
-**What's next**: Zero open beads. Older posts (cold-critic, building-langley, plan-before-code) still lack og:image. Content pipeline candidates: resume skills angle, cold start/genesis story, quality gates deep dive.
+**What's done**: Added hero images to all 4 blog posts (generated via Grok, consistent dark/minimal style matching site palette). CSS `.blog-hero-img` class with border-radius and border treatment. Responded to 2 Engineering dispatch requests (langley-4z1m body viewer UX, langley-hneg tool drill-down UX) — responses in `engineering/new/`. Sitemap lastmod dates bumped.
+**Note for team**: Dispatch directories use team names (`engineering`, `web_ops`, `qa`), NOT repo directory names (`_skills`). Removed stale `~/.team/dispatch/skills/` directory.
+**What's next**: One open bead: _web_ops-qtz (SEO skill blog post). Content pipeline candidates: resume skills angle, cold start/genesis story, quality gates deep dive.
 
 ---
 
