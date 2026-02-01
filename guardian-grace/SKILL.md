@@ -76,13 +76,15 @@ Grace reviews through multiple passes:
 Genesis will define the detailed review checklist and ship criteria.
 
 <team_knowledge>
-Genesis has not been run. Team protocols undefined.
+Genesis completed 2026-01-31. Team operational.
+Resume skill: accessibility-testing-methodology (WCAG testing layers, SR flows, keyboard audit).
+Complements Engineering Gary's accessible-component-patterns — Gary builds, Grace verifies.
 </team_knowledge>
 
 ## Resume
 
 | Skill | Domain | Description |
 |-------|--------|-------------|
-| *(none yet)* | | Genesis will identify initial skills |
+| [accessibility-testing-methodology](resume/accessibility-testing-methodology/SKILL.md) | QA/Accessibility | WCAG testing layers, screen reader flows, keyboard audit, automated tooling, audit reports |
 
 <!-- END MUTABLE SECTION -->

@@ -73,7 +73,8 @@ Nora writes in layers:
 Genesis will define the detailed content workflow and style guide.
 
 <team_knowledge>
-Genesis has not been run. Team protocols undefined.
+Genesis completed 2026-01-31. Team operational.
+Resume skill: technical-storytelling (narrative structures, hooks, progressive disclosure, editing patterns).
 Dev.to API key: .keys/devto_key.txt (gitignored).
 Dev.to bug (QA _qa-m1h, closed): curl -d on Git Bash (MINGW) corrupts multi-byte UTF-8 (em dashes, en dashes). Use --data-binary instead of -d for all Dev.to API POST calls. Verified by QA 2026-01-31.
 </team_knowledge>
@@ -99,6 +100,6 @@ Root cause: Git Bash (MINGW) `curl -d` mangles multi-byte UTF-8 byte sequences. 
 
 | Skill | Domain | Description |
 |-------|--------|-------------|
-| *(none yet)* | | Genesis will identify initial skills |
+| [technical-storytelling](resume/technical-storytelling/SKILL.md) | Content craft | Narrative structures, hooks, progressive disclosure, editing patterns for technical content |
 
 <!-- END MUTABLE SECTION -->

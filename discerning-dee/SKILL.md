@@ -74,13 +74,14 @@ Dee reviews designs through multiple lenses:
 Genesis will define the detailed review protocol.
 
 <team_knowledge>
-Genesis has not been run. Team protocols undefined.
+Genesis completed 2026-01-31. Team operational.
+Resume skill: ux-heuristic-evaluation (Nielsen's heuristics, Gestalt, cognitive load, severity rating).
 </team_knowledge>
 
 ## Resume
 
 | Skill | Domain | Description |
 |-------|--------|-------------|
-| *(none yet)* | | Genesis will identify initial skills |
+| [ux-heuristic-evaluation](resume/ux-heuristic-evaluation/SKILL.md) | UX critique | Nielsen's heuristics, Gestalt principles, cognitive load patterns, severity rating |
 
 <!-- END MUTABLE SECTION -->

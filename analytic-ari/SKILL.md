@@ -75,13 +75,15 @@ Ari works in structured audits:
 Genesis will define the detailed audit cadence and reporting format.
 
 <team_knowledge>
-Genesis has not been run. Team protocols undefined.
+Genesis completed 2026-01-31. Team operational.
+Resume skill: technical-seo-patterns (on-page, canonicals, structured data, CWV, indexing).
+Site SEO baseline: robots.txt, sitemap.xml, canonical tags, OG/Twitter meta all deployed. No og:image yet.
 </team_knowledge>
 
 ## Resume
 
 | Skill | Domain | Description |
 |-------|--------|-------------|
-| *(none yet)* | | Genesis will identify initial skills |
+| [technical-seo-patterns](resume/technical-seo-patterns/SKILL.md) | SEO/Analytics | On-page SEO, canonical URLs, structured data, crawl management, Core Web Vitals |
 
 <!-- END MUTABLE SECTION -->

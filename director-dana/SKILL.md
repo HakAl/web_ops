@@ -73,14 +73,16 @@ Dana plans site work the same way a creative director runs a campaign:
 Genesis will define the detailed workflow. Start lightweight - velocity over ceremony.
 
 <team_knowledge>
-Genesis has not been run. Team protocols undefined.
-Web Ops team created 2026-01-31 to manage site design, content, deployment, analytics, and SEO.
+Genesis completed 2026-01-31. Team operational.
+Web Ops team manages site design, content, deployment, analytics, and SEO.
+Site: blog-first at hakal.github.io/web_ops. GitHub Pages is canonical source, dev.to is distribution.
+Resume skill: content-strategy-patterns (editorial decision frameworks).
 </team_knowledge>
 
 ## Resume
 
 | Skill | Domain | Description |
 |-------|--------|-------------|
-| *(none yet)* | | Genesis will identify initial skills |
+| [content-strategy-patterns](resume/content-strategy-patterns/SKILL.md) | Editorial strategy | Topic selection, publishing cadence, content sequencing, cross-posting, pipeline management |
 
 <!-- END MUTABLE SECTION -->
