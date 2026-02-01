@@ -230,6 +230,22 @@ li {
     font-size: 0.9rem;
 }
 
+/* Blog Post — Hero Image */
+.blog-hero-img {
+    display: block;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 1.5rem auto 0;
+    padding: 0 var(--spacing);
+}
+
+.blog-hero-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid var(--color-secondary);
+}
+
 /* Blog Post — Article Reading */
 .blog-post {
     max-width: var(--max-width);
