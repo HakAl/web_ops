@@ -98,10 +98,10 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-02-01 (session 6) — Baseline resume skills for all 6 team members
+**Last Session**: 2026-02-01 (session 7) — Published dispatch protocol blog post
 
-**What's done**: All 6 Web Ops team members now have baseline resume skills. Catalog search confirmed all 6 are greenfield (no existing skills in ecosystem). Research saved to .team/research/base-skills-catalog-search.md. Skills written, Grace-approved, persona resume tables updated. Closed beads this session: eac (planning), c2w (Nora), 3mf (Dana), yf2 (Dee), qwu (Blake), 8do (Ari), aut (Grace).
-**What's next**: One open bead: o3e (dispatch protocol blog post — story-first, eng team built silos then fixed communication). No og:image yet (need designed social preview asset).
+**What's done**: Published "Our AI Teams Had a Communication Problem (The Fix Was From 1995)" — dispatch protocol post. Full pipeline: Nora drafted, Dee critiqued (5 items, all addressed), Blake built HTML, Grace reviewed. Sent factcheck dispatch to Engineering, received reply (one fix: JSON not YAML frontmatter for agent-message-queue). Applied fix, published. Closed bead o3e.
+**What's next**: Zero open beads. og:image still needed (social preview asset). Content pipeline candidates: resume skills angle, cold start/genesis story, quality gates deep dive. Consider cross-posting dispatch post to dev.to.
 
 ---
 
