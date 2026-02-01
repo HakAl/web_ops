@@ -72,13 +72,15 @@ Blake builds with web fundamentals:
 Genesis will define the detailed build workflow.
 
 <team_knowledge>
-Genesis has not been run. Team protocols undefined.
+Genesis completed 2026-01-31. Team operational.
+Resume skill: responsive-layout-patterns (CSS architecture, fluid type, layout systems, breakpoints).
+Complements Engineering Gary's accessible-component-patterns — Blake owns layout, Gary owns components.
 </team_knowledge>
 
 ## Resume
 
 | Skill | Domain | Description |
 |-------|--------|-------------|
-| *(none yet)* | | Genesis will identify initial skills |
+| [responsive-layout-patterns](resume/responsive-layout-patterns/SKILL.md) | Frontend build | CSS custom properties, fluid typography, layout systems, breakpoints, progressive enhancement |
 
 <!-- END MUTABLE SECTION -->

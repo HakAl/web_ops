@@ -98,10 +98,10 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-01-31 (session 5) — SEO audit + technical fixes
+**Last Session**: 2026-02-01 (session 6) — Baseline resume skills for all 6 team members
 
-**What's done**: SEO baseline audit complete (lkq closed). Site had zero Google indexing. Added robots.txt, sitemap.xml, canonical tags (self-referencing, GH Pages is authoritative), Open Graph + Twitter card meta tags on all 5 pages. Decision: GitHub Pages is canonical source, dev.to is discovery/distribution (b0a closed). Closed beads this session: lkq, b0a, 0sm, bj2, fz2.
-**What's next**: One open bead: o3e (dispatch protocol blog post — story-first, eng team built silos then fixed communication). Manual actions needed: update dev.to posts to set `canonical_url` to GH Pages URLs, delete 3 test drafts on dev.to/dashboard. No og:image yet (need designed social preview asset).
+**What's done**: All 6 Web Ops team members now have baseline resume skills. Catalog search confirmed all 6 are greenfield (no existing skills in ecosystem). Research saved to .team/research/base-skills-catalog-search.md. Skills written, Grace-approved, persona resume tables updated. Closed beads this session: eac (planning), c2w (Nora), 3mf (Dana), yf2 (Dee), qwu (Blake), 8do (Ari), aut (Grace).
+**What's next**: One open bead: o3e (dispatch protocol blog post — story-first, eng team built silos then fixed communication). No og:image yet (need designed social preview asset).
 
 ---
 
