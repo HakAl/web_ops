@@ -76,6 +76,56 @@ User Request → Dana (plan) → Dee (critique) → Blake (build) → Grace (val
 
 ---
 
+## Blog Release Protocol
+
+Sequenced checklist for every blog post. Order matters — don't skip ahead. **Use our own skills on our own output.**
+
+### 1. Content (Nora)
+
+- **Opening** — creates tension or a question the reader needs answered
+- **Evidence** — every claim shows its work (named repos, specific queries, real numbers, links)
+- **Every section serves the reader** — if you can cut it without losing value, cut it
+- **Ending** — lands with a closing line that sticks. No formula: read the last 3-5 endings before writing a new one
+- **Blurb** — the one-line summary for blog index and home page is sharp and specific
+
+### 2. Voice & Pattern (Dee)
+
+- **Read the last 3-5 titles aloud** before writing a new one. No repeated structure.
+- **Read the last 3-5 endings.** Watch for formula creep (bolded takeaway lists, parenthetical titles).
+- **Voice** — matches the blog's established tone: direct, shows the work, specific, first person
+
+### 3. Build (Blake)
+
+- **HTML page** follows existing post template structure
+- **Hero image** — `.jpg`, dark/minimal style matching existing posts. No SVGs, no placeholders.
+- **Blog index** updated with new title, blurb, and link
+- **Home page** updated with new title, blurb, and link
+- **OG/twitter tags** — present, `summary_large_image`, image URL correct
+
+### 4. SEO (Ari)
+
+- **Run `technical-seo-patterns` checks** on the post — eat our own cooking
+- **Canonical URL** correct and matches deploy path
+- **Meta description** under 160 characters, primary keyword present naturally
+- **Image alt text** descriptive, not decorative filler
+- **Sitemap** `lastmod` bumped
+- **No broken internal links** — blog index, home page, sitemap all point to correct filename
+
+### 5. Accessibility (Grace)
+
+- **Heading hierarchy** — h1 > h2 > h3, no skipped levels
+- **Image alt text** — meaningful, not redundant with surrounding text
+- **Link labels** — descriptive (`aria-label` on generic "Read more" links)
+- **Semantic HTML** — article, header, main, footer used correctly
+
+### 6. Final Read (Dana → User)
+
+- Dana reads the complete post as a reader would — top to bottom, no skipping
+- If anything snags, it goes back to the relevant step
+- User reads last. User has final say — nothing ships without user sign-off
+
+---
+
 ## Collaboration Rules
 
 1. **Disagreements**: Dee challenges, Dana decides. Grace's accessibility flags are hard blockers.
@@ -98,11 +148,11 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-02-01 (session 9) — Hero images + Engineering UX dispatches
+**Last Session**: 2026-02-08 (session 10) — SEO blog post shipped via Blog Release Protocol
 
-**What's done**: Added hero images to all 4 blog posts (generated via Grok, consistent dark/minimal style matching site palette). CSS `.blog-hero-img` class with border-radius and border treatment. Responded to 2 Engineering dispatch requests (langley-4z1m body viewer UX, langley-hneg tool drill-down UX) — responses in `engineering/new/`. Sitemap lastmod dates bumped.
-**Note for team**: Dispatch directories use team names (`engineering`, `web_ops`, `qa`), NOT repo directory names (`_skills`). Removed stale `~/.team/dispatch/skills/` directory.
-**What's next**: One open bead: _web_ops-qtz (SEO skill blog post). Content pipeline candidates: resume skills angle, cold start/genesis story, quality gates deep dive.
+**What's done**: Published "We Searched the Agent Skills Ecosystem for SEO" (first-seo-skill.html). First post run through the full Blog Release Protocol. Dee rewrote ending to break three-beat formula creep. Ari added JSON-LD structured data (Article + BreadcrumbList) — eating our own cooking. All 6 protocol steps passed.
+**Note for team**: Dispatch directories use team names (`engineering`, `web_ops`, `qa`), NOT repo directory names (`_skills`). Three-beat endings are now flagged — next post needs a different closing rhythm.
+**What's next**: One open bead: _web_ops-n5q (retroactive Blog Release Protocol on existing 4 posts). Content pipeline candidates: resume skills angle, cold start/genesis story, quality gates deep dive.
 
 ---
 

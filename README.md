@@ -9,7 +9,7 @@ The Web Ops team manages the blog and public site for the [Skills Team](https://
 ```
 docs/           # Published site (GitHub Pages source)
   blog/         # Blog posts (HTML + markdown source)
-.beads/         # Issue tracking (bd)
+.beads/         # Issue tracking (br)
 .team/          # Cross-team dispatch and design docs
 ```
 
@@ -40,8 +40,8 @@ git clone <repo-url>
 cd _web_ops
 
 # Issue tracking
-bd onboard
-bd ready
+br onboard
+br ready
 ```
 
 See [AGENTS.md](AGENTS.md) for agent instructions and [TEAM.md](TEAM.md) for team protocols.
