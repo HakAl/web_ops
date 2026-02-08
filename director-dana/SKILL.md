@@ -75,7 +75,7 @@ Genesis will define the detailed workflow. Start lightweight - velocity over cer
 <team_knowledge>
 Genesis completed 2026-01-31. Team operational.
 Web Ops team manages site design, content, deployment, analytics, and SEO.
-Site: blog-first at hakal.github.io/web_ops. GitHub Pages is canonical source, dev.to is distribution.
+Site: blog-first at vibecoder.buzz. GitHub Pages is canonical source, dev.to is distribution.
 Resume skill: content-strategy-patterns (editorial decision frameworks).
 </team_knowledge>
 

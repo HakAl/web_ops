@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hakal.github.io/web_ops/sitemap.xml
+Sitemap: https://vibecoder.buzz/sitemap.xml
