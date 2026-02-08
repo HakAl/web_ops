@@ -148,11 +148,11 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-02-08 (session 10) — SEO blog post + domain migration
+**Last Session**: 2026-02-08 (session 11) — Parapet landing page
 
-**What's done**: Published "We Searched the Agent Skills Ecosystem for SEO" — first post through the full Blog Release Protocol (all 6 steps). Dee rewrote ending to break three-beat formula. Ari added JSON-LD (Article + BreadcrumbList). Migrated site from hakal.github.io/web_ops to vibecoder.buzz (custom domain on GitHub Pages, free SSL). Updated all canonical/OG URLs across 12 files and dev.to cross-posts. Beads CLI renamed bd→br across docs.
-**Note for team**: Site is now at **vibecoder.buzz**. All canonical URLs point there. Dispatch directories use team names (`engineering`, `web_ops`, `qa`). Three-beat endings are flagged — next post needs a different closing rhythm. 3 dev.to posts still need manual canonical_url update (cold-critic, building-langley, plan-before-code) — API wouldn't change published articles.
-**What's next**: One open bead: _web_ops-n5q (retroactive Blog Release Protocol on existing 4 posts). Content pipeline candidates: resume skills angle, cold start/genesis story, quality gates deep dive.
+**What's done**: Built landing page for parapet.tech (Engineering dispatch). Full page in `docs/parapet/` with own design system (dark slate, cyan accent, JetBrains Mono). Researched 10 competitor/adjacent sites before building — key insight: no LLM security product shows code on their landing page, we do. Two-row pipeline diagram, syntax-highlighted YAML config, quickstart, architecture, features, trust badges. Dee reviewed (fixed unsourced stat, bumped hero opacity). Grace reviewed (added `<main>`, `aria-label`, `<figure>` on code block, hid `$` prompt from SR). GitHub org created: Parapet-Tech. Contact email: contact@parapet.tech. Dispatch sent to Engineering with deployment instructions.
+**Note for team**: Parapet page is built but NOT deployed yet — files need to be copied to the Parapet-Tech/parapet repo and GitHub Pages enabled. OG image paths assume `parapet.tech/imgs/pp6.png`. No favicon yet. Site is still at **vibecoder.buzz** for the blog. 3 dev.to posts still need manual canonical_url update.
+**What's next**: Parapet deployment (Engineering owns). Open bead: _web_ops-n5q (retroactive Blog Release Protocol on existing 4 posts). Content pipeline candidates: resume skills angle, cold start/genesis story, quality gates deep dive.
 
 ---
 
