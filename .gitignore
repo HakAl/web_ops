@@ -27,3 +27,5 @@ Thumbs.db
 demo-config.yml
 demo.yml
 *.cast
+
+.nul
