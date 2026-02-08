@@ -2,7 +2,7 @@
 
 The Web Ops team manages the blog and public site for the [Skills Team](https://github.com/HakAl/team_skills) project.
 
-**Live site:** [hakal.github.io/web_ops](https://hakal.github.io/web_ops/)
+**Live site:** [vibecoder.buzz](https://vibecoder.buzz/)
 
 ## What's here
 
