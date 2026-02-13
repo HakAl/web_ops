@@ -148,11 +148,11 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-02-08 (session 11) — Parapet landing page
+**Last Session**: 2026-02-13 (session 12) — Parapet landing page refresh
 
-**What's done**: Built landing page for parapet.tech (Engineering dispatch). Full page in `docs/parapet/` with own design system (dark slate, cyan accent, JetBrains Mono). Researched 10 competitor/adjacent sites before building — key insight: no LLM security product shows code on their landing page, we do. Two-row pipeline diagram, syntax-highlighted YAML config, quickstart, architecture, features, trust badges. Dee reviewed (fixed unsourced stat, bumped hero opacity). Grace reviewed (added `<main>`, `aria-label`, `<figure>` on code block, hid `$` prompt from SR). GitHub org created: Parapet-Tech. Contact email: contact@parapet.tech. Dispatch sent to Engineering with deployment instructions.
-**Note for team**: Parapet page is built but NOT deployed yet — files need to be copied to the Parapet-Tech/parapet repo and GitHub Pages enabled. OG image paths assume `parapet.tech/imgs/pp6.png`. No favicon yet. Site is still at **vibecoder.buzz** for the blog. 3 dev.to posts still need manual canonical_url update.
-**What's next**: Parapet deployment (Engineering owns). Open bead: _web_ops-n5q (retroactive Blog Release Protocol on existing 4 posts). Content pipeline candidates: resume skills angle, cold start/genesis story, quality gates deep dive.
+**What's done**: Updated parapet.tech landing page to reflect L1 ML classifier (98.6% F1, sub-microsecond), arXiv paper (2602.11247), and simplified quickstart (`parapet: v1` one-line config). Added L1 to pipeline diagram, split Prompt Injection feature card into ML Classifier (L1) + Pattern Matching (L3), linked arXiv paper in research section and nav, replaced wrapping "Peer-reviewed" stat with "98.6%" F1 stat. Fixed quickstart Step 2 from dead `cp examples/` to actual config. Published parapet to PyPI. Removed stale `docs/parapet/` copy from _web_ops — canonical site now lives in the parapet repo (`Parapet-Tech/parapet/docs/`).
+**Note for team**: Parapet landing page is NO LONGER in this repo. Canonical location: `parapet/docs/` in the Parapet-Tech/parapet repo. A README pointer is at `docs/parapet/README`. Site is still at **vibecoder.buzz** for the blog. 3 dev.to posts still need manual canonical_url update.
+**What's next**: Open bead: _web_ops-n5q (retroactive Blog Release Protocol on existing 4 posts). Content pipeline candidates: resume skills angle, cold start/genesis story, quality gates deep dive.
 
 ---
 
