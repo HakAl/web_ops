@@ -148,10 +148,10 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-02-13 (session 12) — Parapet landing page refresh
+**Last Session**: 2026-02-15 (session 13) — Cross-model review blog post
 
-**What's done**: Updated parapet.tech landing page to reflect L1 ML classifier (98.6% F1, sub-microsecond), arXiv paper (2602.11247), and simplified quickstart (`parapet: v1` one-line config). Added L1 to pipeline diagram, split Prompt Injection feature card into ML Classifier (L1) + Pattern Matching (L3), linked arXiv paper in research section and nav, replaced wrapping "Peer-reviewed" stat with "98.6%" F1 stat. Fixed quickstart Step 2 from dead `cp examples/` to actual config. Published parapet to PyPI. Removed stale `docs/parapet/` copy from _web_ops — canonical site now lives in the parapet repo (`Parapet-Tech/parapet/docs/`).
-**Note for team**: Parapet landing page is NO LONGER in this repo. Canonical location: `parapet/docs/` in the Parapet-Tech/parapet repo. A README pointer is at `docs/parapet/README`. Site is still at **vibecoder.buzz** for the blog. 3 dev.to posts still need manual canonical_url update.
+**What's done**: Published "Your AI Reviewer Has the Same Blind Spots You Do" — blog post about cognitive monoculture and cross-model review. Based on the engineering team's `/collaborate` skill and a real test run against Parapet's tuning plan (5 model families, 7 findings, 4 corroborated). Full Blog Release Protocol: Nora drafted, Dee reviewed voice/pattern, Blake built HTML, Ari audited SEO, Grace checked accessibility, Dana + user final read. Engineering team fact-checked findings. Gemini provided external review (two nits fixed). Crossposted to dev.to via API with canonical_url set. Purged all em dashes from the post (AI writing tell). Hero image generated and wired up.
+**Note for team**: Parapet landing page is NO LONGER in this repo. Canonical location: `parapet/docs/` in the Parapet-Tech/parapet repo. A README pointer is at `docs/parapet/README`. Site is still at **vibecoder.buzz** for the blog. 3 dev.to posts still need manual canonical_url update. **New rule**: no em dashes in any writing going forward.
 **What's next**: Open bead: _web_ops-n5q (retroactive Blog Release Protocol on existing 4 posts). Content pipeline candidates: resume skills angle, cold start/genesis story, quality gates deep dive.
 
 ---
