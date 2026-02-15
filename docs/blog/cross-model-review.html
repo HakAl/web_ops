@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="We sent one plan to five AI model families for independent review. They found seven issues we missed, including a regex that would crash the build.">
+    <title>Your AI Reviewer Has the Same Blind Spots You Do - The Skills Team</title>
+    <link rel="canonical" href="https://vibecoder.buzz/blog/cross-model-review.html">
+    <meta property="og:title" content="Your AI Reviewer Has the Same Blind Spots You Do">
+    <meta property="og:description" content="We sent one plan to five AI model families for independent review. They found seven issues we missed, including a regex that would crash the build.">
+    <meta property="og:url" content="https://vibecoder.buzz/blog/cross-model-review.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="The Skills Team">
+    <meta property="og:image" content="https://vibecoder.buzz/blog/cross-model-review.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Your AI Reviewer Has the Same Blind Spots You Do">
+    <meta name="twitter:description" content="We sent one plan to five AI model families for independent review. They found seven issues we missed, including a regex that would crash the build.">
+    <meta name="twitter:image" content="https://vibecoder.buzz/blog/cross-model-review.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Your AI Reviewer Has the Same Blind Spots You Do",
+      "datePublished": "2026-02-15",
+      "dateModified": "2026-02-15",
+      "author": {
+        "@type": "Organization",
+        "name": "The Skills Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Skills Team"
+      },
+      "description": "We sent one plan to five AI model families for independent review. They found seven issues we missed, including a regex that would crash the build.",
+      "image": "https://vibecoder.buzz/blog/cross-model-review.jpg",
+      "url": "https://vibecoder.buzz/blog/cross-model-review.html"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vibecoder.buzz/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vibecoder.buzz/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Your AI Reviewer Has the Same Blind Spots You Do" }
+      ]
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="hero hero-small">
+        <h1>Your AI Reviewer Has the Same Blind Spots You Do</h1>
+        <p class="blog-meta">February 2026</p>
+        <p><a href="./">&larr; Back to blog</a></p>
+    </header>
+
+    <div class="blog-hero-img">
+        <img src="cross-model-review.jpg" alt="Five distinct geometric shapes, each sending a line down to a single document, with two lines converging at the same point, representing independent reviewers finding the same issue" width="1280" height="720" loading="eager">
+    </div>
+
+    <main>
+        <article class="section blog-post">
+            <p>Line 126 of our plan: <code>(\b\w+\b)(?:\s+\1){4,}</code>. A regex to catch adversarial token repetition. Expected precision: 95%+.</p>
+
+            <p>We reviewed it. Our architect reviewed it. It looked solid.</p>
+
+            <p>The pattern uses a backreference, <code>\1</code>. Parapet compiles patterns with Rust's regex engine. Rust's regex engine doesn't support backreferences. The pattern can't compile. It would panic at startup.</p>
+
+            <p>We sent the plan to five AI model families for independent review. GPT spent five minutes in the actual Rust codebase, found the compilation call, ran the pattern against <code>rg</code> (same engine) and came back with: <code>backreferences are not supported</code>. Separately, Qwen flagged the same pattern in two seconds through a completely different lens: untested assumptions about edge cases. Same regex. Two families. Two different problems.</p>
+
+            <h2>The Blind Spot You Can't See</h2>
+
+            <p>Last month we built <a href="cold-critic.html">Cold Critic</a>, an isolated reviewer that checks plans without knowing who wrote them. It counters self-preference bias: the tendency of a model to rate its own output higher than it deserves.</p>
+
+            <p>But Cold Critic is still Claude reviewing Claude's work. Different instance, same architecture, same training data, same gaps in knowledge. The regex backreference is exactly the kind of thing Claude would miss twice. Not because of bias, but because of shared knowledge boundaries.</p>
+
+            <p>Research calls this cognitive monoculture. Different model families produce genuinely different error distributions. Heterogeneous ensembles achieve ~9% higher accuracy than same-model groups on reasoning benchmarks (<a href="https://arxiv.org/abs/2404.13076">2404.13076</a>). Not because any single model is smarter. Because they fail differently.</p>
+
+            <p>A recent paper on AI delegation (<a href="https://arxiv.org/abs/2602.11865">2602.11865</a>) maps the mitigation ladder explicitly: contrarian prompting, then cross-model review. Our own team discussion flagged cognitive monoculture as a known gap months ago. So we built the next step.</p>
+
+            <h2>Different Brains, Different Lenses</h2>
+
+            <p>We send the plan to five model families in parallel, each with a specific review lens:</p>
+
+            <table>
+                <caption>Review panel: five model families, each with a specialized lens</caption>
+                <thead>
+                    <tr>
+                        <th>Family</th>
+                        <th>Lens</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kimi (Moonshot AI)</td>
+                        <td>Internal coherence. Does each step follow from the last?</td>
+                    </tr>
+                    <tr>
+                        <td>Qwen (Alibaba)</td>
+                        <td>Hidden assumptions. What breaks if they're wrong?</td>
+                    </tr>
+                    <tr>
+                        <td>Mistral</td>
+                        <td>Gaps. What would block you from implementing this tomorrow?</td>
+                    </tr>
+                    <tr>
+                        <td>DeepSeek</td>
+                        <td>Reasoning. Reconstruct the argument. Where do you diverge?</td>
+                    </tr>
+                    <tr>
+                        <td>GPT (OpenAI)</td>
+                        <td>Ground truth. Does the plan match the actual codebase?</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Results come back. Claude clusters the findings by root cause, since different models often describe the same gap in different language. Present everything. The user triages.</p>
+
+            <p>Four of the five reviewers run on free-tier APIs. The ground truth reviewer uses OpenAI's Codex, and Claude orchestrates. Both are tools you're already paying for. The marginal cost of adding four independent model families to your review process is effectively zero. The architecture (independent parallel review with role-specific lenses, deduplicated by root cause) is portable to any orchestrator. The <a href="https://github.com/HakAl/team_skills/blob/master/collaborate/SKILL.md">skill</a> runs from Claude Code, but the whole point is that the reviewers aren't Claude.</p>
+
+            <p>Research supports the approach: independent parallel review outperforms multi-round debate (<a href="https://arxiv.org/abs/2507.05981">2507.05981</a>). You don't want models arguing with each other. You want them arriving independently and comparing notes after.</p>
+
+            <h2>The Test</h2>
+
+            <p>The plan: tuning regex-based prompt injection detection in <a href="https://github.com/Parapet-Tech/parapet">Parapet</a>, a Rust security library. Seven steps: delete a noisy pattern, rewrite another, add four new attack categories, re-evaluate. Real math, real tradeoffs, already reviewed internally.</p>
+
+            <p>Five providers. All responded successfully. The four API providers returned in 1.7 to 6.6 seconds. The ground truth reviewer explored the full repository in about five minutes. Seven findings, four corroborated by multiple families.</p>
+
+            <p><strong>The crash.</strong> GPT explored the Rust codebase, found the compilation call in <code>pattern.rs</code>, and ran the pattern against <code>rg</code>. Same regex engine, same error: backreferences not supported. Qwen, reviewing through an assumptions lens, independently flagged the same pattern for a different reason: untested edge cases where poetry or jargon could trigger false positives. The plan was confident about this pattern. Neither the author nor the internal reviewer caught either problem.</p>
+
+            <p><strong>The scope mismatch.</strong> The ground truth reviewer traced through actual Rust source files (<code>trust.rs</code>, <code>l3_inbound.rs</code>, <code>defaults.rs</code>) and discovered that the plan's precision estimates were calibrated for tool results only. But the code scans all untrusted messages, including user chat, where roleplay and authority claims are common. The precision numbers were wrong because the plan assumed a narrower scope than the code implements. No plan-only reviewer could have found this. It required reading the codebase.</p>
+
+            <p><strong>The unreachable target.</strong> Three providers (Kimi, Qwen, and DeepSeek) independently flagged the same gap: the plan states a 20% coverage target but forecasts 9-15%, with no mechanism to close the difference. The plan's own math section acknowledged this but never revised the number. Three brains, three lenses, same root cause.</p>
+
+            <p><strong>The honest separation.</strong> Not everything landed. "Adversarial adaptation risk" is real in general but not actionable for this phase. The system separated weakly grounded concerns from grounded findings instead of inflating the count. Presenting everything doesn't mean presenting everything equally.</p>
+
+            <h2>What Corroboration Tells You</h2>
+
+            <p>When two models from different families independently flag the same root cause, that's convergent evidence. When three do, you should probably listen.</p>
+
+            <p>But corroboration isn't the only signal. The test fixture finding came from a single provider. Deleting patterns without updating their test assertions would break the build. It was right. Single-provider findings aren't automatically weaker. They might just require information only one reviewer had.</p>
+
+            <p>The value isn't consensus. It's coverage. Five models see five different slices of the problem. Some slices overlap. That's corroboration. Some don't. That's the whole point.</p>
+
+            <p>We didn't need five models to be smarter than one. We needed them to be wrong about different things.</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>
+            <a href="https://github.com/HakAl/team_skills">GitHub</a> &middot;
+            <a href="../">Home</a> &middot;
+            Built by the Skills Team
+        </p>
+    </footer>
+</body>
+</html>
