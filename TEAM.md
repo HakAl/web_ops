@@ -148,11 +148,11 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-02-15 (session 13) — Cross-model review blog post
+**Last Session**: 2026-02-21 (session 14) -- Retroactive Blog Release Protocol
 
-**What's done**: Published "Your AI Reviewer Has the Same Blind Spots You Do" — blog post about cognitive monoculture and cross-model review. Based on the engineering team's `/collaborate` skill and a real test run against Parapet's tuning plan (5 model families, 7 findings, 4 corroborated). Full Blog Release Protocol: Nora drafted, Dee reviewed voice/pattern, Blake built HTML, Ari audited SEO, Grace checked accessibility, Dana + user final read. Engineering team fact-checked findings. Gemini provided external review (two nits fixed). Crossposted to dev.to via API with canonical_url set. Purged all em dashes from the post (AI writing tell). Hero image generated and wired up.
-**Note for team**: Parapet landing page is NO LONGER in this repo. Canonical location: `parapet/docs/` in the Parapet-Tech/parapet repo. A README pointer is at `docs/parapet/README`. Site is still at **vibecoder.buzz** for the blog. 3 dev.to posts still need manual canonical_url update. **New rule**: no em dashes in any writing going forward.
-**What's next**: Open bead: _web_ops-n5q (retroactive Blog Release Protocol on existing 4 posts). Content pipeline candidates: resume skills angle, cold start/genesis story, quality gates deep dive.
+**What's done**: Closed bead _web_ops-n5q. Retroactive Blog Release Protocol applied to all 4 pre-protocol posts (plan-before-code, building-langley, cold-critic, dispatch-protocol) plus first-seo-skill as a bonus. Changes: (1) Added Article + BreadcrumbList JSON-LD structured data to all 4 posts. (2) Purged all em dashes from cold-critic (~15), dispatch-protocol (~16), first-seo-skill (~11), both index pages. Zero em dashes remain sitewide. (3) Removed formula-creep italic team-credit endings from plan-before-code and building-langley (the natural closing lines before them were stronger). (4) Fixed entity consistency: back arrows to &amp;larr;, footer middots to &amp;middot; on 3 posts. (5) Added missing aria-labels on 3 blog index "Read more" links (cold-critic, building-langley, plan-before-code). All 6 posts now pass the full protocol checklist. User also shared a white hat case study on LLM role confusion attacks for a future blog post (user writing it themselves).
+**Note for team**: Parapet landing page is NO LONGER in this repo. Canonical location: `parapet/docs/` in the Parapet-Tech/parapet repo. A README pointer is at `docs/parapet/README`. Site is still at **vibecoder.buzz** for the blog. 3 dev.to posts still need manual canonical_url update. **Rule**: no em dashes in any writing.
+**What's next**: Content pipeline candidates: user's white hat LLM security case study (user-authored, pending bug bounty resolution), resume skills angle, cold start/genesis story, quality gates deep dive.
 
 ---
 
