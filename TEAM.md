@@ -148,11 +148,11 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-02-21 (session 14) -- Retroactive Blog Release Protocol
+**Last Session**: 2026-04-11 (session 15) -- Prompt injection case study blog post
 
-**What's done**: Closed bead _web_ops-n5q. Retroactive Blog Release Protocol applied to all 4 pre-protocol posts (plan-before-code, building-langley, cold-critic, dispatch-protocol) plus first-seo-skill as a bonus. Changes: (1) Added Article + BreadcrumbList JSON-LD structured data to all 4 posts. (2) Purged all em dashes from cold-critic (~15), dispatch-protocol (~16), first-seo-skill (~11), both index pages. Zero em dashes remain sitewide. (3) Removed formula-creep italic team-credit endings from plan-before-code and building-langley (the natural closing lines before them were stronger). (4) Fixed entity consistency: back arrows to &amp;larr;, footer middots to &amp;middot; on 3 posts. (5) Added missing aria-labels on 3 blog index "Read more" links (cold-critic, building-langley, plan-before-code). All 6 posts now pass the full protocol checklist. User also shared a white hat case study on LLM role confusion attacks for a future blog post (user writing it themselves).
-**Note for team**: Parapet landing page is NO LONGER in this repo. Canonical location: `parapet/docs/` in the Parapet-Tech/parapet repo. A README pointer is at `docs/parapet/README`. Site is still at **vibecoder.buzz** for the blog. 3 dev.to posts still need manual canonical_url update. **Rule**: no em dashes in any writing.
-**What's next**: Content pipeline candidates: user's white hat LLM security case study (user-authored, pending bug bounty resolution), resume skills angle, cold start/genesis story, quality gates deep dive.
+**What's done**: Published "I Sent the Same Prompt Injection to Ten LLMs. Three Complied." Full Blog Release Protocol run. Post covers role-confusion attacks against 10 commercial LLMs (Claude, GPT, Gemini, Grok, DeepSeek, Perplexity, Mistral passed; 3 unnamed vendors failed). Key findings: hallucinated compliance (model fabricated PASS/FAIL rules to please fake system prompt), partial resistance being more dangerous than full compliance, DLP bypass via structured JSON output. Post links both arxiv papers. Crossposted to dev.to (user published manually; API keys 1 and 2 have read-only permissions, key 3 returned 403 on all endpoints). Blog index, home page, sitemap all updated.
+**Note for team**: Parapet landing page is NO LONGER in this repo. Canonical location: `parapet/docs/` in the Parapet-Tech/parapet repo. A README pointer is at `docs/parapet/README`. Site is still at **vibecoder.buzz** for the blog. **Rules**: no em dashes in any writing. No `--` (double hyphen) as punctuation either. Both are LLM markers.
+**What's next**: Content pipeline candidates: resume skills angle, cold start/genesis story, quality gates deep dive. Potential follow-up post on "partial resistance" as its own topic. dev.to API key situation needs sorting (regenerate with write scope or continue manual posting).
 
 ---
 
