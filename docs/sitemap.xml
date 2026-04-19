@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vibecoder.buzz/</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-19</lastmod>
   </url>
   <url>
     <loc>https://vibecoder.buzz/blog/</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-19</lastmod>
+  </url>
+  <url>
+    <loc>https://vibecoder.buzz/blog/claude-code-memory-hole.html</loc>
+    <lastmod>2026-04-19</lastmod>
   </url>
   <url>
     <loc>https://vibecoder.buzz/blog/prompt-injection-test.html</loc>
