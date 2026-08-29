@@ -1,160 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
   <title id="title">Landfall governed defect-triage fleet architecture</title>
-  <desc id="desc">A support lead authorizes one FleetRun. A highlighted real-cloud probe uses Cloud Run, ADK, Gemini, Firestore, an outbox relay, and Pub/Sub. An outlined local governance demonstration shows supervision, worker succession, stale closeout refusal, deterministic verification, another item continuing, and a read-only console.</desc>
+  <desc id="desc">A support lead authorizes one FleetRun under a shared non-runtime contract. The highlighted real-cloud probe connects Cloud Run, ADK and Gemini, production Firestore, an outbox relay, and Pub/Sub. A separate outlined local lane uses an in-memory StateStore for the supervisor, workers, succession, structural verifier boundary, seat registry, refusal, independent work, and read-only console.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#152536"/>
-    </marker>
-    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#B42318"/>
-    </marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#152536"/></marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B42318"/></marker>
     <style>
-      .bg{fill:#FCFBF7}.ink{fill:#152536}.muted{fill:#526476}.title{font:700 38px Inter,Arial,sans-serif}.subtitle{font:500 19px Inter,Arial,sans-serif}.lane-title{font:700 17px Inter,Arial,sans-serif;letter-spacing:1.5px}.node-title{font:700 18px Inter,Arial,sans-serif}.body{font:500 15px Inter,Arial,sans-serif}.small{font:500 13px Inter,Arial,sans-serif}.mono{font:600 13px "IBM Plex Mono",Consolas,monospace}.human{fill:#FFF4DB;stroke:#152536;stroke-width:2}.cloud{fill:#D9F1F2;stroke:#087E8B;stroke-width:3}.local{fill:#FCFBF7;stroke:#B56A00;stroke-width:3;stroke-dasharray:9 7}.authority{fill:#fff;stroke:#152536;stroke-width:5}.refusal{fill:#FFF4F2;stroke:#B42318;stroke-width:3}.cloud-lane{fill:#F1FAFA;stroke:#087E8B;stroke-width:2}.local-lane{fill:#FFF9EC;stroke:#B56A00;stroke-width:2;stroke-dasharray:11 8}.edge{fill:none;stroke:#152536;stroke-width:2.4;marker-end:url(#arrow)}.edge-red{fill:none;stroke:#B42318;stroke-width:2.8;stroke-dasharray:8 6;marker-end:url(#arrow-red)}.edge-dash{fill:none;stroke:#152536;stroke-width:2.2;stroke-dasharray:7 6;marker-end:url(#arrow)}.legend-line{stroke-width:3}.chip-cloud{fill:#087E8B}.chip-local{fill:#B56A00}.chip-green{fill:#18794E}.white{fill:#fff}.rule{fill:#FCFBF7;stroke:#526476;stroke-width:1.2}.grid{stroke:#E5E1D8;stroke-width:1;opacity:.5}
+      .bg{fill:#FCFBF7}.ink{fill:#152536}.muted{fill:#526476}.white{fill:#fff}.title{font:700 38px Inter,Arial,sans-serif}.subtitle{font:500 19px Inter,Arial,sans-serif}.node-title{font:700 17px Inter,Arial,sans-serif}.body{font:500 14px Inter,Arial,sans-serif}.small{font:500 12px Inter,Arial,sans-serif}.mono{font:600 12px "IBM Plex Mono",Consolas,monospace}.human{fill:#FFF4DB;stroke:#152536;stroke-width:2}.cloud{fill:#D9F1F2;stroke:#087E8B;stroke-width:3}.local{fill:#FCFBF7;stroke:#B56A00;stroke-width:3;stroke-dasharray:9 7}.localstate{fill:#FFF4DB;stroke:#152536;stroke-width:5}.authority{fill:#fff;stroke:#152536;stroke-width:5}.contract{fill:#F3F0F8;stroke:#6F5AA8;stroke-width:2;stroke-dasharray:5 4}.refusal{fill:#FFF4F2;stroke:#B42318;stroke-width:3}.cloud-lane{fill:#F1FAFA;stroke:#087E8B;stroke-width:2}.local-lane{fill:#FFF9EC;stroke:#B56A00;stroke-width:2;stroke-dasharray:11 8}.edge{fill:none;stroke:#152536;stroke-width:2.3;marker-end:url(#arrow)}.edge-dash{fill:none;stroke:#6F5AA8;stroke-width:2.1;stroke-dasharray:6 5;marker-end:url(#arrow)}.edge-red{fill:none;stroke:#B42318;stroke-width:2.7;stroke-dasharray:8 6;marker-end:url(#arrow-red)}.chip-cloud{fill:#087E8B}.chip-local{fill:#B56A00}.rule{fill:#FCFBF7;stroke:#526476;stroke-width:1.2}.grid{stroke:#E5E1D8;stroke-width:1;opacity:.5}
     </style>
   </defs>
 
   <rect class="bg" width="1600" height="1000"/>
-  <path class="grid" d="M40 120H1560M40 470H1560M40 870H1560"/>
-
-  <text x="48" y="58" class="title ink">LANDFALL</text>
-  <text x="48" y="88" class="subtitle muted">One bounded run envelope. Fenced attempts. Deterministic completion authority.</text>
+  <path class="grid" d="M40 112H1560M40 430H1560M40 540H1560M40 870H1560"/>
+  <text x="48" y="54" class="title ink">LANDFALL</text>
+  <text x="48" y="84" class="subtitle muted">One bounded envelope. Two evidence beats. One transition contract.</text>
 
   <g aria-label="Legend">
-    <rect x="1040" y="38" width="18" height="18" rx="4" class="cloud"/>
-    <text x="1068" y="53" class="small ink">Demonstrated in the real-cloud vertical slice</text>
-    <rect x="1040" y="72" width="18" height="18" rx="4" class="local"/>
-    <text x="1068" y="87" class="small ink">Implemented and demonstrated locally</text>
+    <rect x="1038" y="32" width="18" height="18" rx="4" class="cloud"/><text x="1066" y="47" class="small ink">Real-cloud vertical slice</text>
+    <rect x="1038" y="64" width="18" height="18" rx="4" class="local"/><text x="1066" y="79" class="small ink">Local governance demonstration</text>
+    <rect x="1322" y="32" width="18" height="18" rx="4" class="contract"/><text x="1350" y="47" class="small ink">Non-runtime contract</text>
   </g>
 
   <g aria-label="Human authorization">
-    <rect x="48" y="154" width="202" height="94" rx="16" class="human"/>
-    <text x="149" y="185" text-anchor="middle" class="node-title ink">Support lead</text>
-    <text x="149" y="211" text-anchor="middle" class="body ink">non-code-reviewing</text>
-    <text x="149" y="233" text-anchor="middle" class="body ink">operator</text>
-
-    <rect x="300" y="144" width="250" height="114" rx="16" class="human"/>
-    <rect x="322" y="158" width="206" height="24" rx="12" fill="#152536"/>
-    <text x="425" y="175" text-anchor="middle" class="small white">ONE HUMAN APPROVAL</text>
-    <text x="425" y="207" text-anchor="middle" class="node-title ink">FleetRun initiation</text>
-    <text x="425" y="232" text-anchor="middle" class="small ink">paths · budgets · attempts · predicates</text>
-    <path class="edge" d="M250 201 H300"/>
+    <rect x="48" y="145" width="200" height="90" rx="16" class="human"/>
+    <text x="148" y="176" text-anchor="middle" class="node-title ink">Support lead</text>
+    <text x="148" y="201" text-anchor="middle" class="body ink">non-code-reviewing operator</text>
+    <rect x="286" y="134" width="246" height="112" rx="16" class="human"/>
+    <rect x="307" y="149" width="204" height="23" rx="12" fill="#152536"/>
+    <text x="409" y="166" text-anchor="middle" class="small white">ONE HUMAN APPROVAL</text>
+    <text x="409" y="199" text-anchor="middle" class="node-title ink">FleetRun initiation</text>
+    <text x="409" y="224" text-anchor="middle" class="small ink">paths · budgets · attempts · predicates</text>
+    <path class="edge" d="M248 190H286"/>
   </g>
 
   <g aria-label="Real cloud vertical slice">
-    <rect x="590" y="122" width="962" height="318" rx="22" class="cloud-lane"/>
-    <rect x="614" y="140" width="184" height="25" rx="12" class="chip-cloud"/>
-    <text x="706" y="157" text-anchor="middle" class="small white">REAL CLOUD PROBE</text>
+    <rect x="570" y="120" width="982" height="288" rx="22" class="cloud-lane"/>
+    <rect x="594" y="138" width="184" height="25" rx="12" class="chip-cloud"/>
+    <text x="686" y="155" text-anchor="middle" class="small white">REAL CLOUD PROBE</text>
 
-    <rect x="620" y="190" width="176" height="92" rx="14" class="cloud"/>
-    <text x="708" y="220" text-anchor="middle" class="node-title ink">Cloud Run</text>
-    <text x="708" y="246" text-anchor="middle" class="body ink">bounded probe</text>
-    <text x="708" y="268" text-anchor="middle" class="small muted">HTTP runtime</text>
-
-    <rect x="844" y="190" width="204" height="92" rx="14" class="cloud"/>
-    <text x="946" y="220" text-anchor="middle" class="node-title ink">ADK + Gemini</text>
-    <text x="946" y="246" text-anchor="middle" class="body ink">3.7 Flash</text>
-    <text x="946" y="268" text-anchor="middle" class="small muted">structured triage</text>
-
-    <rect x="1096" y="174" width="214" height="124" rx="16" class="authority"/>
-    <text x="1203" y="205" text-anchor="middle" class="node-title ink">Firestore</text>
-    <text x="1203" y="230" text-anchor="middle" class="small ink">AUTHORITATIVE STATE</text>
-    <text x="1203" y="254" text-anchor="middle" class="small muted">FleetRun · work · attempt</text>
-    <text x="1203" y="275" text-anchor="middle" class="small muted">receipt · decision · outbox</text>
-
-    <rect x="1358" y="184" width="162" height="94" rx="14" class="cloud"/>
-    <text x="1439" y="214" text-anchor="middle" class="node-title ink">Outbox relay</text>
-    <text x="1439" y="239" text-anchor="middle" class="small ink">publishes outside</text>
-    <text x="1439" y="259" text-anchor="middle" class="small ink">transactions</text>
-
-    <rect x="1358" y="326" width="162" height="86" rx="14" class="cloud"/>
-    <text x="1439" y="356" text-anchor="middle" class="node-title ink">Pub/Sub</text>
-    <text x="1439" y="381" text-anchor="middle" class="small ink">at-least-once</text>
-    <text x="1439" y="401" text-anchor="middle" class="small ink">transport</text>
-
-    <rect x="1096" y="330" width="214" height="82" rx="14" class="cloud"/>
-    <text x="1203" y="359" text-anchor="middle" class="node-title ink">Consumer</text>
-    <text x="1203" y="384" text-anchor="middle" class="small ink">deduplicates on event_id</text>
-    <text x="1203" y="403" text-anchor="middle" class="small muted">one logical effect</text>
-
-    <path class="edge" d="M796 236 H844"/>
-    <path class="edge" d="M1048 236 H1096"/>
-    <path class="edge" d="M1310 236 H1358"/>
-    <path class="edge" d="M1439 278 V326"/>
-    <path class="edge" d="M1358 369 H1310"/>
-    <path class="edge" d="M1096 369 H1068 V286 H1096"/>
-    <text x="1333" y="219" text-anchor="middle" class="small muted">outbox</text>
+    <rect x="598" y="188" width="166" height="82" rx="14" class="cloud"/>
+    <text x="681" y="218" text-anchor="middle" class="node-title ink">Cloud Run</text><text x="681" y="243" text-anchor="middle" class="body ink">bounded probe</text>
+    <rect x="802" y="188" width="188" height="82" rx="14" class="cloud"/>
+    <text x="896" y="218" text-anchor="middle" class="node-title ink">ADK + Gemini</text><text x="896" y="243" text-anchor="middle" class="body ink">3.7 Flash triage</text>
+    <rect x="1028" y="173" width="224" height="112" rx="16" class="authority"/>
+    <text x="1140" y="202" text-anchor="middle" class="node-title ink">Firestore</text><text x="1140" y="226" text-anchor="middle" class="small ink">AUTHORITATIVE CLOUD STATE</text><text x="1140" y="248" text-anchor="middle" class="small muted">FleetRun · work · receipt</text><text x="1140" y="267" text-anchor="middle" class="small muted">decision · outbox</text>
+    <rect x="1290" y="178" width="230" height="96" rx="14" class="cloud"/>
+    <text x="1405" y="208" text-anchor="middle" class="node-title ink">Outbox relay</text><text x="1405" y="233" text-anchor="middle" class="small ink">publishes outside transaction</text><text x="1405" y="253" text-anchor="middle" class="small muted">committed record first</text>
+    <rect x="1290" y="314" width="230" height="68" rx="14" class="cloud"/>
+    <text x="1405" y="341" text-anchor="middle" class="node-title ink">Pub/Sub transport</text><text x="1405" y="364" text-anchor="middle" class="small ink">at least once</text>
+    <rect x="1028" y="310" width="224" height="76" rx="14" class="cloud"/>
+    <text x="1140" y="338" text-anchor="middle" class="node-title ink">Consumer record</text><text x="1140" y="361" text-anchor="middle" class="small ink">keyed by event_id</text><text x="1140" y="379" text-anchor="middle" class="small muted">one logical effect observed</text>
+    <path class="edge" d="M764 229H802"/><path class="edge" d="M990 229H1028"/><path class="edge" d="M1252 229H1290"/><path class="edge" d="M1405 274V314"/><path class="edge" d="M1290 348H1252"/><path class="edge" d="M1028 348H1008V280H1028"/>
   </g>
 
-  <path class="edge" d="M550 201 H590 V173 H1096"/>
+  <g aria-label="Shared non-runtime contract">
+    <rect x="410" y="448" width="780" height="72" rx="14" class="contract"/>
+    <text x="800" y="472" text-anchor="middle" class="node-title ink">NON-RUNTIME CONTRACT</text>
+    <text x="800" y="495" text-anchor="middle" class="body ink">FleetRun · work item · attempt · lease · generation · receipt · decision · outbox</text>
+    <text x="800" y="513" text-anchor="middle" class="small muted">same frozen transition and verifier-authority rules, different state adapters</text>
+    <path class="edge" d="M532 190H550V430H800V448"/>
+    <path class="edge-dash" d="M1000 448V420H1140V386"/>
+  </g>
 
   <g aria-label="Deterministic local governance demonstration">
-    <rect x="48" y="500" width="1504" height="332" rx="22" class="local-lane"/>
-    <rect x="72" y="519" width="384" height="25" rx="12" class="chip-local"/>
-    <text x="264" y="536" text-anchor="middle" class="small white">DETERMINISTIC LOCAL GOVERNANCE DEMONSTRATION</text>
+    <rect x="48" y="555" width="1504" height="292" rx="22" class="local-lane"/>
+    <rect x="72" y="573" width="384" height="25" rx="12" class="chip-local"/>
+    <text x="264" y="590" text-anchor="middle" class="small white">DETERMINISTIC LOCAL GOVERNANCE DEMONSTRATION</text>
 
-    <rect x="74" y="584" width="176" height="92" rx="14" class="local"/>
-    <text x="162" y="614" text-anchor="middle" class="node-title ink">Kill harness</text>
-    <text x="162" y="640" text-anchor="middle" class="small ink">observes local</text>
-    <text x="162" y="660" text-anchor="middle" class="small ink">process exit</text>
+    <rect x="74" y="624" width="164" height="84" rx="14" class="local"/>
+    <text x="156" y="653" text-anchor="middle" class="node-title ink">Operator command</text><text x="156" y="678" text-anchor="middle" class="small ink">pre-registered inputs</text><text x="156" y="697" text-anchor="middle" class="small muted">one continuous run</text>
+    <rect x="272" y="624" width="166" height="84" rx="14" class="local"/>
+    <text x="355" y="653" text-anchor="middle" class="node-title ink">Fault runner</text><text x="355" y="678" text-anchor="middle" class="small ink">local process exit</text><text x="355" y="697" text-anchor="middle" class="small muted">observation only</text>
+    <rect x="472" y="624" width="166" height="84" rx="14" class="local"/>
+    <text x="555" y="653" text-anchor="middle" class="node-title ink">Supervisor</text><text x="555" y="678" text-anchor="middle" class="small ink">admission · succession</text><text x="555" y="697" text-anchor="middle" class="small muted">envelope bounded</text>
+    <rect x="672" y="614" width="184" height="104" rx="14" class="local"/>
+    <text x="764" y="643" text-anchor="middle" class="node-title ink">Worker N</text><text x="764" y="668" text-anchor="middle" class="small ink">checkpoint + reference</text><text x="764" y="690" text-anchor="middle" class="small ink">cannot terminalize</text><text x="764" y="709" text-anchor="middle" class="mono muted">final: expired</text>
+    <rect x="890" y="614" width="184" height="104" rx="14" class="local"/>
+    <text x="982" y="643" text-anchor="middle" class="node-title ink">Successor N+1</text><text x="982" y="668" text-anchor="middle" class="small ink">parent attempt recorded</text><text x="982" y="690" text-anchor="middle" class="small ink">higher generation</text><text x="982" y="709" text-anchor="middle" class="mono muted">final: admitted</text>
+    <path d="M1120 614H1268L1292 666L1268 718H1120L1096 666Z" class="local"/>
+    <text x="1194" y="643" text-anchor="middle" class="node-title ink">Verifier boundary</text><text x="1194" y="668" text-anchor="middle" class="small ink">deterministic, not a model</text><text x="1194" y="690" text-anchor="middle" class="small ink">Set B structural results</text><text x="1194" y="709" text-anchor="middle" class="small muted">verifier-only terminal write</text>
+    <rect x="1320" y="608" width="200" height="116" rx="16" class="localstate"/>
+    <text x="1420" y="637" text-anchor="middle" class="node-title ink">In-memory StateStore</text><text x="1420" y="661" text-anchor="middle" class="small ink">LOCAL AUTHORITATIVE STATE</text><text x="1420" y="683" text-anchor="middle" class="small ink">same transition contract</text><text x="1420" y="705" text-anchor="middle" class="small muted">no cloud · no network</text>
 
-    <rect x="300" y="574" width="190" height="112" rx="14" class="local"/>
-    <text x="395" y="605" text-anchor="middle" class="node-title ink">Supervisor</text>
-    <text x="395" y="631" text-anchor="middle" class="small ink">admission · routing</text>
-    <text x="395" y="652" text-anchor="middle" class="small ink">succession</text>
-    <text x="395" y="673" text-anchor="middle" class="small muted">bounded by envelope</text>
+    <rect x="472" y="756" width="166" height="66" rx="14" class="local"/>
+    <text x="555" y="782" text-anchor="middle" class="node-title ink">Independent attempt</text><text x="555" y="805" text-anchor="middle" class="mono muted">final: in_flight</text>
+    <rect x="672" y="756" width="184" height="66" rx="14" class="refusal"/>
+    <text x="764" y="782" text-anchor="middle" class="node-title ink">stale_attempt</text><text x="764" y="805" text-anchor="middle" class="small ink">terminal state unchanged</text>
+    <rect x="1096" y="756" width="196" height="66" rx="14" class="local"/>
+    <text x="1194" y="780" text-anchor="middle" class="node-title ink">seat_registry</text><text x="1194" y="801" text-anchor="middle" class="small ink">role · lifecycle · revision</text><text x="1194" y="818" text-anchor="middle" class="small muted">recent activity ≠ liveness</text>
+    <rect x="1320" y="756" width="200" height="66" rx="14" class="local"/>
+    <text x="1420" y="780" text-anchor="middle" class="node-title ink">Read-only console</text><text x="1420" y="801" text-anchor="middle" class="small ink">aggregate final projection</text><text x="1420" y="818" text-anchor="middle" class="small muted">non-authoritative</text>
 
-    <rect x="544" y="564" width="214" height="122" rx="14" class="local"/>
-    <text x="651" y="595" text-anchor="middle" class="node-title ink">Worker attempt N</text>
-    <text x="651" y="621" text-anchor="middle" class="small ink">checkpoint + reference</text>
-    <text x="651" y="647" text-anchor="middle" class="small ink">cannot write terminal state</text>
-    <text x="651" y="671" text-anchor="middle" class="mono muted">generation N</text>
-
-    <rect x="812" y="564" width="214" height="122" rx="14" class="local"/>
-    <text x="919" y="595" text-anchor="middle" class="node-title ink">Successor N+1</text>
-    <text x="919" y="621" text-anchor="middle" class="small ink">atomic generation bump</text>
-    <text x="919" y="646" text-anchor="middle" class="mono ink">parent_attempt_id = N</text>
-    <text x="919" y="671" text-anchor="middle" class="small muted">new active authority</text>
-
-    <path d="M1092 564 H1286 L1322 625 L1286 686 H1092 L1056 625 Z" class="local"/>
-    <text x="1189" y="596" text-anchor="middle" class="node-title ink">Verifier</text>
-    <text x="1189" y="622" text-anchor="middle" class="small ink">deterministic, not a model</text>
-    <text x="1189" y="647" text-anchor="middle" class="small ink">retrieves or reproduces</text>
-    <text x="1189" y="671" text-anchor="middle" class="small ink">completion evidence</text>
-
-    <rect x="544" y="728" width="214" height="72" rx="14" class="local"/>
-    <text x="651" y="758" text-anchor="middle" class="node-title ink">Another work item</text>
-    <text x="651" y="783" text-anchor="middle" class="small ink">continues independently</text>
-
-    <rect x="812" y="728" width="214" height="72" rx="14" class="refusal"/>
-    <text x="919" y="758" text-anchor="middle" class="node-title ink">stale_attempt</text>
-    <text x="919" y="783" text-anchor="middle" class="small ink">terminal state unchanged</text>
-
-    <rect x="1354" y="584" width="168" height="96" rx="14" class="local"/>
-    <text x="1438" y="614" text-anchor="middle" class="node-title ink">Console</text>
-    <text x="1438" y="640" text-anchor="middle" class="small ink">READ-ONLY</text>
-    <text x="1438" y="660" text-anchor="middle" class="small ink">NON-AUTHORITATIVE</text>
-
-    <path class="edge" d="M250 630 H300"/>
-    <path class="edge" d="M490 625 H544"/>
-    <path class="edge" d="M758 625 H812"/>
-    <path class="edge" d="M1026 625 H1056"/>
-    <path class="edge" d="M395 686 V764 H544"/>
-    <path class="edge-red" d="M651 686 V706 H919 V728"/>
-    <text x="785" y="611" text-anchor="middle" class="small muted">lease expiry</text>
-    <text x="788" y="704" text-anchor="middle" class="small" fill="#B42318">authentic predecessor closeout refused</text>
+    <path class="edge" d="M238 666H272"/><path class="edge" d="M438 666H472"/><path class="edge" d="M638 666H672"/><path class="edge" d="M856 666H890"/><path class="edge" d="M1074 666H1096"/><path class="edge" d="M1292 666H1320"/>
+    <path class="edge" d="M555 708V756"/><path class="edge-red" d="M764 718V756"/>
+    <path class="edge" d="M638 789H654V738H1338V724"/><path class="edge" d="M856 789H890V738H1360V724"/>
+    <path class="edge" d="M1420 724V744H1194V756"/><path class="edge" d="M1420 724V756"/>
   </g>
 
-  <path class="edge-dash" d="M1203 298 V476 H395 V574"/>
-  <text x="761" y="468" text-anchor="middle" class="small muted">authoritative cursor and state contract</text>
-  <path class="edge-dash" d="M1189 564 V476 H1203 V298"/>
-  <text x="1268" y="472" class="small muted">verifier-controlled terminal write</text>
-  <path class="edge-dash" d="M1310 254 H1332 V632 H1354"/>
+  <path class="edge-dash" d="M800 520V538H1420V608"/>
 
-  <g aria-label="Invariant notes">
-    <rect x="48" y="868" width="1504" height="92" rx="14" class="rule"/>
-    <text x="72" y="895" class="node-title ink">Authority and transport notes</text>
-    <text x="72" y="922" class="body ink">Lease expiry proves expiry, not death. Unknown authorizes no terminal write. Transactions write outbox records; publishing occurs outside transactions.</text>
-    <text x="72" y="947" class="small muted">Firestore transaction retries: https://cloud.google.com/firestore/docs/manage-data/transactions · Pub/Sub delivery: https://cloud.google.com/pubsub/docs/subscriber</text>
+  <g aria-label="Evidence boundary notes">
+    <rect x="48" y="874" width="1504" height="106" rx="14" class="rule"/>
+    <text x="72" y="900" class="node-title ink">Evidence boundary</text>
+    <text x="72" y="924" class="body ink">Lease expiry proves expiry, not death. Unknown authorizes no terminal write. Production per-seat IAM enforcement remains UNKNOWN.</text>
+    <text x="72" y="947" class="small ink">Runtime lock: Gemini and ADK on Cloud Run · Pub/Sub · Firestore. Local payloads are redacted typed fixtures, not customer production data.</text>
+    <text x="72" y="968" class="small muted">Firestore transaction retries: https://cloud.google.com/firestore/docs/manage-data/transactions · Pub/Sub delivery: https://cloud.google.com/pubsub/docs/subscriber</text>
   </g>
 </svg>

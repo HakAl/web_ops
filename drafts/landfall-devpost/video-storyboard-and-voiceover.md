@@ -26,29 +26,37 @@ Open on a prepared hourly histogram using [N: harness/baseline/local-baseline-20
 
 `harness/baseline/local-baseline-2026-08-23.json: v2_epoch.dispatch_count, focus_day.close_histogram_by_hour, followup_figures.producer_kind`
 
-## 0:27 to 0:55 | The Unlikely Hero authorizes the envelope
+## 0:27 to 0:55 | The Unlikely Hero starts the bounded run
 
 ### Picture
 
-Show the support-lead view of one pending FleetRun. Reveal plain-language renderings of allowed paths, call and token ceilings, attempt ceiling, deadline, and the fixed predicate set. The operator activates `Authorize FleetRun`, then removes their hands from the keyboard. Do not show another human control in the video.
+Show the actual terminal command beside a prepared, source-backed rendering of the pre-registered envelope inputs: allowed paths, call and token ceilings, attempt ceiling, and fixed predicate identifiers. The operator runs the command once, then removes their hands from the keyboard. There is no authorization button or writable console in the current build.
+
+```bash
+python3 -m harness.fault_injection \
+  --output-root harness/out \
+  --fleet-run-id landfall-local-demo
+```
 
 ### Voiceover
 
-“The operator is a support lead who knows the incident but does not review code. They authorize one bounded envelope: where agents may act, what they may spend, how many attempts they may make, and what evidence counts as done. That is the final human input in this run.”
+“The operator is a support lead who knows the incident but does not review code. The envelope inputs are pre-registered: where agents may act, what they may spend, how many attempts they may make, and which structural predicates govern this run. The operator starts the command once. That is the final human input.”
 
 ### Capture gate
 
-The authorization screen must expose structured values only and must contain no free-form predicate editor, merge control, or code-review control.
+The prepared envelope panel must be traceable to source-controlled inputs. Do not mock an interaction control that does not exist. The console remains GET/HEAD-only and does not authorize, merge, or review code.
 
 ## 0:55 to 1:28 | Real Google Cloud beat
 
 ### Picture
 
-Cut to the visual system’s teal lane. Show a masked Google Cloud Console Cloud Run service and revision view, then the running probe response and a prepared, sanitized evidence-panel view derived from `harness/evidence/account-proof/`. Show `Gemini structured output: passed`, `outbox: sent`, `consumer event_id dedup: passed`, and `single logical effect: passed`. Keep the remaining production checks visible as `UNKNOWN`, not hidden below the fold.
+Cut to the visual system’s teal lane. Show a masked Google Cloud Console Cloud Run service and revision view, then the live probe response and a prepared, sanitized evidence-panel view derived from `harness/evidence/account-proof/`. Show `Gemini structured output: passed`, `outbox: sent`, `consumer record keyed by event_id: passed`, and `one logical effect: passed`. Beside them, show `redelivery/republication: UNKNOWN` and keep every other unresolved production check visible.
 
 ### Voiceover
 
-“This highlighted beat is the bounded real-cloud probe. The masked Cloud Run view proves the deployed backend. The probe invokes Gemini 3.7 Flash through ADK, writes the authoritative application state and outbox, relays the event, and records one logical consumer effect. The committed evidence packet supports this slice. It does not say the complete worker fleet or the kill sequence ran here, and the remaining production checks are still unknown.”
+“This highlighted beat is the bounded real-cloud probe. The masked service and revision view, the live probe response, and the committed packet show the bounded deployed slice. The probe invokes Gemini 3.7 Flash through ADK on Cloud Run (https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash, https://google.github.io/adk-docs/, https://cloud.google.com/run/docs/overview). The packet records application state, an outbox, one observed delivery, and one logical consumer effect (https://cloud.google.com/firestore/docs/overview, https://cloud.google.com/pubsub/docs/overview). It does not establish redelivery, the complete worker fleet, or the kill sequence, and the remaining production checks are still unknown.”
+
+The documentation URLs above appear as readable on-screen footnotes and are omitted from spoken narration.
 
 ### Documentation footer
 
@@ -62,51 +70,47 @@ Cut to the visual system’s teal lane. Show a masked Google Cloud Console Cloud
 
 ### Picture
 
-Hard cut from teal to amber. Put the full-width label `DETERMINISTIC LOCAL GOVERNANCE DEMONSTRATION` on screen. Begin one continuous capture with a visible clock. Do not cut until the second work item’s progress is shown.
+Hard cut from teal to amber. Put the full-width label `DETERMINISTIC LOCAL GOVERNANCE DEMONSTRATION` on screen. Record one continuous terminal execution of the actual command with a visible clock. The runner emits a sanitized summary only, so do not add simulated intermediate logs or claim that state changes streamed live.
 
-Live sequence:
+Immediately after the unedited command finishes, cut to two prepared, source-backed evidence views:
 
-1. The console shows two admitted work items without identities.
-2. Attempt N commits a checkpoint.
-3. The harness terminates its local process and observes the local exit.
-4. No terminal receipt appears.
-5. The short demo lease expires with `lease_expired_unconfirmed`.
-6. The supervisor atomically creates N+1 with `parent_attempt_id = N` and a higher generation.
-7. The harness replays N’s authentic closeout after N+1 becomes active.
-8. Landfall records `stale_attempt`; terminal state remains unchanged.
-9. The other work item advances during the sequence.
+1. The emitted `fault_injection.json` artifact, with ordered scenario fields highlighted.
+2. The read-only final projection derived from the same in-memory StateStore.
+
+The final observed states are explicit: predecessor `expired`, successor `admitted`, and independent second attempt `in_flight`. The artifact also records checkpoint receipt, a local child-process observation that authorized no transition, no predecessor terminal receipt, `lease_expired_unconfirmed`, generation succession with a parent attempt, the authentic late closeout refused as `stale_attempt`, verifier-only terminal authority, and progress on the independent attempt.
 
 ### Voiceover
 
-“Now the evidence boundary changes. This is the deterministic local governance harness. Attempt N checkpoints, then its local process exits. Landfall does not use that observation as authority. The record says `lease_expired_unconfirmed`, because lease expiry proves expiry, not death. After expiry, one transaction fences N and creates N plus one with its parent recorded. We replay N’s genuine, correctly authenticated closeout. It is refused because N no longer owns the active generation. The second item continues while succession happens.”
+“Now the evidence boundary changes. This command runs the deterministic local governance harness against an in-memory StateStore, not Firestore. The terminal stays unedited. After it completes, the artifact records the ordered observations. Attempt N checkpointed, and the local process observation authorized nothing. Lease expiry fenced N, succession recorded a higher generation and parent attempt, and N’s authentic late closeout was refused as stale. The final projection shows N expired, the successor admitted, and the independent attempt still in flight.”
 
 ### Evidence footer
 
-Kill, lineage, stale-closeout, and continuing-item captions: `[N: <harness kill output path> <field>]`.
+Kill, lineage, stale-closeout, and continuing-item captions use the exact fields listed in `shot-list.md`, including `[N: harness/out/landfall-local-demo/fault_injection.json scenario.predecessor.late_closeout_refusal]`, `[N: harness/out/landfall-local-demo/fault_injection.json scenario.succession.successor_has_parent_attempt]`, and `[N: harness/out/landfall-local-demo/fault_injection.json scenario.concurrent_work_item.reached_state]`.
 
 ### Cut rule
 
-If the named kill artifact is unavailable at capture time, do not substitute a rehearsed UI animation. Cut every result sentence in this beat and record only after the artifact exists.
+If `harness/out/landfall-local-demo/fault_injection.json` is unavailable at capture time, do not substitute a rehearsed UI animation. Cut every result sentence in this beat and record only after the artifact exists.
 
 ## 2:43 to 3:27 | Deterministic verifier decides completion
 
 ### Picture
 
-Continue the same live capture if practical. Follow N+1’s artifact reference into the verifier panel. Show that the verifier is a process role, not a model seat. Display each predicate as `TRUE`, `FALSE`, or `UNKNOWN`, with evidence source and freshness. Show one earlier unknown example landing in `verification_blocked`, then the current successor’s verifier-controlled terminal transition.
+Use the emitted artifact, not a fictional verifier UI. Highlight `scenario.successor_terminal.verifier_controlled`, `scenario.successor_terminal.verdict`, and `scenario.successor_terminal.terminal_receipt_recorded`. Beside it, show the source-controlled Set B predicate definitions and label the run’s results `FIXTURE-PRODUCED STRUCTURAL EVIDENCE`.
 
-Candidate captions:
+Default captions:
 
-- Reproduction fails at base: [N: <harness verifier output path> <repro_fails_at_base field>]
-- Reproduction passes at candidate: [N: <harness verifier output path> <repro_passes_at_candidate field>]
-- Regression suite result: [N: <harness verifier output path> <suite_no_regression field>]
+- Verifier-only terminal authority: `[N: harness/out/landfall-local-demo/fault_injection.json scenario.successor_terminal.verifier_controlled]`
+- Successor verdict: `[N: harness/out/landfall-local-demo/fault_injection.json scenario.successor_terminal.verdict]`
+- Terminal receipt recorded: `[N: harness/out/landfall-local-demo/fault_injection.json scenario.successor_terminal.terminal_receipt_recorded]`
+- Scope: `STRUCTURAL EVIDENCE ONLY; THIS RUN DOES NOT ESTABLISH THAT THE DEFECT IS FIXED`
 
 ### Voiceover
 
-“The worker submits an artifact reference, not a verdict. The verifier is deterministic, not a model, and it retrieves or reproduces every authoritative value. Missing, stale, malformed, or unresolvable evidence becomes unknown. Unknown moves the attempt to `verification_blocked` and authorizes no terminal write. Here, only the verifier’s measurements permit completion. The worker cannot write terminal state.”
+“The worker submits an artifact reference, not a verdict. In this run, fixture-produced Set B structural results enter the verifier-controlled boundary, and only that boundary writes the successor’s admitted state and terminal receipt. The worker cannot write terminal state. This demonstrates verifier-only terminal authority over structural evidence. It does not establish that the defect is fixed.”
 
 ### Cut rule
 
-If Set A verifier evidence is unavailable, remove all correctness language and use: “The verifier admits structural evidence: the artifact applies at base, its paths remain inside the envelope, and the directive is well formed. This does not prove the defect is fixed.”
+Do not add `repro_fails_at_base`, `repro_passes_at_candidate`, `suite_no_regression`, retrieval, reproduction, or correctness language unless a separately accepted artifact names those observed fields. If that artifact does not land, the structural-evidence wording above is final.
 
 ## 3:27 to 3:55 | Counterexamples first
 
@@ -124,6 +128,8 @@ End on a prepared ledger with three columns: `SURVIVED`, `CHANGED`, `UNKNOWN`. P
 - [ ] English subtitles match the final narration.
 - [ ] The cloud proof and local governance labels remain present for their entire beats.
 - [ ] The live sequence is visibly continuous and unedited.
+- [ ] The local live capture shows the actual terminal command and sanitized summary, not simulated intermediate logs.
+- [ ] The final projection shows predecessor `expired`, successor `admitted`, and independent attempt `in_flight`.
 - [ ] The backend proof includes a masked Google Cloud Console or Cloud Run view.
 - [ ] All numeric captions still show exact artifact path and field until architect acceptance.
 - [ ] No local kill action is narrated or framed as a Cloud Run event.

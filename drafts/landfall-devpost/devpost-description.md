@@ -16,9 +16,9 @@ Fortified Enterprise Fleet
 
 ## Concise project summary
 
-Landfall is a governed defect-triage agent fleet for a support lead, operations manager, or solo founder who can authorize bounded repair work without reviewing code. The operator approves one FleetRun envelope, then Gemini triage, supervision, worker execution, succession, and deterministic verification proceed without further human input. Workers can submit checkpoints and evidence references, but they cannot write terminal state.
+Landfall is a governed defect-triage agent fleet for a support lead, operations manager, or solo founder who can authorize bounded repair work without reviewing code. The operator approves one FleetRun envelope, then Gemini triage through ADK, supervision, worker execution, succession, and deterministic verification proceed without further human input (https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash, https://google.github.io/adk-docs/). Workers can submit checkpoints and evidence references, but they cannot write terminal state.
 
-The current evidence is deliberately split. A bounded real-cloud probe ran on Cloud Run with Gemini 3.7 Flash through ADK and produced the committed account-proof packet. The kill, lease-expiry, succession, stale-closeout, and verifier-completion sequence is a deterministic local governance demonstration, not a Cloud Run kill claim.
+The current evidence is deliberately split. A bounded real-cloud probe ran on Cloud Run with Gemini 3.7 Flash through ADK and produced the committed account-proof packet (https://cloud.google.com/run/docs/overview, https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash, https://google.github.io/adk-docs/). The kill, lease-expiry, succession, stale-closeout, and verifier-completion sequence is a deterministic local governance demonstration, not a Cloud Run kill claim.
 
 ## The problem
 
@@ -37,14 +37,20 @@ The value is not unattended model output. It is unattended execution inside a pr
 ## What Landfall does
 
 1. A support lead approves one FleetRun envelope in plain language over pre-registered structured fields.
-2. A Gemini 3.7 Flash triage seat, invoked through ADK, converts a redacted failure payload into a closed-shape directive.
+2. A Gemini 3.7 Flash triage seat, invoked through ADK, converts a redacted failure payload into a closed-shape directive (https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash, https://google.github.io/adk-docs/).
 3. A supervisor admits and routes work only when the envelope and reserved budget permit it.
 4. Workers checkpoint and nominate artifact references within fenced attempt authority.
 5. Lease expiry can fence an attempt and create a successor with parent-attempt lineage when the envelope permits another attempt.
 6. A revived predecessor's authentic closeout is refused as `stale_attempt` because it no longer owns the active generation.
-7. A deterministic verifier, not a model, retrieves or reproduces the evidence and alone may write an admitted or refused terminal state.
+7. A deterministic verifier, not a model, is the only authority that may write an admitted or refused terminal state; the full contract requires it to retrieve or reproduce authoritative evidence.
 8. Missing, stale, malformed, or unresolvable evidence becomes `unknown`, which authorizes no terminal write.
 9. A read-only console projects role-level progress and decisions without becoming workflow authority.
+
+## Discovery, lifecycle, and context across process lifetimes
+
+The `seat_registry` catalogs each approved seat under a closed role, lifecycle state, and deployed revision. Its console view is aggregate and non-authoritative. Recent activity is derived from attempt and decision records, not from a seat's voluntary status, and is never labeled as continuous liveness.
+
+FleetRun, work-item, attempt, lease, generation, receipt, decision, and outbox records form the governed context that survives any one worker process lifetime. The local governance runner exercises this contract with an in-memory StateStore. The bounded cloud probe uses Firestore for its cloud state (https://cloud.google.com/firestore/docs/overview). Production per-seat IAM enforcement remains unknown and is not implied by the registry or the local authority tests.
 
 ## Architectural discipline
 
@@ -76,13 +82,13 @@ Landfall reserves worst-case token and call budget before attempt creation, chec
 
 ### Demonstrated in the real-cloud vertical slice
 
-The committed packet under `harness/evidence/account-proof/` records the bounded probe, its Cloud Run resource binding, Gemini structured output, authoritative state retrieval, an outbox that reached `sent`, consumer deduplication, and one logical effect. The probe reached Gemini 3.7 Flash through ADK on Cloud Run. Firestore held the authoritative application state, while Pub/Sub carried transport events.
+The committed packet under `harness/evidence/account-proof/` records the bounded probe, its Cloud Run resource binding, Gemini structured output, authoritative state retrieval, an outbox that reached `sent`, a consumed record keyed by the application `event_id`, and one logical effect (https://cloud.google.com/run/docs/overview, https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash, https://cloud.google.com/firestore/docs/overview, https://cloud.google.com/pubsub/docs/overview). The proof observed one delivery, so it does not establish redelivery or republication with distinct transport identifiers. The probe reached Gemini 3.7 Flash through ADK on Cloud Run (https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash, https://google.github.io/adk-docs/, https://cloud.google.com/run/docs/overview). Firestore held the authoritative application state, while Pub/Sub carried transport events (https://cloud.google.com/firestore/docs/overview, https://cloud.google.com/pubsub/docs/overview).
 
 This evidence does not establish that the complete worker fleet, the kill sequence, production seat identities, a scale run, or comparative measurements ran on Google Cloud. The wider production gate remains unsatisfied because `harness/evidence/account-proof/account-proof-evidence.json` records four `unknown` checks under `check_results`.
 
 ### Demonstrated in the deterministic local governance harness
 
-The local and emulator-backed system demonstrates fenced attempts, lease expiry, atomic successor creation, parent-attempt lineage, stale predecessor closeout refusal, verifier-controlled completion, and a second work item continuing. The video and diagram label this sequence `DETERMINISTIC LOCAL GOVERNANCE DEMONSTRATION` throughout.
+The local fault-injection runner uses an in-memory StateStore and demonstrates fenced attempts, lease expiry, atomic successor creation, parent-attempt lineage, stale predecessor closeout refusal, verifier-only terminal authority over fixture-produced Set B structural results, and an independent attempt ending `in_flight`. The predecessor ends `expired` and the recovered successor ends `admitted`. This run establishes authority and structural-evidence handling; it does not establish that the defect is fixed. The video and diagram label this sequence `DETERMINISTIC LOCAL GOVERNANCE DEMONSTRATION` throughout.
 
 ## Technologies used
 
@@ -98,7 +104,7 @@ Suggested `Built with` tags: `gemini-3.7-flash`, `vertex-ai`, `google-adk`, `clo
 
 ## Data sources
 
-- Redacted, typed demo failure payloads from `demo_app/fixtures/trace_source.json`. Raw stack traces do not enter the public console, evidence artifacts, README, or video.
+- Redacted, typed demo failure payloads from `demo_app/fixtures/trace_source.json`. The demonstration does not use customer production data, and raw stack traces do not enter the public console, evidence artifacts, README, or video.
 - Authoritative Landfall state and decision records stored by the substrate.
 - Worker-nominated artifact references that the deterministic verifier retrieves or reproduces. Worker-supplied observed values are not authoritative.
 - The prior-fleet manifest at `harness/baseline/local-baseline-2026-08-23.json`, disclosed as prior measurement and never presented as Landfall performance.

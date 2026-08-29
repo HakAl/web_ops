@@ -3,8 +3,10 @@
 flowchart TB
   classDef cloud fill:#D9F1F2,stroke:#087E8B,stroke-width:3px,color:#152536
   classDef local fill:#FCFBF7,stroke:#B56A00,stroke-width:3px,stroke-dasharray:8 6,color:#152536
+  classDef localstate fill:#FFF4DB,stroke:#152536,stroke-width:5px,color:#152536
   classDef authority fill:#FFFFFF,stroke:#152536,stroke-width:5px,color:#152536
   classDef human fill:#FFF4DB,stroke:#152536,stroke-width:2px,color:#152536
+  classDef contract fill:#F3F0F8,stroke:#6F5AA8,stroke-width:2px,stroke-dasharray:4 4,color:#152536
   classDef note fill:#FCFBF7,stroke:#526476,stroke-width:1px,color:#526476
   classDef refusal fill:#FFF4F2,stroke:#B42318,stroke-width:3px,color:#152536
 
@@ -12,51 +14,59 @@ flowchart TB
   FR["ONE HUMAN APPROVAL<br/>FleetRun initiation<br/>paths · budgets · attempts · predicates"]:::human
   H --> FR
 
+  CT["NON-RUNTIME CONTRACT<br/>FleetRun · work item · attempt · lease · generation<br/>receipt · decision · outbox · verifier-only terminal authority"]:::contract
+  FR --> CT
+
   subgraph RC["REAL CLOUD PROBE"]
     direction LR
     CR["Cloud Run probe<br/>bounded vertical slice"]:::cloud
     GA["ADK + Gemini 3.7 Flash<br/>structured triage"]:::cloud
-    FS[("Firestore<br/>AUTHORITATIVE STATE<br/>FleetRun · work · attempt<br/>receipt · decision · outbox")]:::authority
+    FS[("Firestore<br/>AUTHORITATIVE CLOUD STATE<br/>FleetRun · work · receipt · outbox")]:::authority
     OR["Outbox relay<br/>publishes outside transaction"]:::cloud
     PS["Pub/Sub<br/>at-least-once transport"]:::cloud
-    CE["Consumer<br/>deduplicates on event_id"]:::cloud
+    CE["Consumer record keyed by event_id<br/>one logical effect observed"]:::cloud
     CR --> GA --> FS
-    FS -->|transaction writes outbox| OR --> PS --> CE -->|one logical effect| FS
+    FS -->|transaction writes outbox| OR --> PS --> CE --> FS
   end
 
-  FR --> FS
+  CT -. same frozen transition contract .-> FS
 
   subgraph LG["DETERMINISTIC LOCAL GOVERNANCE DEMONSTRATION"]
     direction LR
-    HAR["Kill harness<br/>observes local process exit"]:::local
+    CMD["Operator command<br/>pre-registered envelope inputs"]:::local
+    HAR["Fault-injection runner<br/>observes local process exit"]:::local
     SUP["Supervisor<br/>admission · routing · succession"]:::local
     WN["Worker attempt N<br/>checkpoint + evidence reference<br/>cannot write terminal state"]:::local
-    WS["Successor N+1<br/>parent_attempt_id = N"]:::local
-    WO["Another work item<br/>continues"]:::local
-    VER{{"Verifier<br/>deterministic, not a model<br/>retrieves or reproduces evidence"}}:::local
+    WS["Successor N+1<br/>parent attempt recorded"]:::local
+    WO["Independent attempt<br/>final state: in_flight"]:::local
+    VER{{"Verifier boundary<br/>deterministic, not a model<br/>Set B structural results"}}:::local
     STALE["stale_attempt<br/>terminal state unchanged"]:::refusal
+    IMS[("In-memory StateStore<br/>LOCAL AUTHORITATIVE STATE<br/>same transition contract")]:::localstate
+    REG["seat_registry<br/>closed role · lifecycle · revision<br/>recent activity is not liveness"]:::local
+    CON["Console<br/>READ-ONLY, NON-AUTHORITATIVE<br/>aggregate final projection"]:::local
 
-    HAR -->|local process exit| WN
-    SUP --> WN
-    WN -->|lease expiry, then atomic generation bump| WS
+    CMD --> HAR --> SUP --> WN
+    WN -->|lease expiry, then generation bump| WS
     SUP --> WO
-    WS -->|artifact reference only| VER
+    WS -->|fixture-produced Set B results| VER
     WN -. authentic predecessor closeout .-> STALE
+    SUP --> IMS
+    WN --> IMS
+    WS --> IMS
+    WO --> IMS
+    VER -->|verifier-controlled terminal write| IMS
+    STALE -->|idempotent refusal decision| IMS
+    IMS --> REG
+    IMS -->|read path only| CON
   end
 
-  FS -->|authoritative cursor| SUP
-  WN -->|checkpoint and reference| FS
-  STALE -->|idempotent refusal decision| FS
-  VER -->|verifier-controlled terminal write| FS
-  WO -->|independent progress| FS
-
-  CON["Console<br/>READ-ONLY, NON-AUTHORITATIVE<br/>role-level projection"]:::local
-  FS -->|read path only| CON
+  CT -. same frozen transition contract .-> IMS
 
   RULE1["Lease expiry proves expiry, not death"]:::note
   RULE2["Unknown authorizes no terminal write"]:::note
-  RULE3["Runtime lock: Gemini and ADK on Cloud Run · Pub/Sub · Firestore"]:::note
-  RULE4["Transactions write outbox records; publishing occurs outside transactions"]:::note
+  RULE3["Production IAM per-seat enforcement: UNKNOWN"]:::note
+  RULE4["Local typed failure payloads are redacted; no customer production data"]:::note
   RULE5["Google references: Firestore transactions https://cloud.google.com/firestore/docs/manage-data/transactions · Pub/Sub delivery https://cloud.google.com/pubsub/docs/subscriber"]:::note
+  RULE6["Runtime lock: Gemini and ADK on Cloud Run · Pub/Sub · Firestore"]:::note
 
-  RULE1 --- RULE2 --- RULE3 --- RULE4 --- RULE5
+  RULE1 --- RULE2 --- RULE3 --- RULE4 --- RULE5 --- RULE6

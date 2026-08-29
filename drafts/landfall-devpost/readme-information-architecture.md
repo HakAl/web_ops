@@ -18,7 +18,7 @@ Recommended opening stack:
 3. Status chips: `FORTIFIED ENTERPRISE FLEET`, `REAL CLOUD PROBE`, `LOCAL GOVERNANCE HARNESS`, `DRAFT CLAIMS REVIEWED ON [DATE]`.
 4. A two-column evidence boundary callout:
    - Real cloud: bounded Cloud Run probe, Gemini 3.7 Flash through ADK, account-proof packet.
-   - Local: kill, lease expiry, succession, stale closeout refusal, deterministic verifier.
+   - Local: in-memory StateStore, kill, lease expiry, succession, stale closeout refusal, structural verifier evidence, and final read-only projection.
 5. Architecture diagram with descriptive alt text.
 6. A three-command zero-network quick start.
 
@@ -31,16 +31,17 @@ Avoid leading with the repository tree or a full theory section. Judges should r
 3. `Measured problem`, with prior-system disclosure in the heading
 4. `Architecture`
 5. `Authority model`
-6. `Quick start: zero network`
-7. `Run the emulator-backed local slice`
-8. `Run the deterministic governance harness`
-9. `Guarded Google Cloud deployment`
-10. `Testing instructions for judges`
-11. `Measured results`, with unavailable rows omitted
-12. `Evidence and provenance`
-13. `Privacy and security boundaries`
-14. `Repository map`
-15. `Hackathon disclosure and license`
+6. `Discovery, lifecycle, and persisted context`
+7. `Quick start: zero network`
+8. `Run the emulator-backed local slice`
+9. `Run the deterministic governance harness`
+10. `Guarded Google Cloud deployment`
+11. `Testing instructions for judges`
+12. `Measured results`, with unavailable rows omitted
+13. `Evidence and provenance`
+14. `Privacy and security boundaries`
+15. `Repository map`
+16. `Hackathon disclosure and license`
 
 ## Copy-ready quick start
 
@@ -49,7 +50,7 @@ Avoid leading with the repository tree or a full theory section. Judges should r
 - Python 3.11 or newer.
 - Git.
 - For the optional local integration slice: a Java runtime plus the Google Cloud CLI components required by the official Firestore emulator and Pub/Sub emulator guides (https://cloud.google.com/firestore/docs/emulator, https://cloud.google.com/pubsub/docs/emulator).
-- For deployment only: a Google Cloud account, an explicitly selected project with billing, and the Google Cloud CLI. Deployment can incur charges.
+- For deployment only: a Google Cloud account, an explicitly selected project with billing, and the Google Cloud CLI. Deployment can incur charges (https://cloud.google.com/billing/docs/how-to/modify-project).
 
 ### Zero-network unit and invariant checks
 
@@ -95,19 +96,39 @@ export LANDFALL_LOCAL_PROJECT=landfall-local
 python3 -m substrate.run_slice
 ```
 
-This slice exercises the state transaction, outbox relay, Pub/Sub emulator delivery, logical-event deduplication, and verifier admission. It is a local emulator result and does not satisfy real-cloud acceptance.
+This slice exercises the state transaction, outbox relay, Pub/Sub emulator delivery, logical-event deduplication, and verifier admission (https://cloud.google.com/pubsub/docs/emulator). It is a local emulator result and does not satisfy real-cloud acceptance.
 
 ### Deterministic governance harness
 
-Final README command placeholder:
+Run the accepted local fault-injection entrypoint:
 
 ```bash
-[HARNESS_COMMAND_FROM_ACCEPTED_KILL_ARTIFACT]
+python3 -m harness.fault_injection \
+  --output-root harness/out \
+  --fleet-run-id landfall-local-demo
 ```
 
-Expected artifact: `[N: <harness kill output path> <verdict fields>]`.
+Expected artifact: `harness/out/landfall-local-demo/fault_injection.json`.
 
-Do not invent a command from test names. Replace this block only after the architect identifies the public harness entrypoint and its committed output artifact.
+The runner uses an in-memory StateStore, not Firestore. Its emitted artifact records the predecessor ending `expired`, the recovered successor ending `admitted`, and an independent second attempt ending `in_flight`. It also records lease expiry, atomic succession, parent-attempt lineage, stale predecessor closeout refusal, and verifier-only terminal authority over fixture-produced structural results. This run demonstrates governance over structural evidence; it does not establish that the defect is fixed.
+
+Use these source-bound captions until the architect accepts the artifact:
+
+- Predecessor final observation: `[N: harness/out/landfall-local-demo/fault_injection.json scenario.console_projection.expired_predecessor_observed]`.
+- Successor final observation: `[N: harness/out/landfall-local-demo/fault_injection.json scenario.console_projection.admitted_successor_observed]`.
+- Independent attempt final observation: `[N: harness/out/landfall-local-demo/fault_injection.json scenario.console_projection.in_flight_second_item_observed]`.
+- Verifier-controlled terminal authority: `[N: harness/out/landfall-local-demo/fault_injection.json scenario.successor_terminal.verifier_controlled]`.
+
+Do not add correctness predicates such as `repro_fails_at_base`, `repro_passes_at_candidate`, or `suite_no_regression` unless a separate accepted artifact records them.
+
+### Discovery, lifecycle, and persisted context
+
+- `seat_registry` is a closed catalog of approved role, lifecycle state, and deployed revision.
+- Its console representation is aggregate, read-only, and non-authoritative.
+- Recent activity is derived from attempts and decisions. It is not proof of continuous liveness.
+- FleetRun, work-item, attempt, lease, generation, receipt, decision, and outbox records carry governed context across process lifetimes.
+- Production per-seat IAM enforcement remains unknown. Do not infer it from the local registry or application authority tests.
+- Public demonstrations use redacted typed fixture payloads, not customer production data.
 
 ## Guarded Google Cloud deployment
 
@@ -185,7 +206,7 @@ Recovery commands are state-specific and must not be used as generic retries. Li
 
 ### Cloud evidence boundary
 
-The committed `harness/evidence/account-proof/` packet supports the bounded account proof. It does not support a complete production-fleet, scale, cloud kill-sequence, cloud unit-economics, or production seat-identity claim. The broader gate remains false while any preregistered check is unknown.
+The committed `harness/evidence/account-proof/` packet supports the bounded Cloud Run, Gemini through ADK, Firestore, and Pub/Sub account proof (https://cloud.google.com/run/docs/overview, https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash, https://google.github.io/adk-docs/, https://cloud.google.com/firestore/docs/overview, https://cloud.google.com/pubsub/docs/overview). It does not support a complete production-fleet, scale, cloud kill-sequence, cloud unit-economics, or production seat-identity claim. The broader gate remains false while any preregistered check is unknown.
 
 ## Copy-ready judge testing section
 
@@ -201,7 +222,7 @@ python3 scripts/verify.py
 1. Read `docs/contracts-landfall-2026-08-23.md` for fencing, state transitions, evidence authority, and budget rules.
 2. Inspect `harness/evidence/account-proof/manifest.json` for the sanitized real-cloud packet and file hashes.
 3. Run the emulator-backed slice above.
-4. Run `[HARNESS_COMMAND_FROM_ACCEPTED_KILL_ARTIFACT]` after it is finalized.
+4. Run `python3 -m harness.fault_injection --output-root harness/out --fleet-run-id landfall-local-demo` and inspect `harness/out/landfall-local-demo/fault_injection.json`.
 5. Compare its result only with the local governance claims in the README and video.
 
 No judge needs a private endpoint, service-account credential, raw failure, or run token.
@@ -212,7 +233,7 @@ Place the architecture diagram immediately after the evidence-boundary callout. 
 
 Suggested alt text:
 
-> A support lead authorizes one FleetRun. The highlighted real-cloud probe connects Cloud Run, ADK and Gemini, Firestore, an outbox relay, and Pub/Sub. A separate outlined local lane shows the supervisor, fenced workers, successor lineage, stale closeout refusal, a deterministic verifier, another item continuing, and a read-only console. Firestore is authoritative state.
+> A support lead authorizes one FleetRun. The highlighted real-cloud lane connects Cloud Run, ADK and Gemini, authoritative cloud state in Firestore, an outbox relay, and Pub/Sub. A separate outlined local lane connects the supervisor, fenced workers, successor lineage, stale closeout refusal, a deterministic verifier, a seat registry, and a read-only console to an in-memory StateStore. The two runtime lanes share an abstract state contract, not a datastore. The local final projection shows the predecessor expired, successor admitted, and independent attempt in flight.
 
 ## Result-table discipline
 

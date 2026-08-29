@@ -25,9 +25,10 @@ This directory is the submission shell and visual system requested for the All T
 - Demonstration video URL: `[PUBLIC_YOUTUBE_OR_VIMEO_URL]`.
 - Public blog URL: `[PUBLIC_BLOG_URL]`.
 - Optional social URL: `[OPTIONAL_SOCIAL_POST_URL]`.
-- Real-cloud statement permitted by the current evidence: a bounded Cloud Run probe used Gemini 3.7 Flash through ADK and produced the committed account-proof packet.
+- Real-cloud statement permitted by the current evidence: a bounded Cloud Run probe used Gemini 3.7 Flash through ADK and produced the committed account-proof packet (https://cloud.google.com/run/docs/overview, https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-7-flash, https://google.github.io/adk-docs/).
 - Production-fleet statement not permitted by the current evidence: the wider production gate still has four unknown checks in `harness/evidence/account-proof/account-proof-evidence.json` under `check_results`.
-- Kill and succession statement: local governance demonstration only.
+- Kill and succession statement: accepted local runner using an in-memory StateStore, with result captions still gated on the emitted artifact.
+- Verifier statement: fixture-produced structural evidence demonstrates verifier-only terminal authority; it does not establish that the defect is fixed.
 
 ## Finalization rule
 

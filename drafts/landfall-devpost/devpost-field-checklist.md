@@ -13,7 +13,7 @@ Status: editable submission shell. Do not publish.
 | Try it out: source | `[PUBLIC_GITHUB_REPOSITORY_URL]` | Public repository planned for Sunday |
 | Try it out: hosted app | `[OPTIONAL_PUBLIC_HOSTED_PROJECT_URL]` or omit | Must be public and judge-accessible; never use the private authenticated probe endpoint |
 | Gallery image: architecture | `architecture-diagram.svg`, with PNG export if Devpost rejects SVG | Export PNG at 3:2 or upload under the dedicated architecture field |
-| Gallery still: one approval | Prepared envelope screen | Mask all forbidden values |
+| Gallery still: one approval | Actual operator command beside prepared, source-backed envelope inputs | Do not imply a writable console or authorization UI; mask all forbidden values |
 | Gallery still: real cloud | Cloud Run proof frame | Mask project, identity, endpoint, billing, and account details |
 | Gallery still: local succession | Prepared local harness frame labeled `DETERMINISTIC LOCAL GOVERNANCE DEMONSTRATION` | Numeric caption requires its named artifact |
 | Video demo link | `[PUBLIC_YOUTUBE_OR_VIMEO_URL]` | Public, not unlisted; four minutes or shorter; English narration or subtitles |
@@ -44,8 +44,9 @@ Status: editable submission shell. Do not publish.
 Landfall has three testing levels with different evidence meanings:
 
 1. **Zero-network checks:** clone `[PUBLIC_GITHUB_REPOSITORY_URL]`, create a Python 3.11 virtual environment, install the local package, run `python3 -m unittest discover -s tests -t . -v`, then run `python3 scripts/verify.py`. These checks require no cloud credentials and make no model call.
-2. **Local emulator slice:** install the `emulator` extra, start the official Firestore and Pub/Sub emulators, export only the documented local fake-project variables, and run `python3 -m substrate.run_slice`. This demonstrates the state, outbox, transport, deduplication, and verifier path locally. It is not cloud acceptance.
-3. **Evidence review:** inspect `harness/evidence/account-proof/manifest.json` and its hash-bound packet for the bounded real-cloud probe. Inspect the local harness artifact named in the final README for the kill and succession result. Do not use a private endpoint or credentials.
+2. **Local emulator slice:** install the `emulator` extra, start the official Firestore and Pub/Sub emulators, export only the documented local fake-project variables, and run `python3 -m substrate.run_slice` (https://cloud.google.com/firestore/docs/emulator, https://cloud.google.com/pubsub/docs/emulator). This demonstrates the state, outbox, transport, deduplication, and verifier path locally. It is not cloud acceptance.
+3. **Deterministic local governance runner:** run `python3 -m harness.fault_injection --output-root harness/out --fleet-run-id landfall-local-demo`, then inspect `harness/out/landfall-local-demo/fault_injection.json`. This runner uses an in-memory StateStore and fixture-produced structural verifier results. It does not establish that the defect is fixed.
+4. **Evidence review:** inspect `harness/evidence/account-proof/manifest.json` and its internally consistency-checked packet for the bounded real-cloud probe. In the local artifact, compare the final read-only projection with the predecessor `expired`, successor `admitted`, and independent second attempt `in_flight` claims. Do not use a private endpoint or credentials.
 
 The complete command blocks and prerequisite links are in `readme-information-architecture.md`. If a hosted public judge path is not available, omit the hosted URL and rely on the public repository, reproducible tests, evidence packet, and video.
 
@@ -62,6 +63,11 @@ The complete command blocks and prerequisite links are in `readme-information-ar
 - [ ] Every Google service behavior sentence contains an official Google documentation URL.
 - [ ] The cloud and local demonstration beats are visibly separate.
 - [ ] The local kill beat never uses Cloud Run footage as its background.
+- [ ] The local runner and console connect only to the in-memory StateStore, not Firestore.
+- [ ] The console is presented as GET/HEAD-only, aggregate, and non-authoritative.
+- [ ] Recent activity is not labeled as process liveness.
+- [ ] No correctness claim is inferred from the structural verifier fixture.
+- [ ] No customer production data appears in the public demonstration.
 - [ ] The video is public on YouTube or Vimeo, English-accessible, and no longer than four minutes.
 - [ ] The repository is public and its README commands were rerun from a clean clone.
 - [ ] Architect has reviewed `claims-risk-table.md` and resolved every `CUT` or `BLOCK` row.
