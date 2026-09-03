@@ -15,7 +15,7 @@ Every factual claim in `post.md`, where it came from, and whether this session v
 | 4 | macOS sandbox uses Seatbelt | same docs | verified | "On macOS ... Seatbelt framework" |
 | 5 | Hook behavior (four rules, script suffix list, regex for temp paths and mktemp) | `~/.claude/hooks/stay-in-project.py` | verified | Read the file |
 | 6 | Hook registration matcher and 5s timeout | `~/.claude/settings.json` | verified | Read the file |
-| 7 | Final sandbox block (no denyWrite, no allowMachLookup, no excludedCommands, allowAllUnixSockets true, allowLocalBinding true) | `~/.claude/settings.json` | verified | Read the file |
+| 7 | Final global sandbox block: enabled, failIfUnavailable, autoAllowBashIfSandboxed false, allowUnsandboxedCommands false, network has only allowLocalBinding. No denyWrite, no allowMachLookup, no allowAllUnixSockets, no excludedCommands | `~/.claude/settings.json` | verified | Re-read after the operator removed allowAllUnixSockets on 2026-09-03 |
 | 8 | Suite passes 26 of 26 | this session | verified | Ran `bash ~/.claude/hooks/stay-in-project.test.sh` from the repo: `pass=26 fail=0` |
 | 9 | Round 1 probe table (10 rows) | notes | notes | Not re-run. Rerunning the Write and Edit probes needs a fresh session |
 | 10 | Failure 1: assistant copied suite to `$TMPDIR`, operator quote | notes | notes | Quote is verbatim from notes |
@@ -35,7 +35,7 @@ Every factual claim in `post.md`, where it came from, and whether this session v
 | 24 | Issue #52471 requested path-scoped connect+bind+listen, closed 2026-05-29, state_reason not_planned, by stale bot | api.github.com | verified | Body and comments fetched |
 | 25 | Issue #70762 requested wildcard for allowUnixSockets, closed 2026-08-09 by stale bot | api.github.com | verified | Body and comments fetched |
 | 26 | Docs recommend `excludedCommands` for docker and Go-based CLIs that fail TLS under Seatbelt | sandboxing docs, troubleshooting | verified | Also hit live: `gh` failed with `x509: OSStatus -26276` in this session |
-| 27 | Round 6: with final config and the override, Chrome 152 dies at `mac_util.mm:379 Check failed: . : Operation not permitted` | this session | verified | Reproduced twice |
+| 27 | Round 6: with `allowAllUnixSockets: true` and the override, the socket binds and Chrome 152 then dies at `mac_util.mm:379 Check failed: . : Operation not permitted` | this session | verified | Reproduced twice while the global switch was still on. This is the error the notes said was missing: why the socket switch did not get Chrome running |
 | 28 | That check is a `sysctl` | chromium source at main | plausible | Line 379 at main is `PCHECK(sysctlbyname("kern.hv_vmm_present", ...))` in `IsVirtualMachine`. Line numbers for the 152 branch not checked. Post says "a sysctl the sandbox refuses"; soften to "appears to be" or check the 152 tag |
 | 29 | headless-shell 152 and Chrome 148 die at `mach_port_rendezvous_mac.cc:159 bootstrap_check_in ... Permission denied (1100)` | this session | verified | Reproduced |
 | 30 | `bootstrap_check_in` is service registration, not lookup, so `allowMachLookup` would not obviously help | reasoning from Mach API semantics | unverified | Post hedges with "would not obviously have helped". Cannot test without changing settings |
@@ -43,12 +43,20 @@ Every factual claim in `post.md`, where it came from, and whether this session v
 | 32 | The other project's AGENTS.md tells workers to report the accessibility step as unverified if it cannot launch a browser | verificationdesign AGENTS.md line 29 | verified | Read the line. The commit message for 8645fc2 says workers "do not run" it; the file itself is softer, and the post uses the file's wording |
 | 33 | Sandbox settings cannot be changed mid-session; settings.json is on the protected list | this session | verified | Session sandbox description lists `~/.claude/settings.json` under denyWithinAllow |
 | 34 | Operator quote "i think i have to accept and hope the agents don't jump through hoops to defy the rules" | notes | notes | Verbatim from notes |
+| 35 | `allowAllUnixSockets` was removed from the global config the same day and was never the working configuration | notes, settings.json | verified | Settings re-read shows it gone; notes Round 5 says removed same day |
+| 36 | Three npm scripts (`a11y`, `measure:cards`, `verify`) are in `sandbox.excludedCommands` in a local settings file, not globally | `~/dev/ai-research/.claude/settings.local.json` | verified | Found at the ai-research workspace root, one level above the verificationdesign repo. The post says "the local settings file of the workspace that runs them" for that reason. `verificationdesign/.claude/` has no settings file |
+| 37 | `excludedCommands` is honored from any settings file and works with `allowUnsandboxedCommands: false` | sandboxing docs, settings reference | verified | Reference table lists scope "Any file". Sandboxing page: when the escape hatch is disabled, "all commands must run sandboxed or be explicitly listed in excludedCommands" |
+| 38 | Operator quote "yeah, that's fine they are your tools that's what they're there for" | notes | notes | Verbatim from notes |
+| 39 | The docs recommend `excludedCommands` for docker and for Go CLIs that fail TLS under Seatbelt | sandboxing troubleshooting | verified | Same as claim 26, now cited in Round 5 |
+| 40 | That settings.local.json also contains a permissions allow list naming other repos and an MCP server | the file | verified | Not quoted in the post. Do not paste the file; the post shows only the excludedCommands block |
 
 ## Before publishing
 
 - [ ] Replace `/Users/home` and `claude-501` with placeholders everywhere, including the four DENIED lines and the cwd file error
 - [ ] Confirm or drop "Apple M4 Pro" (claim 2)
-- [ ] Decide on claim 23: either test `allowUnixSockets` with a directory entry in a fresh session, or keep the hedged wording
+- [ ] Decide on claim 23: either test `allowUnixSockets` with a directory entry in a fresh session, or keep the hedged wording. Lower stakes now, since the socket layer was not the last wall
+- [ ] Optional, would sharpen Round 6: in a fresh session with `allowMachLookup: ["*"]`, confirm Chrome still fails at `bootstrap_check_in`. That would turn "would not obviously have helped" into a verified statement (claim 30)
+- [ ] Consider the notes' suggestion of a dedicated `verify:browser` script so the unsandboxed exception covers one command instead of three. Mention as a next step, not a done thing
 - [ ] Check the Chromium 152 tag for the `mac_util.mm:379` line, or soften claim 28
 - [ ] Re-run the printf hook check (claim 20)
 - [ ] Read the verificationdesign AGENTS.md line before quoting it (claim 32)

@@ -1,6 +1,6 @@
 # Agent sandbox boundary draft package
 
-Status: rev 1 draft, unpublished. Source material is `/Users/home/dev/wip/blog-notes-stay-in-project-2026-09-03.md` plus the operator's brief of 2026-09-03.
+Status: rev 2 draft, unpublished. Source material is `/Users/home/dev/wip/blog-notes-stay-in-project-2026-09-03.md` plus the operator's brief of 2026-09-03.
 
 ## Contents
 
@@ -11,7 +11,9 @@ Status: rev 1 draft, unpublished. Source material is `/Users/home/dev/wip/blog-n
 
 **Dana, plan.** This is a Failure-First Arc with a second act. The operator's original frame was "how to keep Claude Code in its directory." The brief widens it to "the project directory is not the agent's boundary," and that is the durable piece. Claude Code supplies the experiment. The conclusion applies to any coding agent. Order: two layers, round one holds, failure one (the reported hole gets used), round two hard close, failure two (exit codes), round three design, round four Chrome temp, round five socket, round six (new: it still does not run), then the four-point boundary mismatch, then the authority argument. The reproduction appendix stays at the end with the version warning repeated.
 
-**Dana, scope call.** The brief asked for the failed approaches with observable symptoms, the five named tests, a prominent version warning, and the Mach wildcard framed as a testing concession. All four are in. One addition beyond the brief: round six. While verifying rounds four and five, Chrome still failed under the final config, at a Mach service registration and a sysctl. That is new evidence for the brief's own thesis, so it went in rather than into a follow-up. Flagging it because it changes the story from "we accepted one global widening and it worked" to "we accepted one global widening and it still does not work."
+**Dana, scope call.** The brief asked for the failed approaches with observable symptoms, the five named tests, a prominent version warning, and the Mach wildcard framed as a testing concession. All four are in. Rev 2 restructures the back half to match the updated notes: round five is the socket reasoning and the choice, round six is the global switch being tried and failing (this session supplied the actual errors: Mach `bootstrap_check_in` and a sysctl), round seven is the rejected option adopted in a smaller, workspace-scoped form. The arc is now "chose a global widening, it did not work, removed it, scoped the wider exception to one workspace instead." Both rejected-then-adopted arcs stay in, per the notes' lesson 8.
+
+**Dana, rev 2 note.** Operator reports the excluded commands live in the ai-research workspace's `.claude/settings.local.json`, not inside the verificationdesign repo itself. Post wording is "the workspace that runs them." Do not paste that file; it names other repos and an MCP server.
 
 **Dee, voice.** The brief's own snippet was flagged as accidentally first person. The blog is first person by protocol, and the last five posts all are, so the draft stays first person. The brief's block quotes were written as "we"; converted to "I" so the post sounds like one person. Title check against the last five: no leading "I", no parenthetical, no "Our". Proposed title is "The Project Directory Is Not Where Your Agent Ends." Alternate if Dana wants the hook moment up front: "Claude Code Reported the Hole, Then Climbed Through It." The first is the thesis; the second is the anecdote. Recommending the first, with the anecdote as the TL;DR's second sentence.
 

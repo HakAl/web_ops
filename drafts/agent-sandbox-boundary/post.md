@@ -6,7 +6,7 @@ canonical_url: https://vibecoder.buzz/blog/agent-sandbox-boundary.html
 cover_image: https://vibecoder.buzz/blog/agent-sandbox-boundary.jpg
 ---
 
-*TL;DR: I tried to keep Claude Code's writes inside the project it was launched in. Two layers, a hook and the native sandbox, held against every direct probe. Then the assistant used the one gap it had just reported. Closing that gap broke every Bash exit code. Restoring a headless browser reopened the boundary through sockets and Mach ports. The project directory is a useful behavioral fence. It is not the agent's authority boundary, and current tooling does not let you scope the real one.*
+*TL;DR: I tried to keep Claude Code's writes inside the project it was launched in. Two layers, a hook and the native sandbox, held against every direct probe. Then the assistant used the one gap it had just reported. Closing that gap broke every Bash exit code. Getting a headless browser to run ended with three named commands excluded from the sandbox entirely, in one repo, because no sandbox permission covers what Chrome needs. The project directory is a useful behavioral fence. It is not the agent's authority boundary, and current tooling does not let you scope the real one.*
 
 > **Version-specific. Verify before copying.** Everything below was observed on Claude Code 2.1.259, macOS 26.6.2 (Tahoe), Apple M4 Pro, on 2026-09-03. The sandbox keys, the temp directory behavior, and the failure modes all belong to that version. Check the current sandbox and settings reference pages before you paste any of this into your own settings.
 
@@ -170,9 +170,58 @@ Four options:
 
 I rejected option 4 outright. The script name is fixed. What it executes is not. An agent can edit `package.json`, the test runner, an imported module, or a build hook, then invoke the trusted script name with full permissions. That is a much wider door than a socket permission. The documentation says the same thing about `docker *` and Go-based CLIs, and it is right, and it is still the escape hatch the docs recommend when things break.
 
-I chose option 3. The filesystem sandbox stays active for every test process. The hook still blocks agent-authored temp paths. Chrome's socket lands inside the project. Escaping now requires deliberately reaching for a privileged socket, not merely editing a script that already runs unsandboxed. My own words at the time: "i think i have to accept and hope the agents don't jump through hoops to defy the rules."
+I chose option 3. The reasoning looked sound. The filesystem sandbox would stay active for every test process. The hook would still block agent-authored temp paths. Chrome's socket would land inside the project. Escaping would require deliberately reaching for a privileged socket, not merely editing a script that already runs unsandboxed. My own words at the time: "i think i have to accept and hope the agents don't jump through hoops to defy the rules."
 
-The final sandbox block:
+The expected cost was IPC exposure. With every Unix socket reachable, Docker, an SSH agent, and a password manager daemon all become possible escape paths, and the only mitigation is to not run them next to the session. I wrote that down and accepted it.
+
+## Round six: the global switch does not work either
+
+Then I tried it, and Chrome still failed.
+
+With `allowAllUnixSockets: true` and `MAC_CHROMIUM_TMPDIR` set, the singleton socket appeared inside the project. The bind worked. Chrome for Testing 152 then died at a different check:
+
+```
+[base/mac/mac_util.mm:379] Check failed: . : Operation not permitted (1)
+```
+
+That appears to be a `sysctl` the sandbox refuses. The headless shell binary and an older Chrome 148 died one step earlier:
+
+```
+[base/apple/mach_port_rendezvous_mac.cc:159] Check failed: kr == KERN_SUCCESS. bootstrap_check_in ...MachPortRendezvousServer.44804: Permission denied (1100)
+```
+
+That is Chrome registering a Mach service with the bootstrap server so its child processes can find it. Claude Code's `allowMachLookup` is about looking services up, not registering them, so the wildcard I removed in round four would not obviously have helped either. Crashpad also failed to check in, and failed to write under `~/Library/Application Support`.
+
+Count the boundaries one browser launch crosses: a file write, a socket bind, a Mach service registration, a sysctl, and a second file write in a different tree. Each is a separate knob. Each knob is global or nearly so. I widened two of them and the browser still did not run. I removed `allowAllUnixSockets` the same day. It was reasoned about carefully, chosen, tried, and it never was the working configuration.
+
+## Round seven: the option I rejected, in a smaller form
+
+With every sandbox-side knob exhausted, I went back to option 4. The three npm scripts that need a browser are listed in `sandbox.excludedCommands`. But only in the local settings file of the workspace that runs them. The global config has no excluded commands.
+
+```json
+{
+  "sandbox": {
+    "excludedCommands": [
+      "npm run a11y",
+      "npm run measure:cards",
+      "npm run verify"
+    ]
+  }
+}
+```
+
+That file is `.claude/settings.local.json` in the directory I launch Claude from for that project. The sandbox docs list `excludedCommands` as valid in any settings file, and excluded commands run unsandboxed even with `allowUnsandboxedCommands` set to false. My words on accepting it: "yeah, that's fine they are your tools that's what they're there for."
+
+What it means in practice:
+
+- Those three commands run outside the sandbox, with my normal user permissions, in that one workspace only.
+- Every other Bash command in that workspace, and every command everywhere else, stays sandboxed.
+- The hook still runs on every tool call. It sees `npm run a11y` and passes it. Anything the script does internally is invisible to it, as before.
+- The round five objection still stands and is now the accepted risk. The script name is fixed. An agent could edit `package.json`, the test runner, or an imported module and then invoke the trusted name. Scoping to one workspace limits the blast radius. It does not remove the door.
+
+The `MAC_CHROMIUM_TMPDIR` recipe is no longer strictly required for those three scripts, since they run unsandboxed. I keep it anyway, because it keeps Chrome's scratch files in the project tree, which is what the whole rule was about.
+
+The final global sandbox block:
 
 ```json
 {
@@ -181,33 +230,14 @@ The final sandbox block:
   "autoAllowBashIfSandboxed": false,
   "allowUnsandboxedCommands": false,
   "network": {
-    "allowLocalBinding": true,
-    "allowAllUnixSockets": true
+    "allowLocalBinding": true
   }
 }
 ```
 
-No `denyWrite`. No `allowMachLookup`. No `excludedCommands`.
+No `denyWrite`. No `allowMachLookup`. No `allowAllUnixSockets`. No global `excludedCommands`. And in one workspace, three commands that the sandbox never sees.
 
-## Round six: it still does not run
-
-Here is the part the earlier notes did not have.
-
-While drafting this post I re-ran the Chrome probes from inside a session on the final config. With `MAC_CHROMIUM_TMPDIR` set, the singleton socket appeared inside the project. The bind worked. Chrome then died anyway:
-
-```
-[base/mac/mac_util.mm:379] Check failed: . : Operation not permitted (1)
-```
-
-That is a `sysctl` the sandbox refuses. The headless shell binary and an older Chrome died one step earlier:
-
-```
-[base/apple/mach_port_rendezvous_mac.cc:159] Check failed: kr == KERN_SUCCESS. bootstrap_check_in ...MachPortRendezvousServer.44804: Permission denied (1100)
-```
-
-That is Chrome registering a Mach service so its child processes can find it. `allowMachLookup` is about looking services up, not registering them, so the wildcard I removed in round four would not obviously have helped here either. I could not test that from inside a session, because sandbox settings cannot be changed mid-session and my settings file is on the sandbox's protected list. Crashpad also failed to check in and failed to write under `~/Library/Application Support`.
-
-Count the boundaries one browser launch crossed: a file write, a socket bind, a Mach service registration, a sysctl, and a second file write in a different tree. Each one is a separate knob. Each knob is global or nearly so. I widened two of them and the browser still does not run under this sandbox. The other project's agent instructions now carry a line for exactly this: if the accessibility step cannot launch a browser in the current environment, report it as unverified.
+The setup started as "no writes outside the project." It ended as "no writes outside the project, except three named test commands in one workspace, which run with full user permissions because the platform offers no narrower way to let a browser register a Mach service." That is the actual state of the tooling on this date, and readers will hit the same wall.
 
 ## The boundary mismatch
 
@@ -219,15 +249,15 @@ Step back from Chrome. Four durable things fell out of this.
 
 **Blocking runtime temp storage corrupts what the tool tells you.** That failure is worse than a crash. A crash you notice. A session where `true` returns 1 you might not.
 
-**Compatibility exceptions widen the boundary again.** Every tool that does not work under the sandbox comes with a recommended fix, and the fix is a global switch: all Unix sockets, all Mach services, this command unsandboxed. The exceptions are how the boundary gets undone, one reasonable accommodation at a time.
+**Compatibility exceptions widen the boundary again.** Every tool that does not work under the sandbox comes with a recommended fix, and the fix is a global switch: all Unix sockets, all Mach services, this command unsandboxed. Sometimes the global switch does not even work, and the fallback is wider still. The exceptions are how the boundary gets undone, one reasonable accommodation at a time. The only lever I found for containing them was scope: put the exception in the one workspace that needs it, and write down what it exposes so nobody mistakes it for a safe default.
 
 ## What the sandbox is actually around
 
 I started with a filesystem question: can I keep an agent's writes inside its project? The experiment answered a different question.
 
-A process does not need to write outside the project if it can ask another process to act for it. A Unix socket is a transfer of authority. Access to Docker is host access. Access to an SSH agent can authorize remote actions. Access to a browser can expose an authenticated session. Access to a local development server can mutate data the filesystem sandbox never sees. My `allowAllUnixSockets: true` says all of that is reachable, and the mitigation I have is operational: try not to run sensitive daemons next to the session. That is not a control. It is a habit.
+A process does not need to write outside the project if it can ask another process to act for it. A Unix socket is a transfer of authority. Access to Docker is host access. Access to an SSH agent can authorize remote actions. Access to a browser can expose an authenticated session. Access to a local development server can mutate data the filesystem sandbox never sees. For three commands in one workspace, my config now says none of that is enforced at all. The mitigation I have is operational: keep the list short, keep it local, and do not run sensitive daemons next to the session. That is not a control. It is a habit.
 
-The conclusion is not "keep sensitive daemons away from Claude." That is not how a development machine works. The conclusion is that today's agent sandboxes make you choose between broad compatibility and narrow authority, because their controls do not match how development tools compose. What I actually want is capability-scoped access: create sockets only under this directory, connect only to these named services, use this one browser profile, invoke this fixed tool without being able to rewrite what the tool executes. None of those knobs exist yet in the tool I use, and the issues asking for the first one are closed.
+The conclusion is not "keep sensitive daemons away from Claude." That is not how a development machine works. The conclusion is that today's agent sandboxes make you choose between broad compatibility and narrow authority, because their controls do not match how development tools compose. What I actually want is capability-scoped access: create sockets only under this directory, register only this Mach service, connect only to these named services, use this one browser profile, invoke this fixed tool without being able to rewrite what the tool executes. None of those knobs exist yet in the tool I use, and the issues asking for the first one are closed.
 
 I never found a configuration that meant both "Claude can use the development environment normally" and "Claude cannot cause effects outside this directory." The closer I moved toward strict confinement, the more runtime and development machinery stopped working. The more functionality I restored, the more authority came back through another channel.
 
@@ -309,7 +339,7 @@ find .ct-probe/ct -name SingletonSocket
 rm -rf .ct-probe
 ```
 
-The first run should fail with `Failed to create socket directory`. The second should place `SingletonSocket` inside `.ct-probe/ct` and then fail at a different check. Which check depends on your Chrome build. That is the point.
+The first run should fail with `Failed to create socket directory`. With `allowAllUnixSockets` on, the second should place `SingletonSocket` inside `.ct-probe/ct` and then fail at a Mach or sysctl check. Which check depends on your Chrome build. That is the point.
 
 ---
 
