@@ -148,7 +148,9 @@ At session end:
 
 **Status**: Operational
 **Genesis**: 2026-01-31
-**Last Session**: 2026-09-06 (session 19): agent economics and Verification Design editorial intake
+**Last Session**: 2026-09-06 (session 20): agent economics first full draft
+
+**Session 20 (2026-09-06)**: Drafted "You Can Parallelize Agents. You Cannot Parallelize the Engineer." at `drafts/agent-economics/post.md`, using the operator's seed title. About 1,500 words: attention allowance, automated retries, imperfect verification, model controls in plain language, and the human capacity limit. Package includes `claims-and-calculations.md`, `verify_calculations.py`, and review notes in `README.md`. Eleven named arithmetic/scope checks passed; deliberately wrong saving, slot count, and accepted-defect rate were rejected. Official pricing and the linked prior review experiment were rechecked. Nora, Dee, Grace, and Dana passes occurred sequentially in this session. Next: operator read and revisions; release work is tracked under `_web_ops-agent-economics-2rg`. No public site files were changed. Verification Design remains a separate candidate, and existing Landfall edits remain unrelated work in progress.
 
 **Session 19 (2026-09-06)**: Operator wants to vary the concentration of Claude coverage. Captured two candidates and their proposed sequence in `drafts/editorial-candidates.md`: agent economics (`_web_ops-agent-economics-2rg`), then Verification Design (`_web_ops-verificationdesign-lur`). Corrected `/Users/home/dev/cost/answers.py` and regenerated `answers.md` using sourced Opus/Sonnet and Sol/Terra rates; added plain-language model explanations and eight passing regression checks. Those files live outside this repository. The Verification Design handoff came through the operator from ai-research; preserve its attribution, one-way links, anonymity, and research claim-review requirements. Its historical incident claims still need repository verification when drafting. Neither candidate is an approved draft or publication schedule. The existing sandbox draft remains available for later. Existing Landfall work in progress was not part of this intake.
 

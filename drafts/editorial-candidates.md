@@ -19,8 +19,11 @@ Lead with one worked example, then explain the human capacity limit. Use plain
 language for the model's controls; verifier correlation is not an error-catch rate.
 Do not present the throughput sweep as a benchmark or a universal agent-count limit.
 
-Next: outline a vendor-neutral article from the corrected source material, with a
-clear separation between sourced prices, assumed task inputs, and modeled results.
+Update, 2026-09-06: operator requested drafting. The complete first draft is at
+`drafts/agent-economics/post.md`, with a claim register and arithmetic audit in the
+same folder. Eleven named checks passed. Next: operator read and revisions, then
+release preparation if requested. Named prices, assumed inputs, and modeled
+results remain explicitly distinguished.
 
 ## Verification Design: what the checker missed
 
