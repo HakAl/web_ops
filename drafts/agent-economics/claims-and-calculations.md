@@ -1,6 +1,6 @@
 # Agent economics: claims and calculations
 
-Draft review date: 2026-09-06. This is an editorial evidence record, not a benchmark.
+Draft revision and pricing recheck: 2026-09-30. This is an editorial evidence record, not a benchmark.
 Run `python3 drafts/agent-economics/verify_calculations.py` from the repository root
 to check the draft's numerical tables and worked examples.
 
@@ -11,9 +11,13 @@ to check the draft's numerical tables and worked examples.
 - Corrected task calculations and model explanations: `/Users/home/dev/cost/answers.md`.
 - Structural sweep: `/Users/home/dev/cost/answers.py` and `layer2.py`.
 - [Anthropic pricing](https://platform.claude.com/docs/en/about-claude/pricing),
-  standard Opus 5 and Sonnet 5 rows, fetched 2026-09-06.
-- [OpenAI pricing](https://developers.openai.com/api/docs/pricing), standard,
-  short-context GPT-5.6 Sol and Terra rows, fetched 2026-09-06.
+  standard Opus 5 and Sonnet 5 rows, rechecked 2026-09-30.
+- [OpenAI pricing](https://developers.openai.com/api/docs/pricing),
+  standard short-context Sol row, rechecked 2026-09-30.
+- [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra),
+  input, cached input, output, and 1.25x cache-write rate, rechecked 2026-09-30.
+  The current pricing-page extract does not expose Terra in its main table;
+  the model page supplies the rates directly.
 - [Cross-model review experiment](https://vibecoder.buzz/blog/cross-model-review.html),
   also read from `docs/blog/cross-model-review.md`. The new draft links only its
   reported regex-compilation finding. It does not repeat that post's research
@@ -35,7 +39,41 @@ an observed average. The earlier synthetic medium-task example remains $1.75 /
 $0.70 for Opus/Sonnet and $1.40 / $0.78 for Sol/Terra in the source material;
 those different task amounts are not used in the article.
 
-## Claim register
+## Release note
+
+The operator completed their own whole-post edit and authorized publication on
+September 30. The public copy preserves that wording. The opening generalization
+about cheaper models making more mistakes is the operator's framing, not a result
+established by the hypothetical model. The cost and throughput examples do not
+measure named-model quality. The CI scenario remains hypothetical.
+
+## Current revision
+
+The September 30 edit keeps the opening attention calculation, four pricing rows,
+and doubled-token examples. Official rates still match the snapshot below the
+source list. The optional note after the main narrative cites those sources and dates the
+recheck beneath the table. The formula, pricing rows, doubled-token examples,
+and larger-task comparison now live in that note; the main text keeps the
+$3-to-1.8-minutes example. These remain examples for the named models, not a claim that
+those models are the latest releases.
+
+From "Retries can be a good trade" onward, the article now uses a clearly
+imagined CI-repair scenario. It makes no claim that this workflow was measured.
+The earlier cross-model review is now a supporting link in the optional note.
+Its local source was reread for the text-matching rule that could not compile.
+
+The only numerical capacity claim left in the article is proportional: twice the
+attention per task means half as many tasks in a fixed amount of available time.
+It assumes comparable tasks and that human time is the limiting resource.
+
+The retry probabilities, accepted-error percentage, rho explanation, and slot
+counts are removed from the public-facing draft. Their derivations remain in the
+historical register below for provenance. The audit no longer requires those
+removed examples; it checks the current pricing table and opening arithmetic.
+Six named checks cover four pricing rows, attention/doubled-token examples, and
+draft publication/hygiene markers. This is not a prose or empirical-validity test.
+
+## Historical claim register from the September 6 draft
 
 | Claim in the draft | Evidence or derivation | Classification and limit |
 | --- | --- | --- |
@@ -58,11 +96,12 @@ those different task amounts are not used in the article.
 | Seven slots cannot restore throughput when human time doubles | Agent capacity exceeds the reduced human ceiling; the minimum still equals 38.4 | Conditional bottleneck argument, not measured scaling behavior |
 | A cheaper model may be worth trying where checks/retries avoid extra attention | Synthesis of the cost, retry, and capacity examples | Editorial decision framework; requires workflow measurements |
 
-## What the structural model assumes
+## Background: what the structural model assumes
 
 The simple three-row capacity table is derived from `cost.md`. It is not output
-from the more elaborate `layer2` sweep. The draft keeps that distinction by
-calling the rows hypothetical workflows and stating their inputs in full.
+from the more elaborate `layer2` sweep. The September 6 draft kept that distinction by
+calling the rows hypothetical workflows and stating their inputs in full. The
+September 30 revision removes that table from the article.
 
 The structural sweep additionally assumes a distribution of task difficulty,
 review effectiveness, specification effort, and later repair effort. It treats
@@ -90,7 +129,7 @@ pass. Human review then gets its own opportunity to catch a defect.
 | `W` | Concurrent agent slots |
 
 No structural-sweep cell, sigma value, or optimal agent count is promoted to a
-claim about a named model. The blog's capacity examples assume comparable
+claim about a named model. The original capacity examples assume comparable
 accepted quality; the sweep instead discounts output for escaped defects.
 Matching throughput therefore cannot stand in for matching quality or total cost.
 
@@ -99,8 +138,8 @@ Matching throughput therefore cannot stand in for matching quality or total cost
 - Arithmetic audit compares computed values against the actual Markdown rows.
   It also checks that the worked-example values and scope statements remain in
   the draft. It cannot validate an empirical assumption or the prose's entire meaning.
-- Named model prices are sourced; capability, task costs, hourly value, and time
-  inputs are hypothetical. No real-world reliability improvement is claimed.
+- Named model prices are sourced; task costs, hourly value, and the CI-repair
+  scenario are hypothetical. No real-world reliability improvement is claimed.
 - No actual work history is invented. The first-person investigation follows the
   operator's seed; desired future measurements are framed as future work.
 - The title comes directly from the operator's seed.

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cheaper AI agents can save $3 on a task. Two extra minutes of review can erase it. What happens when the agents finish faster than you can check their work?">
+    <title>You Can Parallelize Agents. You Cannot Parallelize the Engineer. - The Skills Team</title>
+    <link rel="canonical" href="https://vibecoder.buzz/blog/agent-economics.html">
+    <link rel="alternate" type="text/markdown" href="agent-economics.md" title="Markdown version">
+    <meta property="og:title" content="You Can Parallelize Agents. You Cannot Parallelize the Engineer.">
+    <meta property="og:description" content="Cheaper AI agents can save $3 on a task. Two extra minutes of review can erase it. What happens when the agents finish faster than you can check their work?">
+    <meta property="og:url" content="https://vibecoder.buzz/blog/agent-economics.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="The Skills Team">
+    <meta property="og:image" content="https://vibecoder.buzz/blog/agent-economics.jpg">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="800">
+    <meta property="og:image:alt" content="Parallel streams of document cards converge into a stack beside one person reviewing work at a desk.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="You Can Parallelize Agents. You Cannot Parallelize the Engineer.">
+    <meta name="twitter:description" content="Cheaper AI agents can save $3 on a task. Two extra minutes of review can erase it. What happens when the agents finish faster than you can check their work?">
+    <meta name="twitter:image" content="https://vibecoder.buzz/blog/agent-economics.jpg">
+    <meta name="twitter:image:alt" content="Parallel streams of document cards converge into a stack beside one person reviewing work at a desk.">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "You Can Parallelize Agents. You Cannot Parallelize the Engineer.", "datePublished": "2026-09-30", "dateModified": "2026-09-30", "author": {"@type": "Organization", "name": "The Skills Team"}, "publisher": {"@type": "Organization", "name": "The Skills Team"}, "description": "Cheaper AI agents can save $3 on a task. Two extra minutes of review can erase it. What happens when the agents finish faster than you can check their work?", "image": "https://vibecoder.buzz/blog/agent-economics.jpg", "url": "https://vibecoder.buzz/blog/agent-economics.html", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://vibecoder.buzz/blog/agent-economics.html"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://vibecoder.buzz/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://vibecoder.buzz/blog/"}, {"@type": "ListItem", "position": 3, "name": "You Can Parallelize Agents. You Cannot Parallelize the Engineer.", "item": "https://vibecoder.buzz/blog/agent-economics.html"}]}</script>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .blog-post a { text-decoration: underline; }
+        .pricing-note { margin-top: 2.5rem; border-top: 1px solid var(--color-secondary); padding-top: 1.25rem; }
+        .pricing-note summary { cursor: pointer; color: var(--color-accent); font-weight: 600; }
+        .pricing-note[open] summary { margin-bottom: 1.25rem; }
+        .pricing-note summary:focus-visible, .pricing-note pre:focus-visible, .table-scroll:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+        .table-scroll { max-width: 100%; overflow-x: auto; margin: 1.25rem 0; }
+        .table-scroll table { margin: 0; min-width: 34rem; }
+        .table-scroll caption { text-align: left; padding-bottom: 0.75rem; color: var(--color-text-muted); font-size: 0.9rem; }
+        .pricing-note a { overflow-wrap: anywhere; }
+    </style>
+</head>
+<body>
+    <header class="hero hero-small">
+        <h1>You Can Parallelize Agents. You Cannot Parallelize the Engineer.</h1>
+        <p class="blog-meta"><time datetime="2026-09-30">September 30, 2026</time> &middot; The Skills Team</p>
+        <p><a href="./">&larr; Back to blog</a></p>
+    </header>
+    <div class="blog-hero-img">
+        <img src="agent-economics.jpg" alt="Parallel streams of document cards converge into a stack beside one person reviewing work at a desk." width="1600" height="800" loading="eager" fetchpriority="high">
+    </div>
+    <main>
+        <article class="section blog-post">
+<p>Sometimes I get distracted and go a little too deep on a random subject. In this episode of "curiosity got the best of me," I decided to spend my time trying to answer: is it cheaper for a person to use mid-tier or high-tier models?</p>
+<p>A cheaper model saves money on each task, but makes more mistakes. Mistakes mean I might have to pay attention and sort them out. Is it worth the discount?</p>
+<p>I wanted to know how much extra work landed on me and built a hypothetical cost model to explore it.</p>
+<h2 id="what-does-the-saving-buy">What does the saving buy?</h2>
+<p>Take a hypothetical task: $5 on the expensive model, $2 on the cheaper one, including all the attempts needed to finish it. You save $3 for that task.</p>
+<p>To use a round number, suppose your time is worth $100 an hour. That saving buys 1.8 minutes of your attention.</p>
+<p>Spend two extra minutes reviewing, and you've spent $3.33 to save $3. Token spend down. Total cost up.</p>
+<p>Pick what an hour of your time is worth and do the math.</p>
+<h2 id="retries-can-be-a-good-trade">Retries can be a good trade</h2>
+<p>A cheaper model can still be worth using even if it needs another try. Do I have to get involved each time?</p>
+<p>Say you ask an agent to fix CI. An automated check is red, and the agent fixes it. No review, no attention. You pay for the extra run, but you haven't had to figure out what broke or explain the fix. If the work is just as good and costs less, that might be a fair trade.</p>
+<p>Now say you have to sort out that failing test yourself. You diagnose it, explain it, wait for the fix, and check again. The agent's mistake is now another thing you have to do. A few rounds of that erase any savings.</p>
+<p>Of course, your workflows can tell you if a test is failing. The agent can pass every check you gave it and still leave you with work to fix.</p>
+<p>Trying again might just get you the same mistake or a different flavor of one. For instance, if the agent misunderstood your intent. Someone has to notice and work out what to fix.</p>
+<h2 id="where-more-agents-stop-helping">Where more agents stop helping</h2>
+<p>If I have a series of tasks that are independent, I'll run agents in parallel.</p>
+<p>In this scenario, I can become the bottleneck. The agents finish and reviews queue up for me. I have to run review, read the changes, triage findings, and sort it all out. Launching another agent adds another review to that queue.</p>
+<p>If each finished task costs twice as much attention, I can get through only half as many in the same time. Another agent doesn't give me those minutes back. Obviously, a better harness, useful verification, or a model I don't have to correct as much might help.</p>
+<p>Sometimes I just don't want to read any more LLM output and each review needs time I don't have.</p>
+<h2 id="the-number-i-need-next">The number I need next</h2>
+<p>I'd try a cheaper model on work where I know what “done” looks like and can check most of it automatically. Then I'd compare similar tasks. What was the total cost? How much time did I spend steering? What mistakes turned up after it declared the work done? I'd count the waiting, too, if it kept me from doing something else.</p>
+<p>Maybe the more expensive model needs less of my attention. Maybe the cheaper one does just as well with good checks. I can't find that out by changing numbers in a hypothetical model. I have to try it on my own work.</p>
+<p>Before I add another agent, I want to know how many minutes of me each finished task needs.</p>
+<details class="pricing-note">
+<summary>Prices, calculations, and assumptions</summary>
+
+<p>This cost model explores that question by changing how often the agent gets the work right, how useful the checks are, and how much time I spend explaining, reviewing, and fixing the work. The prices came from published API rates: <a href="https://platform.claude.com/docs/en/about-claude/pricing">Anthropic pricing</a>, <a href="https://developers.openai.com/api/docs/pricing">OpenAI pricing</a>, and the <a href="https://developers.openai.com/api/docs/models/gpt-5.6-terra">GPT-5.6 Terra model page</a>. Task sizes and behavior were hypothetical. I wanted to see what would have to be true for each strategy to pay off.</p>
+<p>To convert a saving into extra review time:</p>
+<pre class="text" tabindex="0" role="region" aria-label="Formula for extra review time"><code>extra minutes you can afford = dollars saved × 60 / hourly value</code></pre>
+<p>Here is what that looks like for a hypothetical task that costs $5 on the more expensive model. Tokens are the units used to bill for text sent to and from the model. “1.5×” means the cheaper model uses 50% more tokens to finish the same task, including retries. Each comparison keeps the same mix of input, output, and cached tokens.</p>
+<div class="table-scroll" role="region" aria-label="Model cost comparisons" tabindex="0">
+<table>
+<caption>Illustrative savings on a $5 task, with attention valued at $100 per hour</caption>
+<thead>
+<tr>
+<th scope="col">Comparison</th>
+<th scope="col">Cheaper model's token use</th>
+<th scope="col">Saving</th>
+<th scope="col">Extra attention at $100/hour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opus 5 → Sonnet 5</td>
+<td>Same</td>
+<td>$3.00</td>
+<td>108 seconds</td>
+</tr>
+<tr>
+<td>Opus 5 → Sonnet 5</td>
+<td>1.5×</td>
+<td>$2.00</td>
+<td>72 seconds</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol → Terra</td>
+<td>Same</td>
+<td>$2.00–$2.50</td>
+<td>72–90 seconds</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol → Terra</td>
+<td>1.5×</td>
+<td>$0.50–$1.25</td>
+<td>18–45 seconds</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Rates rechecked September 30, 2026 using the official sources above. These examples use standard API pricing below the long-context surcharge thresholds. Sonnet 5 costs 40% of Opus 5 across the billing categories used here. Terra costs 50% of Sol for input and cache charges, and 60% for output, which gives the range. Sol's rates are promotional. Subscription plans have different economics.</p>
+<p>Extra tokens matter. At twice the token use, Sonnet's saving on that $5 task shrinks to $1. Terra breaks even or costs up to $1 more before anyone reviews the result.</p>
+<p>There is more room on an expensive task. With the same relative saving, a $50 task buys ten times as much extra review time as a $5 task. That helps, provided the review and the consequences of mistakes do not grow just as quickly.</p>
+<p>Related: our <a href="https://vibecoder.buzz/blog/cross-model-review.html">cross-model review experiment</a>, including a text-matching rule that looked plausible in review but could not compile.</p>
+</details>
+
+        </article>
+    </main>
+    <footer>
+        <p><a href="https://github.com/HakAl/team_skills">GitHub</a> &middot;
+        <a href="../">Home</a> &middot;
+        <a href="agent-economics.md">Markdown source</a> &middot;
+        Built by the Skills Team</p>
+    </footer>
+</body>
+</html>

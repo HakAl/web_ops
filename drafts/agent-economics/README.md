@@ -1,19 +1,56 @@
 # Agent economics draft
 
-Status: first full draft, 2026-09-06, ready for the operator's read. Unpublished.
+Status: approved by the operator for publication on 2026-09-30. Release built and validated; deployment verification follows the push.
 Issue: `_web_ops-agent-economics-2rg`.
+
+## September 30 release
+
+Public URL: https://vibecoder.buzz/blog/agent-economics.html
+
+The final operator-edited CI example and introduction are preserved. The published
+Markdown body and rendered HTML text match the saved draft. The draft's
+`published: false` remains an archive flag; the copy in `docs/blog/` is marked
+published and includes canonical and cover metadata.
+
+Built the HTML page, 1600x800 JPEG cover, public Markdown copy, home/blog cards,
+and sitemap entry. Native disclosure keeps the pricing note optional. Its table
+and formula support keyboard scrolling on small screens. Links in article text
+are underlined.
+
+Checks completed:
+
+- Six arithmetic/hygiene checks and `git diff --check`.
+- Chromium at 1280, 390, and 320 pixels: disclosure toggles with Enter and Space,
+  mobile table scrolls with the keyboard, no page overflow, no JavaScript errors.
+- Axe WCAG A/AA checks: zero violations in all three viewports with the note open.
+- Desktop and mobile screenshots inspected. No manual screen-reader test.
+- Article/Markdown text parity; all local links and assets on the article,
+  home page, and blog index; canonical, social metadata, image dimensions,
+  156-character description, and local Article/BreadcrumbList JSON-LD checks.
+- Official named-model prices were rechecked earlier in this session.
+
+The full approved title is retained even though it exceeds the SEO skill's
+suggested 60-character title length. Core Web Vitals require production data;
+no field-performance claim is made. Automatic approval review rejected uploading
+unpublished HTML to Schema.org as an external disclosure. Local structured-data
+checks were used; external validator approval is not claimed.
+
+Hero: `docs/blog/agent-economics.jpg`, generated with the built-in imagegen tool,
+then resized/exported to JPEG (1600x800, 236,908 bytes). Exact prompt:
+
+> Use case: stylized-concept. Asset: wide editorial blog hero, 1600x800 landscape composition. Concept: many parallel AI work streams converge on one human reviewer. Minimal, sophisticated editorial illustration on very dark charcoal-purple background (#13111a), restrained muted cyan and coral-red accents, subtle paper grain and soft lighting. Several thin cyan lanes carrying small completed document cards flow from the left toward a single small human seated at a desk on the right; the cards collect in a modest pile before the desk. The human attention bottleneck is visually clear, thoughtful rather than frantic. Lots of negative space, simple architectural geometry, no robots, no brains, no circuit-board clichés, no charts, no text, no letters, no numbers, no logos, no watermarks. All key content within center 85% of image.
 
 ## Read this first
 
 [Post](post.md): **You Can Parallelize Agents. You Cannot Parallelize the Engineer.**
 
-About 1,500 words. The title is the operator's line from `seed.md`. The article
+About 670 words in the main article, plus a roughly 400-word optional note. The title is the operator's line from `seed.md`. The article
 follows the original question: can cheaper models plus more agents recover the
 value of a stronger model when one person still specifies and reviews the work?
 
 The narrative moves from the attention allowance created by a cheaper run, to
 automated retries, to imperfect checking, to the operator's capacity limit.
-Named models appear as dated price examples. The main argument applies across
+Named models appear as dated price examples in the optional note. The main argument applies across
 providers. No task quality or productivity measurements are invented.
 
 ## Supporting material
@@ -29,12 +66,59 @@ Run from the repository root:
 python3 -B drafts/agent-economics/verify_calculations.py
 ```
 
-Observed: 11 named checks passed. Three additional in-memory mutations were
-rejected: an incorrect saving, an insufficient agent count, and an incorrect
-accepted-defect percentage. No API calls, model runs, or source-file edits occur
+The current audit passed all six named checks on September 30. The September 6 audit covered 11;
+retry-probability and capacity-table checks were removed with those examples.
+The historical run also rejected incorrect saving, slot-count, and defect-rate
+mutations. No API calls, model runs, or source-file edits occur
 when the audit runs. This is arithmetic validation, not proof of the assumptions.
 
-## Editorial review
+## September 30 voice pass
+
+Operator requested a looser voice after supplying a new introduction. Preserved
+that introduction verbatim. Edited the main body for everyday wording and
+contractions, keeping the dollar example, imagined broken-link scenario,
+waiting-changes-sides paragraph, and final sentence. The optional pricing note
+is unchanged. This was a voice edit, not a fresh claim or pricing review. Six
+existing arithmetic/hygiene checks pass; rendered disclosure behavior is still
+a release-stage check. Local and uncommitted.
+
+## September 30 structural edit
+
+Applied the operator-accepted review with a cuts-and-moves pass. The opening now
+connects parallel agents to the attention each result requires. Kept the operator's
+opening question and "Token spend down. Total cost up." The dollars-to-minutes
+example remains in the main article. Moved the formula, model table, pricing
+sources, qualifications, and larger-task comparison into an optional `details`
+note after the narrative. Replaced the experiment paragraph with a supporting
+link in that note. Kept the retry example, waiting-changes-sides paragraph, and
+narrative's final sentence. No new anecdote or claim of measured results.
+
+The six arithmetic/hygiene checks still cover the article and its note together.
+The disclosure markup needs rendered validation during HTML release preparation;
+this edit validates the source only. Changes remain local and uncommitted.
+
+## September 30 first revision
+
+Nora edit: incorporated the operator's opening markup, repaired sentence breaks,
+and kept "Token spend down. Total cost up." Changed the hypothetical model's
+purpose from measuring an optimum to exploring when a strategy pays off; the
+assumed inputs cannot establish an optimal real-world workflow. Used the value
+of the reader's time instead of presenting $100/hour as a typical salary.
+
+Added official pricing citations at first mention and refreshed the check date
+below the table. Rates for the named models are unchanged. Terra's model page
+now supplies a direct citation because its row is absent from the pricing-page
+extract. The comparisons remain explicitly dated API examples.
+
+Replaced the probability examples, rho section, and capacity table with an
+imagined broken-link retry and the point where agents begin waiting for review.
+The calculations remain in the evidence record as historical background.
+
+Grace content review is a same-session check of the revised text, source support,
+remaining arithmetic, and Markdown hygiene. No rendered-page or release checks
+are implied by this draft edit.
+
+## September 6 editorial review (historical)
 
 These are sequential persona passes in one session, not independent agents or
 an external research review.

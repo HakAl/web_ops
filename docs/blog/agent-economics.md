@@ -1,7 +1,9 @@
 ---
 title: You Can Parallelize Agents. You Cannot Parallelize the Engineer.
-published: false
+published: true
 tags: ai, agents, productivity, programming
+canonical_url: https://vibecoder.buzz/blog/agent-economics.html
+cover_image: https://vibecoder.buzz/blog/agent-economics.jpg
 ---
 
 Sometimes I get distracted and go a little too deep on a random subject. In this episode of "curiosity got the best of me," I decided to spend my time trying to answer: is it cheaper for a person to use mid-tier or high-tier models?

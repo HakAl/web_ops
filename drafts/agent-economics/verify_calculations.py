@@ -4,7 +4,6 @@ Prices are the dated snapshot in claims-and-calculations.md. This checks arithme
 and draft consistency, not live prices, measured model quality, or prose semantics.
 """
 from decimal import Decimal as D
-from math import ceil
 from pathlib import Path
 
 
@@ -73,42 +72,10 @@ def audit(post):
             require("breaks even or costs up to $1 more" in post, "Missing Terra doubling example")
     passed("attention conversion and doubled-token examples")
 
-    for cost, success in ((D(5), D(".9")), (D(2), D(".7"))):
-        require(f"${cost / success:.2f}" in post, "Incorrect expected retry cost")
-    require("**per attempt**" in post, "Per-attempt and total-task costs must be distinguished")
-    passed("independent-retry cost examples")
-
-    correct, caught = D(".7"), D(".9")
-    bad_accepted = (1 - correct) * (1 - caught)
-    accepted_error = bad_accepted / (correct + bad_accepted)
-    require(f"{100 * accepted_error:.1f}% of accepted results" in post,
-            "Incorrect error share among accepted results")
-    require("correct results are never rejected" in post, "Missing no-false-rejection assumption")
-    passed("imperfect-verifier example")
-
-    productive_minutes = D(8) * 60 * D(".8")
-    require(f"{productive_minutes:.0f} minutes" in post, "Incorrect productive workday")
-    scenarios = ("Baseline", "More automated retries", "More retries and human work")
-    capacity_rows = [row for row in rows if row[0] in scenarios]
-    require(len(capacity_rows) == 3 and {r[0] for r in capacity_rows} == set(scenarios),
-            "Missing or duplicate capacity scenario")
-    for name, machine, human, printed_ceiling, printed_slots in capacity_rows:
-        machine, human = D(machine), D(human)
-        ceiling = productive_minutes / human
-        slots = ceil(ceiling * machine / (24 * 60))
-        require(D(printed_ceiling) == ceiling, f"Incorrect human capacity: {name}")
-        require(int(printed_slots) == slots, f"Incorrect slot count: {name}")
-        require(D(slots - 1) * 1440 / machine < ceiling <= D(slots) * 1440 / machine,
-                f"Rounding does not yield minimum sufficient slots: {name}")
-        passed(f"capacity row: {name}")
-
-    require("24 hours a day" in post, "Missing 24-hour-slot assumption")
-    require("Comparable accepted quality is an assumption" in post, "Missing quality assumption")
-    require("0.9 is a correlation" in post, "Missing rho interpretation")
     require("published: false" in post, "Draft publication flag changed")
     require("\u2014" not in post, "Em dash found")
     require("/Users/" not in post, "Local filesystem path in public-facing copy")
-    passed("draft scope and interpretation markers")
+    passed("draft publication and hygiene markers")
     return checks
 
 
