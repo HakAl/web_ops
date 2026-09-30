@@ -1,11 +1,17 @@
 # Agent economics draft
 
-Status: approved by the operator for publication on 2026-09-30. Release built and validated; deployment verification follows the push.
+Status: published on 2026-09-30. Article and cover verified live; static Markdown delivery corrected in a follow-up deployment.
 Issue: `_web_ops-agent-economics-2rg`.
 
 ## September 30 release
 
 Public URL: https://vibecoder.buzz/blog/agent-economics.html
+
+Deployment check caught a 404 on the Markdown source because GitHub Pages was
+processing front matter through Jekyll. This repository serves already-built HTML
+and has no Jekyll templates or configuration under `docs/`. Added `docs/.nojekyll`
+to deliver the static files verbatim, following
+[GitHub's publishing guidance](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site).
 
 The final operator-edited CI example and introduction are preserved. The published
 Markdown body and rendered HTML text match the saved draft. The draft's
