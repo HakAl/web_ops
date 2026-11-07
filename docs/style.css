@@ -352,6 +352,116 @@ footer a:hover {
     color: var(--color-accent);
 }
 
+/* Homepage archive */
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -5rem;
+    z-index: 10;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+.skip-link:focus { top: 1rem; }
+
+.homepage .hero {
+    max-width: 1120px;
+}
+
+.homepage .hero-intro { max-width: 700px; }
+.homepage .hero-intro a { text-decoration: underline; text-underline-offset: 3px; }
+
+.home-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 3rem;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: var(--spacing);
+}
+
+.home-layout > .section {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    width: 100%;
+    padding: 0;
+}
+
+.home-sidebar {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    border-left: 1px solid var(--color-secondary);
+    padding-left: 1.5rem;
+}
+
+.post-timeline summary { cursor: pointer; }
+.post-timeline summary h2 { display: inline; font-size: 1rem; }
+.post-timeline summary > span {
+    display: block;
+    margin-top: 0.35rem;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+}
+
+.post-timeline summary:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 5px;
+}
+
+.timeline-groups { margin-top: 1.75rem; }
+.timeline-groups section { margin-bottom: 1.75rem; }
+.timeline-groups section:last-child { margin-bottom: 0; }
+.timeline-groups h3 {
+    position: relative;
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.65rem;
+}
+
+.timeline-groups h3::before {
+    content: '';
+    position: absolute;
+    left: calc(-1.5rem - 4px);
+    top: 0.2rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-primary);
+}
+
+.timeline-groups ul { list-style: none; margin: 0; }
+.timeline-groups li { margin-bottom: 0.8rem; }
+.timeline-groups li:last-child { margin-bottom: 0; }
+.timeline-groups a {
+    display: inline-block;
+    color: var(--color-text);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.timeline-groups a:hover, .timeline-groups a:focus { color: var(--color-accent); }
+
+@media (min-width: 901px) and (min-height: 1000px) {
+    .home-sidebar { position: sticky; top: 2rem; }
+}
+
+@media (max-width: 900px) {
+    .home-layout { display: flex; flex-direction: column; gap: 2rem; }
+    .home-sidebar {
+        border-left: 0;
+        border-bottom: 1px solid var(--color-secondary);
+        padding: 0 0 1.25rem;
+        width: 100%;
+    }
+    .post-timeline summary > span { display: inline; margin-left: 0.75rem; }
+    .timeline-groups { border-left: 1px solid var(--color-secondary); padding-left: 1.5rem; }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     :root {

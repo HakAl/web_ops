@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A hard 30-minute Claude Code session in a disposable Mac produced a retro screensaver site. Play the demo and inspect the original run evidence.">
+    <title>Thirty minutes in a disposable Mac | VibeCoder</title>
+    <link rel="canonical" href="https://vibecoder.buzz/experiments/30-minute-web-dev/">
+    <meta property="og:title" content="Thirty minutes in a disposable Mac">
+    <meta property="og:description" content="A hard 30-minute Claude Code session, a retro screensaver site, and the evidence from the run.">
+    <meta property="og:url" content="https://vibecoder.buzz/experiments/30-minute-web-dev/">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-11-07">
+    <meta property="og:site_name" content="VibeCoder">
+    <meta property="og:image" content="https://vibecoder.buzz/experiments/30-minute-web-dev/images/home.png">
+    <meta property="og:image:alt" content="Dave's retro screensaver homepage with animated previews and a Windows 95 style interface.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Thirty minutes in a disposable Mac">
+    <meta name="twitter:description" content="A hard 30-minute Claude Code session, a retro screensaver site, and the evidence from the run.">
+    <meta name="twitter:image" content="https://vibecoder.buzz/experiments/30-minute-web-dev/images/home.png">
+    <meta name="twitter:image:alt" content="Dave's retro screensaver homepage with animated previews and a Windows 95 style interface.">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Thirty minutes in a disposable Mac","datePublished":"2026-11-07","dateModified":"2026-11-07","author":{"@type":"Person","name":"HakAl","url":"https://github.com/HakAl"},"publisher":{"@type":"Organization","name":"VibeCoder"},"description":"A hard 30-minute Claude Code session in a disposable Mac produced a retro screensaver site. Play the demo and inspect the original run evidence.","image":"https://vibecoder.buzz/experiments/30-minute-web-dev/images/home.png","url":"https://vibecoder.buzz/experiments/30-minute-web-dev/","mainEntityOfPage":{"@type":"WebPage","@id":"https://vibecoder.buzz/experiments/30-minute-web-dev/"}}</script>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="experiment.css">
+</head>
+<body>
+    <a class="skip-link" href="#experiment">Skip to experiment</a>
+    <header class="hero hero-small">
+        <p><a href="../../blog/">&larr; All posts</a></p>
+        <p class="experiment-label">An experiment &middot; <time datetime="2026-11-07">November 7, 2026</time></p>
+        <h1>Thirty minutes in a disposable Mac</h1>
+        <p class="tagline">Claude Code, a browser, and a clock that kept running.</p>
+    </header>
+    <main id="experiment" tabindex="-1">
+        <article class="section blog-post experiment-page">
+            <p>I gave Claude Code its own disposable Mac through <a href="https://github.com/HakAl/cuvm">cuvm</a> and set a hard 30-minute session limit. Inside the VM, it had shell and file tools, a project workspace, a local dev server, and a Playwright browser. I wanted to see whether I could give it a challenge.</p>
+            <div class="experiment-stats" aria-label="Experiment results">
+                <p><strong>30:00</strong><span>session limit</span></p>
+                <p><strong>9</strong><span>screensavers</span></p>
+                <p><strong>3</strong><span>easter eggs</span></p>
+            </div>
+            <div class="experiment-stats usage-stats" aria-label="Recorded model usage">
+                <p><strong>Opus 5.5</strong><span>main model</span></p>
+                <p><strong>99.8K</strong><span>output tokens</span></p>
+                <p><strong>10.0M</strong><span>cached input tokens read</span></p>
+                <p><strong>&asymp;$5.50</strong><span>estimated API cost</span></p>
+            </div>
+            <p class="stats-note">I used a Claude subscription. The dollar figure is an API-equivalent estimate, not a per-run bill. Token counts are Opus 5.5 totals; cached input is counted on each request.</p>
+            <p><a class="demo-link" href="demo/">Play with the screensaver site &rarr;</a></p>
+            <p class="demo-note">Best explored on desktop. The demo contains flashing text, animation, and optional sound.</p>
+            <figure class="experiment-figure">
+                <a href="demo/" aria-label="Open the interactive screensaver demo"><img src="images/home.png" width="1280" height="767" alt="The original run's screenshot of Dave's retro screensaver homepage." fetchpriority="high"></a>
+                <figcaption>The carousel during the session, before the final addition. The recovered build has nine screensavers.</figcaption>
+            </figure>
+
+            <h2>Too easy</h2>
+            <p>I asked it to make the old asteroids or starfield screensaver, put it in a carousel, and add more screensavers if it had time. The website should have that janky GeoCities or Myspace vibe. I told it the start time so it knew there was a limit.</p>
+            <p>What felt like two minutes later, I was looking at three screensavers in the carousel. This was no challenge.</p>
+            <p>I was going to suggest Flying Toasters, but it had already suggested that itself. If it was suggesting it, I figured that would be too easy too. So I also requested Fishbowl.</p>
+            <p>It built a sprite engine in what felt like another two minutes. WTF. That's pretty cool.</p>
+            <p>Then I asked for some enhancements:</p>
+            <ul>
+                <li>Less crisp sprites.</li>
+                <li>Toasters that bounce off the sides.</li>
+                <li>More aquatic diversity.</li>
+                <li>Whales and sharks, appearing occasionally.</li>
+            </ul>
+            <div class="evidence-gallery">
+                <figure><a href="images/toasters.png"><img src="images/toasters.png" width="1280" height="767" alt="Pixelated winged toasters and toast crossing a black screen." loading="lazy"></a><figcaption>Flying toasters in the original WebKit session.</figcaption></figure>
+                <figure><a href="images/fishbowl.png"><img src="images/fishbowl.png" width="1280" height="767" alt="A pixelated aquarium with fish, jellyfish, seahorses, bubbles, and seaweed." loading="lazy"></a><figcaption>The aquarium after feedback about pixel art and aquatic variety.</figcaption></figure>
+            </div>
+
+            <h2>A few easter eggs</h2>
+            <p>I stepped away for five to ten minutes. When I returned, I thought there were about ten minutes left, so I asked for three easter eggs: one of its choosing, Tetris, and Pong. The first will remain undisclosed.</p>
+            <p>All three exist, with time to spare.</p>
+            <figure class="experiment-figure"><a href="images/blocks.png"><img src="images/blocks.png" width="1280" height="767" alt="A falling-block game in a Windows 95 style window over the screensaver homepage." loading="lazy"></a><figcaption>One of the two hidden games.</figcaption></figure>
+
+            <h2 id="done-before-the-clock">Done before the clock</h2>
+            <figure class="transcript-excerpt">
+                <figcaption>The final exchange, excerpted from the transcript. Times are UTC.</figcaption>
+                <pre><code>21:11:41  Me
+anything else? roughl a minute remains
+
+21:11:46  Claude
+Nothing else is needed. Everything you asked for is built and checked, apart from the unchecked items I mentioned: the whale, the pipe colours and the MIDI audio.
+
+21:11:49  Me
+ty
+
+21:11:51  Claude
+You're welcome.</code></pre>
+            </figure>
+            <p>The 30-minute limit ended the session at 21:12:11 UTC. Claude had already said it was done.</p>
+
+            <h2>A five-second scare</h2>
+            <p>Then I thought we'd lost the source. The harness reported no changes and had deleted the disposable Mac. That was a scare for about five seconds.</p>
+            <p>It had only been watching the fixture folder. Claude had built the site in a folder beside it. The transcript and screenshots survived, so we could reconstruct the site afterward. A fix for that collection gap is in review.</p>
+
+            <h2>Run notes</h2>
+            <details class="run-details">
+                <summary>The clock, source, and run evidence</summary>
+                <div class="run-details-body">
+                    <h3>The recorded clock</h3>
+                    <p>The timings in the story are how I remember the session. The harness recorded a configured limit of <code>1,800 seconds</code>, starting after startup and checks. Thinking, typing, and stepping away all used that same session time.</p>
+                    <dl class="run-clock">
+                        <div><dt>Startup and checks</dt><dd>1m 15s</dd></div>
+                        <div><dt>Interactive session</dt><dd>30m 00s</dd></div>
+                        <div><dt>Collection and cleanup</dt><dd>About 38s</dd></div>
+                        <div><dt>Entire run</dt><dd>31m 53s</dd></div>
+                    </dl>
+                    <p>The screensaver brief arrived at 20:47:50 UTC. Claude declared the work finished at 21:11:46 UTC and sent its final reply at 21:11:51 UTC. The harness closed the session at 21:12:11 UTC. Collection finished about 1.3 seconds after that; the remaining time went to cleanup and checks.</p>
+
+                    <h3>What the run preserved</h3>
+                    <p>The run preserved the conversation and tool results, 21 PNG screenshots saved by the agent, 41 browser page snapshots, console logs, and the second dev server's log. The transcript contains 188 unique tool calls. The original transcript and record remain local; the downloadable summary includes their SHA-256 hashes.</p>
+                    <p>The source was reconstructed after the run by replaying its recorded file writes and edits, plus six inspected shell commands. This reproduces what the transcript says was written. It is not a copy or a hash-verified snapshot of the deleted guest's files.</p>
+                    <ul class="evidence-links">
+                        <li><a href="run-summary.json">Download the cleaned run summary (JSON)</a></li>
+                        <li><a href="recovered-source.zip" download>Download the reconstructed source and build (ZIP)</a></li>
+                    </ul>
+                    <p>The public summary contains selected timings, activity counts, usage estimates, and containment results. It leaves out host and network identifiers, credentials, raw transcripts, terminal logs, and certificate files. The four screenshots and the source ZIP were checked separately for publication.</p>
+                    <p>The package manifest and dependency lockfile are missing because they were not reproduced by that replay. The demo was built afterward from the reconstructed source and runs as static files without installation; its asset paths were adjusted for hosting.</p>
+
+                    <h3>Inside the VM</h3>
+                    <p>The harness started Vite on loopback port 5173 in the fixture. Claude used its shell and file tools to build beside that fixture and started a second Vite server on port 5174, reusing the fixture's installed dependencies.</p>
+                    <p>The egress proxy handled 180 API requests and swapped the guest's dummy token for the real credential on 170 of them. The real credential stayed on the host. It refused 77 connections, including 61 telemetry connections and two agent fetches to hosts outside the allowlist.</p>
+                    <p>All 28 pre-run and 28 post-run checks passed, the golden image hash was unchanged, and the guest login was removed two seconds after the session closed. The record's 72 console-error mentions are a best-effort count from the console output the agent chose to inspect while debugging, not 72 distinct failures in the final site.</p>
+
+                    <h3>About the recovered demo</h3>
+                    <p>The original WebKit screenshots show Toasters and Fishbowl rendering. Both threw errors in a later Chromium check, while the other seven screensavers animated. Mobile browsers currently scale the desktop layout.</p>
+                    <p>The harness recorded passing containment and cleanup checks. That PASS covers the boundary and lifecycle, not whether every feature works. I've also written about <a href="../../blog/firewall-caught-my-injection.html">testing a firewall against my own prompt injection</a>.</p>
+                    <h3>Recorded usage</h3>
+                    <p>For Opus 5.5, Claude Code recorded 99,837 output tokens, 9,995,317 cached input tokens read, 185,087 input tokens written to cache, and 5,260 other input tokens. These are totals across requests, not the size of a single context window. A small amount of Haiku usage is listed separately in the JSON summary.</p>
+                    <p>Claude Code estimated $5.50 in API-equivalent usage across both models. The Opus portion matches the <a href="https://platform.claude.com/docs/en/models/opus-5-5/overview#pricing">published rates</a>: $4 for input, $20 for output, $0.20 for cache reads, and $8 for one-hour cache writes, per million tokens. I used a Claude subscription; this comparison is not a per-run bill or an allocation of my subscription cost.</p>
+                </div>
+            </details>
+            <p class="experiment-next">We're adding Codex support so the Web Team can do the next experiment. :D</p>
+        </article>
+    </main>
+    <footer><p><a href="../../">VibeCoder</a> &middot; <a href="https://github.com/HakAl/cuvm">cuvm on GitHub</a></p></footer>
+</body>
+</html>

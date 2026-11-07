@@ -20,19 +20,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="homepage">
+    <a class="skip-link" href="#posts">Skip to posts</a>
     <header class="hero hero-compact">
         <h1>VibeCoder</h1>
         <p class="tagline">Bounded experiments in agent systems</p>
         <div class="hero-intro">
-            <p>I like creating bounded experiments in agent systems, ranging from <a href="https://github.com/HakAl/tiger">bootstraps</a> to <a href="https://github.com/HakAl/agent-comms">strict governance protocols</a>.</p>
-            <p>I enjoy learning how these systems work, finding useful <a href="https://verificationdesign.com/">design patterns</a>, and, more recently, figuring out how to <a href="https://parapet.tech/">secure them</a>. This blog is where I share what I learn.</p>
+            <p>What can an agent build with its own computer and a hard deadline? I tried a <a href="experiments/30-minute-web-dev/">30-minute web development session</a> with Claude inside a disposable Mac, using <a href="https://github.com/HakAl/cuvm">cuvm</a>. We built a retro screensaver site, a few easter eggs included. You can play with the result and see the run summary.</p>
+            <p>My projects range from <a href="https://github.com/HakAl/tiger">bootstraps</a> to <a href="https://github.com/HakAl/agent-comms">governance protocols</a>. This blog is where I share what I learn about <a href="https://verificationdesign.com/">designing</a> and <a href="https://parapet.tech/">securing</a> agent systems.</p>
         </div>
     </header>
 
-    <main>
-        <section id="posts" class="section">
+    <main class="home-layout">
+        <aside class="home-sidebar">
+            <nav aria-label="Post timeline">
+                <details class="post-timeline" open>
+                    <summary><h2>Timeline</h2><span>11 posts &middot; 2026</span></summary>
+                    <div class="timeline-groups">
+                        <section aria-labelledby="timeline-november">
+                            <h3 id="timeline-november"><time datetime="2026-11">November</time></h3>
+                            <ul><li><a href="experiments/30-minute-web-dev/">Thirty minutes in a disposable Mac</a></li></ul>
+                        </section>
+                        <section aria-labelledby="timeline-october">
+                            <h3 id="timeline-october"><time datetime="2026-10">October</time></h3>
+                            <ul><li><a href="blog/firewall-caught-my-injection.html">My Firewall Caught My Prompt Injection</a></li></ul>
+                        </section>
+                        <section aria-labelledby="timeline-september">
+                            <h3 id="timeline-september"><time datetime="2026-09">September</time></h3>
+                            <ul><li><a href="blog/agent-economics.html">You Can Parallelize Agents. You Cannot Parallelize the Engineer.</a></li></ul>
+                        </section>
+                        <section aria-labelledby="timeline-april">
+                            <h3 id="timeline-april"><time datetime="2026-04">April</time></h3>
+                            <ul>
+                                <li><a href="blog/claude-code-memory-hole.html">An Hour Down Claude Code's Memory Hole</a></li>
+                                <li><a href="blog/prompt-injection-test.html">I Sent the Same Prompt Injection to Ten LLMs. Three Complied.</a></li>
+                            </ul>
+                        </section>
+                        <section aria-labelledby="timeline-february">
+                            <h3 id="timeline-february"><time datetime="2026-02">February</time></h3>
+                            <ul>
+                                <li><a href="blog/cross-model-review.html">Your AI Reviewer Has the Same Blind Spots You Do</a></li>
+                                <li><a href="blog/first-seo-skill.html">We Searched the Agent Skills Ecosystem for SEO</a></li>
+                                <li><a href="blog/dispatch-protocol.html">Our AI Teams Had a Communication Problem (The Fix Was From 1995)</a></li>
+                            </ul>
+                        </section>
+                        <section aria-labelledby="timeline-january">
+                            <h3 id="timeline-january"><time datetime="2026-01">January</time></h3>
+                            <ul>
+                                <li><a href="blog/cold-critic.html">Our AI Critic Was Going Easy on Us (Research Told Us Why)</a></li>
+                                <li><a href="blog/building-langley.html">Building a Claude Traffic Proxy in One Session</a></li>
+                                <li><a href="blog/plan-before-code.html">Why I Make Claude Argue With Itself Before Writing Code</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </details>
+            </nav>
+        </aside>
+        <section id="posts" class="section" tabindex="-1">
             <h2>Posts</h2>
+            <article class="blog-card">
+                <h3><a href="experiments/30-minute-web-dev/">Thirty minutes in a disposable Mac</a></h3>
+                <p class="blog-meta"><time datetime="2026-11-07">November 7, 2026</time></p>
+                <p>I gave Claude Code a disposable Mac and a hard 30-minute session. We built a retro screensaver site with hidden games. Play the result and inspect the run evidence.</p>
+                <a href="experiments/30-minute-web-dev/" class="read-more" aria-label="Read more: Thirty minutes in a disposable Mac">Read more &rarr;</a>
+            </article>
             <article class="blog-card">
                 <h3><a href="blog/firewall-caught-my-injection.html">My Firewall Caught My Prompt Injection</a></h3>
                 <p class="blog-meta">October 2026</p>
@@ -105,5 +156,6 @@
             Maintained by the <a href="https://github.com/HakAl/web_ops">Web Team</a>, a team built with <a href="https://github.com/HakAl/team_skills">The Skills Team</a>
         </p>
     </footer>
+    <script src="home.js" defer></script>
 </body>
 </html>

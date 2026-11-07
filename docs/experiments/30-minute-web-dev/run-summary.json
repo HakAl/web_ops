@@ -1,0 +1,164 @@
+{
+  "run_id": "web-dev-20261107T204056Z-fce0",
+  "date": "2026-11-07",
+  "mode": "interactive",
+  "configured_deadline_seconds": 1800,
+  "started_at": "2026-11-07T20:40:56Z",
+  "finished_at": "2026-11-07T21:12:49Z",
+  "timings_seconds_from_start": {
+    "t_clone": 23.3,
+    "t_ip": 34.7,
+    "t_proxy": 35.0,
+    "t_boot_to_ssh": 43.0,
+    "t_network": 49.2,
+    "t_unpack": 49.8,
+    "t_dev_server": 53.2,
+    "t_pre": 65.9,
+    "t_inject": 66.1,
+    "t_ready": 74.7,
+    "t_attach": 74.8,
+    "t_run": 1874.9,
+    "t_collect": 1876.2,
+    "t_post": 1889.5,
+    "t_teardown": 1890.5
+  },
+  "session_seconds": 1800.1,
+  "end_reason": "deadline",
+  "config_sha256": "addfaac485f072cef01a68054f38755818489e9222b56cfcc25889a6211a9dfe",
+  "activity": {
+    "unique_tool_calls": 188,
+    "tool_calls_by_name": {
+      "Bash": 14,
+      "Edit": 23,
+      "Grep": 1,
+      "Read": 21,
+      "ToolSearch": 4,
+      "Write": 25,
+      "mcp__computer-use__request_access": 1,
+      "mcp__playwright__browser_click": 15,
+      "mcp__playwright__browser_console_messages": 14,
+      "mcp__playwright__browser_evaluate": 11,
+      "mcp__playwright__browser_navigate": 21,
+      "mcp__playwright__browser_press_key": 10,
+      "mcp__playwright__browser_snapshot": 1,
+      "mcp__playwright__browser_take_screenshot": 21,
+      "mcp__playwright__browser_type": 1,
+      "mcp__playwright__browser_wait_for": 5
+    },
+    "saved_png_screenshots": 21,
+    "saved_page_snapshots": 41,
+    "work_declared_complete_at": "2026-11-07T21:11:46.941Z",
+    "last_assistant_reply_at": "2026-11-07T21:11:51.625Z",
+    "session_closed_at": "2026-11-07T21:12:11Z",
+    "finish_note": "Claude declared the work complete before the harness closed the still-open session at its deadline.",
+    "browser_console_error_mentions": 72,
+    "console_error_count_note": "Best-effort count from console output the agent chose to inspect; not a count of distinct final-site defects."
+  },
+  "usage_snapshot": {
+    "source": "Claude Code cost-state event, not an invoice",
+    "estimated_api_equivalent_cost_usd": 5.497737,
+    "model_usage": {
+      "claude-haiku-5-5": {
+        "inputTokens": 1181,
+        "outputTokens": 159,
+        "thinkingTokens": 142,
+        "cacheReadInputTokens": 0,
+        "cacheCreationInputTokens": 0,
+        "webSearchRequests": 0,
+        "costUSD": 0.00019759999999999998
+      },
+      "claude-opus-5-5": {
+        "inputTokens": 5260,
+        "outputTokens": 99837,
+        "thinkingTokens": 21649,
+        "cacheReadInputTokens": 9995317,
+        "cacheCreationInputTokens": 185087,
+        "webSearchRequests": 0,
+        "costUSD": 5.497539399999998
+      }
+    }
+  },
+  "containment": {
+    "verdict": "PASS",
+    "checks": {
+      "pre": {
+        "total": 28,
+        "passed": 28
+      },
+      "session": {
+        "total": 1,
+        "passed": 1
+      },
+      "post": {
+        "total": 28,
+        "passed": 28
+      }
+    },
+    "golden_unchanged": true,
+    "inputs_unchanged": true,
+    "clone_remaining": false,
+    "proxy_remaining": false,
+    "note": "Harness PASS covers containment and cleanup, not screensaver correctness.",
+    "egress_counts": {
+      "api_requests": 180,
+      "requests_with_token_swap": 170,
+      "refused_connections": 77,
+      "refused_telemetry_connections": 61,
+      "refused_agent_fetches": 2
+    },
+    "login_removed_seconds_after_session_close": 2
+  },
+  "provenance": {
+    "original_record_sha256": "f1e254c6eed310ddffaf23a898213b3eee3a7c2ff5fb65595d347bc981ab1680",
+    "original_transcript_sha256": "d421d984ddd0d1c52402a4b017dcd02cc2f415b7d22f83adb1a7e5c24fb1efa7",
+    "original_transcript_bytes": 10414099,
+    "selected_original_screenshots": [
+      {
+        "original_name": "ss-home4.png",
+        "path": "images/home.png",
+        "bytes": 208666,
+        "sha256": "a52a1c13cb52f2fbdfd66e3e2c38c455be9fa11d26000c9a76ba128a7635c52d"
+      },
+      {
+        "original_name": "ss-fishbowl2.png",
+        "path": "images/fishbowl.png",
+        "bytes": 132619,
+        "sha256": "1aa01f08797723e60a348b7023e759879699585fcb9561c110cf7c7514a8ebbb"
+      },
+      {
+        "original_name": "ss-toasters3.png",
+        "path": "images/toasters.png",
+        "bytes": 32557,
+        "sha256": "170a13e8e9e8ec9db44fbfe3f424e951b8d999a345791692ecef1aee5ac3be51"
+      },
+      {
+        "original_name": "ss-tetris.png",
+        "path": "images/blocks.png",
+        "bytes": 159902,
+        "sha256": "22609b6fe6787e1071a0a333bc9e7a6cc8facdf0a2586f0f1cb13ee61f917473"
+      }
+    ],
+    "source_reconstruction": {
+      "method": "Replayed recorded file writes and edits plus six individually inspected shell commands after the VM was deleted.",
+      "collection_gap": "The collector watched fixture/; the site was created in sibling screensavers/.",
+      "successful_file_write_and_edit_calls": 48,
+      "inspected_shell_commands": 6,
+      "guest_file_snapshot_available": false,
+      "build_created_after_run": true,
+      "package_manifest_and_lockfile_reconstructed": false,
+      "limit": "Reconstruction of recorded operations, not a byte-for-byte verified copy of the deleted guest files."
+    }
+  },
+  "demo": {
+    "screensavers": 9,
+    "hidden_games": 2,
+    "hosting_changes": [
+      "Built index.html asset URLs changed from /assets/ to ./assets/."
+    ],
+    "limits": [
+      "Toasters and Fishbowl render in original WebKit screenshots; both threw errors in a later Chromium check.",
+      "Mobile browsers scale the original desktop layout.",
+      "Reconstructed source omits package.json and the dependency lockfile."
+    ]
+  }
+}
