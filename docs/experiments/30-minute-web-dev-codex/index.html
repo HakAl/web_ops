@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GPT-6.1 Sol gets the same 30-minute screensaver challenge as Opus 5.5. Original screenshots, a playable demo, token usage, and the final 31 seconds.">
+    <title>Thirty minutes, this time with Codex | VibeCoder</title>
+    <link rel="canonical" href="https://vibecoder.buzz/experiments/30-minute-web-dev-codex/">
+    <meta property="og:title" content="Thirty minutes, this time with Codex">
+    <meta property="og:description" content="GPT-6.1 Sol gets the same 30-minute screensaver challenge as Opus 5.5. Original screenshots, a playable demo, token usage, and the final 31 seconds.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vibecoder.buzz/experiments/30-minute-web-dev-codex/">
+    <meta property="og:site_name" content="VibeCoder">
+    <meta property="og:image" content="https://vibecoder.buzz/experiments/30-minute-web-dev-codex/images/social-card.png">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="800">
+    <meta property="og:image:alt" content="Thirty minutes, this time with Codex: seven screensavers and about $1.14 in API-equivalent usage, beside the Idle Hours homepage.">
+    <meta property="article:published_time" content="2026-11-11">
+    <meta property="article:modified_time" content="2026-11-11">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Thirty minutes, this time with Codex">
+    <meta name="twitter:description" content="GPT-6.1 Sol gets the same 30-minute screensaver challenge as Opus 5.5. Original screenshots, a playable demo, token usage, and the final 31 seconds.">
+    <meta name="twitter:image" content="https://vibecoder.buzz/experiments/30-minute-web-dev-codex/images/social-card.png">
+    <meta name="twitter:image:alt" content="Thirty minutes, this time with Codex: seven screensavers and about $1.14 in API-equivalent usage, beside the Idle Hours homepage.">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Thirty minutes, this time with Codex","datePublished":"2026-11-11","dateModified":"2026-11-11","author":{"@type":"Person","name":"HakAl","url":"https://github.com/HakAl"},"publisher":{"@type":"Organization","name":"VibeCoder"},"description":"GPT-6.1 Sol gets the same 30-minute screensaver challenge as Opus 5.5. Original screenshots, a playable demo, token usage, and the final 31 seconds.","image":"https://vibecoder.buzz/experiments/30-minute-web-dev-codex/images/social-card.png","url":"https://vibecoder.buzz/experiments/30-minute-web-dev-codex/","mainEntityOfPage":{"@type":"WebPage","@id":"https://vibecoder.buzz/experiments/30-minute-web-dev-codex/"}}</script>
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="experiment.css">
+</head>
+<body>
+    <a class="skip-link" href="#experiment">Skip to experiment</a>
+    <header class="hero hero-small">
+        <p><a href="../30-minute-web-dev/">&larr; The Claude experiment</a></p>
+        <p class="experiment-label">An experiment &middot; <time datetime="2026-11-11">November 11, 2026</time></p>
+        <h1>Thirty minutes, this time with Codex</h1>
+        <p class="tagline">Same screensaver brief. A different sense of nostalgia.</p>
+    </header>
+    <main id="experiment" tabindex="-1">
+        <article class="section blog-post experiment-page">
+            <p>Today I had some free time and tokens to use. We finished the Codex integration into <a href="https://github.com/HakAl/cuvm">cuvm</a>, so I gave GPT-6.1 Sol the same half-hour screensaver challenge I gave <a href="../30-minute-web-dev/">Opus 5.5</a>.</p>
+            <p>For this run, Codex had shell and file tools, a project workspace, a local dev server, and Playwright driving WebKit inside a disposable Mac. Same idea: keep talking, keep building, and stop when the clock runs out.</p>
+
+            <div class="experiment-stats" aria-label="Codex experiment results">
+                <p><strong>30:00</strong><span>interactive session</span></p>
+                <p><strong>7</strong><span>screensavers</span></p>
+                <p><strong>3</strong><span>easter eggs</span></p>
+            </div>
+            <div class="experiment-stats usage-stats" aria-label="Recorded Sol usage">
+                <p><strong>GPT-6.1 Sol</strong><span>model</span></p>
+                <p><strong>40.1K</strong><span>output tokens</span></p>
+                <p><strong>4.15M</strong><span>cached input tokens read</span></p>
+                <p><strong>&asymp;$1.14</strong><span>estimated API equivalent</span></p>
+            </div>
+            <p class="stats-note">I used a subscription. The dollar figure estimates these tokens at standard API rates; it is not a per-run bill.</p>
+            <p><a class="demo-link" href="demo/">Play with Sol's screensaver site &rarr;</a></p>
+            <p class="demo-note">The collected build, with relative asset paths for this preview. Contains continuous animation and flashing effects in one hidden extra.</p>
+            <figure class="experiment-figure">
+                <a href="demo/" aria-label="Open the interactive Idle Hours screensaver demo"><img src="images/home-preview.png" width="1280" height="1440" alt="Idle Hours: a dark olive and lime homepage with large Do Nothing Beautifully lettering, a screensaver carousel, and its taskbar along the bottom." fetchpriority="high"></a>
+                <figcaption>The homepage, freshly captured from the collected final build. This version has all seven screensavers.</figcaption>
+            </figure>
+
+            <h2>Scientific Analysis</h2>
+            <div class="table-scroll" role="region" aria-labelledby="feature-caption" tabindex="0">
+                <table class="usage-table feature-table">
+                    <caption id="feature-caption">My observations from these two runs.</caption>
+                    <thead><tr><th scope="col">Feature</th><th scope="col">Claude</th><th scope="col">Codex</th></tr></thead>
+                    <tbody>
+                        <tr><th scope="row">Faster</th><td><span role="img" aria-label="Yes">✓</span></td><td><span role="img" aria-label="No">X</span></td></tr>
+                        <tr><th scope="row">Cheaper</th><td><span role="img" aria-label="No">X</span></td><td><span role="img" aria-label="Yes">✓</span></td></tr>
+                        <tr><th scope="row">Overall 90s Vibe</th><td><span role="img" aria-label="Yes">✓</span></td><td><span role="img" aria-label="No">X</span></td></tr>
+                        <tr><th scope="row">Digital Rain vibe</th><td><span role="img" aria-label="No">X</span></td><td><span role="img" aria-label="Yes">✓</span></td></tr>
+                        <tr><th scope="row">MIDI Sound</th><td><span role="img" aria-label="Yes">✓</span></td><td><span role="img" aria-label="No">X</span></td></tr>
+                        <tr><th scope="row">Sharks &amp; whales</th><td><span role="img" aria-label="Yes">✓</span></td><td><span role="img" aria-label="No">X</span></td></tr>
+                        <tr><th scope="row">Literal fishbowl</th><td><span role="img" aria-label="No">X</span></td><td><span role="img" aria-label="Yes">✓</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Final score: 4 - 3 Claude,</strong> but Codex could make 3 of Claude's sites for the same price.*</p>
+            <p class="stats-note">*Napkin math.</p>
+            <p>Sol made the better overall site and the better Tetris, with seven screensavers against Opus's nine.</p>
+            <p>I can't really quantify it. It feels more smooth, and Codex did add density in addition to speed, which Claude doesn't have. Codex's &ldquo;Asteroid Field&rdquo; is honestly pretty chill and matches the more polished look.</p>
+            <p>Digital Rain has that Matrix or Hackers vibe.</p>
+            <p>Claude absolutely nailed the Windows settings screen styles. It's perfect: the blue header with white text, the X in the corner goes back to the carousel, an old CRT shows the screensavers, dropdown, preview, speed, and silly descriptions to add flavor.</p>
+            <p>Claude had sound. On its site there is a MIDI button that plays some old sounding tune.</p>
+            <p>Claude also added teapots to the pipes. I looked for them and never spotted one, but I did see the <a href="../30-minute-web-dev/demo/?teapot#/s/pipes">&ldquo;all teapots&rdquo; mode</a>.</p>
+            <p>Codex did try on the vibe. There are elements like the visitor counter and coffee cup. It's possible it interpreted the prompt as a modern website with an old theme, not literally a site from 1995.</p>
+            <div class="comparison-gallery" aria-label="Homepage comparison">
+                <figure>
+                    <a href="../30-minute-web-dev/images/home.png"><img src="../30-minute-web-dev/images/home.png" width="1280" height="767" alt="Opus's homepage, with a Windows 95 style layout and colorful personal-homepage decorations." loading="lazy"></a>
+                    <figcaption><strong>Opus 5.5.</strong> Closer to the requested 90s vibe. <a href="../30-minute-web-dev/demo/">Open the Claude demo</a>.</figcaption>
+                </figure>
+                <figure>
+                    <a href="images/home-preview.png"><img src="images/home-preview.png" width="1280" height="1440" alt="Sol's homepage, with a large modern headline, a limited lime and olive palette, and a structured gallery." loading="lazy"></a>
+                    <figcaption><strong>GPT-6.1 Sol.</strong> A more modern interpretation. Both homepage captures are shown in full; click to enlarge.</figcaption>
+                </figure>
+            </div>
+
+            <h2>Still too crisp</h2>
+            <p>The brief was the same: start with an asteroid field, put the screensavers in a carousel, and give each one a detail view. Then I asked for Flying Toasters and Fishbowl.</p>
+            <p>As with Opus, I asked for less crisp sprites, more aquatic diversity, pipes, and toasters that bounce off the sides.</p>
+            <p>Opus was literally faster. I was really impressed with the speed for graphics code.</p>
+            <figure class="experiment-figure">
+                <a href="images/toasters.png"><img src="images/toasters.png" width="1440" height="1000" alt="Blocky chrome toasters with feathered wings and slices of toast inside Sol's screensaver viewer." loading="lazy"></a>
+                <figcaption>Flying Toasters, captured near the end of the original session.</figcaption>
+            </figure>
+            <div class="comparison-gallery">
+                <figure>
+                    <a href="images/fishbowl-before.png"><img src="images/fishbowl-before.png" width="1440" height="1000" alt="Before feedback: smoothly drawn fish in a glass bowl, with plants and a small shelter." loading="lazy"></a>
+                    <figcaption><strong>Before.</strong> The first Fishbowl screenshot, at about 19:49.</figcaption>
+                </figure>
+                <figure>
+                    <a href="images/fishbowl.png"><img src="images/fishbowl.png" width="1440" height="1000" alt="After feedback: a pixelated aquarium with different fish, a jellyfish, a seahorse, and a starfish." loading="lazy"></a>
+                    <figcaption><strong>After.</strong> More pixelation and more creatures, at about 24:39.</figcaption>
+                </figure>
+            </div>
+
+            <h2>Easter eggs before sharks</h2>
+            <p>I reused the main prompts from the Opus experiment. Near the end, I changed the order.</p>
+            <p>cuvm warned me that five minutes remained, so I moved the three easter eggs ahead of sharks and whales. One of Sol's choosing, then games from the same list I gave Opus.</p>
+            <p>It completed the three easter eggs. Tetris was one of them, and I liked its version better.</p>
+            <p>I'm a Tetris subject-matter expert, as I've installed it on every scientific calculator I ever owned, studied a lot of math, and had it as a default game on a couple of old school cell phones. Codex's plays more like the real thing. Piece distribution mainly. Claude didn't give me enough <code>|</code> even early on, when the difficulty should be lower.</p>
+            <figure class="experiment-figure">
+                <a href="images/blocks.png"><img src="images/blocks.png" width="1440" height="1000" alt="Sol's falling-block game, with a ghost landing outline, line and score counters, and visible movement and drop controls." loading="lazy"></a>
+                <figcaption>The falling-block game in an original run screenshot, at about 28:22. The other two extras are left for you to find.</figcaption>
+            </figure>
+
+            <h2>Thirty-one seconds for a whale</h2>
+            <p>Then I delivered the sharks-and-whales request. The clock was at 29:29. Sol had 31 seconds left, and the session ended before it completed the change.</p>
+            <figure class="transcript-excerpt">
+                <figcaption>My final prompt, from the saved operator history.</figcaption>
+                <pre><code>29:29  Me
+sharks and whales sometimes in fishbowl not often plz</code></pre>
+            </figure>
+            <div class="request-time" aria-label="Session time remaining when sharks and whales were requested">
+                <p class="chart-label">Time left for the sharks-and-whales request</p>
+                <div class="time-row"><div><strong>Opus</strong><span>7m 37s</span></div><div class="time-track"><span class="opus-bar" style="width:25.38%"></span></div></div>
+                <div class="time-row"><div><strong>Sol</strong><span>31s</span></div><div class="time-track"><span class="sol-bar" style="width:1.72%"></span></div></div>
+                <p class="stats-note">Each track is the full 30-minute session. Follow-up order and timing differed; these bars show the opportunity each request had.</p>
+            </div>
+
+            <h2>What the tokens looked like</h2>
+            <p>Codex was considerably cheaper and more efficient, coming in at roughly 40k output tokens, 4M input tokens, and $1.14 at API rates. That's a steal.</p>
+            <p>Opus recorded about 100,000 output tokens, with an estimated API equivalent of roughly $5.50.</p>
+            <div class="table-scroll" role="region" aria-labelledby="usage-caption" tabindex="0">
+                <table class="usage-table">
+                    <caption id="usage-caption">Recorded token usage across each session</caption>
+                    <thead><tr><th scope="col">Usage</th><th scope="col">Opus 5.5</th><th scope="col">GPT-6.1 Sol</th></tr></thead>
+                    <tbody>
+                        <tr><th scope="row">Uncached input</th><td>5,260</td><td>161,385</td></tr>
+                        <tr><th scope="row">Cache writes</th><td>185,087</td><td>0 reported</td></tr>
+                        <tr><th scope="row">Cached input reads</th><td>9,995,317</td><td>4,148,736</td></tr>
+                        <tr><th scope="row">Output</th><td>99,837</td><td>40,123</td></tr>
+                        <tr><th scope="row">Of which reasoning</th><td>21,649</td><td>6,081</td></tr>
+                        <tr><th scope="row">API equivalent</th><td>&asymp;$5.50</td><td>&asymp;$1.14</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="stats-note">Cached input is read again across requests. Reasoning is included in output. The Opus estimate includes a tiny amount of Haiku usage; its token column covers Opus only. Token counts alone do not measure how quickly the website came together.</p>
+            <p>I used subscriptions for both runs. Sol's estimate uses <a href="https://developers.openai.com/api/docs/models/gpt-6.1-sol">published standard API rates</a>: $2 per million uncached input tokens, $0.10 for cached input, and $10 for output. That works out to about $0.323 + $0.415 + $0.401, or $1.14 rounded. These figures compare recorded token usage at API rates; they do not allocate the cost of either subscription.</p>
+            <p>Based on what it completed, I think it could add the remaining adjustments to match Claude's features in another 15 minutes and about $0.75. I arrived at this using a highly scientific technique called &ldquo;napkin math.&rdquo;</p>
+
+            <h2>Run notes</h2>
+            <details class="run-details">
+                <summary>The clock, integration, source, and evidence</summary>
+                <div class="run-details-body">
+                    <h3>The recorded clock</h3>
+                    <p>The harness recorded a 1,800-second limit and a 1,800.2-second interactive session. Setup happened before that clock; thinking, typing, and waiting happened inside it.</p>
+                    <dl class="run-clock">
+                        <div><dt>Startup to attach</dt><dd>1m 19.3s</dd></div>
+                        <div><dt>Interactive session</dt><dd>30m 00.2s</dd></div>
+                        <div><dt>Collection after session</dt><dd>13.4s</dd></div>
+                        <div><dt>Entire run, including cleanup</dt><dd>32m 20s</dd></div>
+                    </dl>
+                    <p>The main brief arrived at approximately 6:11 in Sol's session and 5:40 in Opus's. Sol's easter-egg request arrived at 26:10; sharks and whales at 29:29. Offsets are approximate because the saved Codex prompt times have whole-second resolution.</p>
+
+                    <h3>What we integrated</h3>
+                    <p>The Codex integration reused cuvm's disposable VM, credential proxy, checks, collection, and cleanup. Native macOS desktop support needed a separate pinned runtime, desktop tools, and an app-activation helper.</p>
+                    <p>This web experiment used the browser configuration: Codex CLI 0.167.0, shell and file tools, and Playwright controlling WebKit. Native desktop controls were exercised in separate integration runs. The browser and native desktop configurations were separate at this milestone.</p>
+
+                    <h3>What the run preserved</h3>
+                    <p>The cleaned export contains 19 original screenshots, the 13 operator prompts with their times, a run summary, and a source-and-build ZIP. The record also reports 61 saved browser page snapshots.</p>
+                    <p>All 13 files in the exported project matched the guest's recorded hashes. Unchanged files came from the exact input snapshot; changed files were collected from the guest. The ZIP contains the collected build without a new build or transcript replay. Source-to-build correspondence has not been independently verified by rebuilding.</p>
+                    <p>The preview copies that collected build. Its JavaScript and CSS are unchanged; only the HTML asset URLs were made relative so it works in this folder.</p>
+                    <ul class="evidence-links">
+                        <li><a href="run-summary.json">Cleaned run summary (JSON)</a></li>
+                        <li><a href="prompts.json">Exact operator prompts and timing (JSON)</a></li>
+                        <li><a href="source-and-build.zip" download>Collected source and build (ZIP)</a></li>
+                        <li><a href="comparison.json">Comparison calculations and screenshot provenance (JSON)</a></li>
+                    </ul>
+                    <p>The four screensaver and game screenshots on this page are original run captures, with their recorded hashes preserved. The Codex homepage image is a fresh viewport capture of the collected final build. Both homepage comparison images are shown in full; click to enlarge. The raw record, transcripts, account metadata, network logs, and certificate material remain private.</p>
+
+                    <h3>About the collected demo</h3>
+                    <p>Some of the demo's small category counts, years, and technical labels have low contrast. A later accessibility check flagged 19 text elements on the homepage. I've kept the collected build unchanged.</p>
+
+                    <h3>What PASS means here</h3>
+                    <p>All 31 pre-run and 30 post-run checks passed. The VM was removed, the proxy stopped, and the inputs and golden image were unchanged. No forbidden tool use or leak errors were reported.</p>
+                    <p>The harness PASS covers containment, collection, and cleanup. Feature and aesthetic observations above are my experience of these two sessions. Preview browser checks are documented separately from the original run.</p>
+
+                    <h3>The cost calculation</h3>
+                    <p>Sol reported 4,310,121 total input tokens, including 4,148,736 cached input tokens, and 40,123 output tokens. Its 6,081 reasoning tokens are included in output. No cache-write input tokens were reported.</p>
+                    <p>The standard API estimate is (161,385 &times; $2 + 4,148,736 &times; $0.10 + 40,123 &times; $10) / 1,000,000 = $1.1388736. The largest reported request had 121,759 input tokens, below the published long-context pricing threshold. Rates were checked November 11, 2026.</p>
+                    <p>The earlier run's approximately $5.50 is Claude Code's recorded API-equivalent estimate. Its method and token breakdown are in <a href="../30-minute-web-dev/#done-before-the-clock">the original experiment</a> and <a href="../30-minute-web-dev/run-summary.json">its run summary</a>.</p>
+                </div>
+            </details>
+        </article>
+    </main>
+    <footer><p><a href="../../">VibeCoder</a> &middot; <a href="../30-minute-web-dev/">The Opus experiment</a> &middot; <a href="https://github.com/HakAl/cuvm">cuvm on GitHub</a></p></footer>
+</body>
+</html>

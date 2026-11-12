@@ -2,15 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://vibecoder.buzz/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://vibecoder.buzz/experiments/30-minute-web-dev-codex/</loc>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://vibecoder.buzz/experiments/30-minute-web-dev/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://vibecoder.buzz/blog/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://vibecoder.buzz/blog/firewall-caught-my-injection.html</loc>

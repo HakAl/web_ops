@@ -1,0 +1,83 @@
+{
+  "note": "Verbatim operator text from Codex history; times have second resolution and elapsed offsets are approximate. Prompt order differs from the Claude run.",
+  "prompts": [
+    {
+      "index": 1,
+      "at_utc": "2026-11-11T20:14:16Z",
+      "elapsed_seconds_approx": 16.0,
+      "text": "hi we're going to try webdev apparently you have bash and playwright"
+    },
+    {
+      "index": 2,
+      "at_utc": "2026-11-11T20:15:13Z",
+      "elapsed_seconds_approx": 73.0,
+      "text": "specifically through computeruse. we have a half hour session. clock probably started at ~15:14PM"
+    },
+    {
+      "index": 3,
+      "at_utc": "2026-11-11T20:15:39Z",
+      "elapsed_seconds_approx": 99.0,
+      "text": "u have PW"
+    },
+    {
+      "index": 4,
+      "at_utc": "2026-11-11T20:16:14Z",
+      "elapsed_seconds_approx": 134.0,
+      "text": "u have bash?"
+    },
+    {
+      "index": 5,
+      "at_utc": "2026-11-11T20:16:29Z",
+      "elapsed_seconds_approx": 149.0,
+      "text": "nice. ok. here's the goal:"
+    },
+    {
+      "index": 6,
+      "at_utc": "2026-11-11T20:16:39Z",
+      "elapsed_seconds_approx": 159.0,
+      "text": "sorry"
+    },
+    {
+      "index": 7,
+      "at_utc": "2026-11-11T20:20:11Z",
+      "elapsed_seconds_approx": 371.0,
+      "text": "a website that displays old screensavers that are similar to windows from back in the 90s. the first will be the asteroid field coming at the screen if you know what i mea. the website will be janky and have the old geocities or myspace vibe. there should be a carousel that shows the screensavers available. they should be made with webgl or the best you can do. if you get that setup and a detail view that shows the screensaver then you may proceed to create more screensavers for the carousel. any questions?"
+    },
+    {
+      "index": 8,
+      "at_utc": "2026-11-11T20:30:39Z",
+      "elapsed_seconds_approx": 999.0,
+      "text": "fantastic. i always liked flytoasters. that might be a challenge, but this was too ez"
+    },
+    {
+      "index": 9,
+      "at_utc": "2026-11-11T20:31:23Z",
+      "elapsed_seconds_approx": 1043.0,
+      "text": "fantastic. i always liked flying toasters and fishbowl. that might be a challenge, but this was too ez"
+    },
+    {
+      "index": 10,
+      "at_utc": "2026-11-11T20:36:30Z",
+      "elapsed_seconds_approx": 1350.0,
+      "text": "sprites are too crisp gonna ask for more blocky look and more aquatic diversity add pipes too"
+    },
+    {
+      "index": 11,
+      "at_utc": "2026-11-11T20:36:54Z",
+      "elapsed_seconds_approx": 1374.0,
+      "text": "also toasters bounce off sides"
+    },
+    {
+      "index": 12,
+      "at_utc": "2026-11-11T20:40:10Z",
+      "elapsed_seconds_approx": 1570.0,
+      "text": "we have time 3 hidden easter eggs not too hard to find. one of your choosing first. then tetris or a top down zelda type single pane game or donkey kong type game or pong. GO"
+    },
+    {
+      "index": 13,
+      "at_utc": "2026-11-11T20:43:29Z",
+      "elapsed_seconds_approx": 1769.0,
+      "text": "sharks and whales sometimes in fishbowl not often plz"
+    }
+  ]
+}

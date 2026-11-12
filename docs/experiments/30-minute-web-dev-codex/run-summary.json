@@ -1,0 +1,211 @@
+{
+  "schema": "cuvm-blog-evidence-1",
+  "run_id": "codex-20261111T201240Z-590c",
+  "date_utc": "2026-11-11",
+  "agent": "codex",
+  "cli_version": "0.167.0",
+  "models": [
+    "gpt-6.1-sol"
+  ],
+  "mode": "interactive",
+  "timing_seconds": {
+    "configured_limit": 1800,
+    "startup_to_attach": 79.3,
+    "attach_to_deadline_return": 1800.2,
+    "collection_after_session": 13.4,
+    "entire_run_wall_clock": 1940.0
+  },
+  "end_reason": "deadline",
+  "harness_verdict": "PASS",
+  "fail_reasons": [],
+  "verdict_scope": "Containment, collection and cleanup; not a verdict that all requested website features were complete or correct.",
+  "checks": {
+    "pre": {
+      "total": 31,
+      "passed": 31,
+      "failed": []
+    },
+    "session": {
+      "total": 1,
+      "passed": 1,
+      "failed": []
+    },
+    "post": {
+      "total": 30,
+      "passed": 30,
+      "failed": []
+    }
+  },
+  "cleanup": {
+    "vm_absent": true,
+    "proxy_stopped": true,
+    "inputs_unchanged": true,
+    "golden_unchanged": true,
+    "leak_errors": []
+  },
+  "tools_used": [
+    "custom:exec",
+    "exec_command",
+    "mcp__playwright__browser_click",
+    "mcp__playwright__browser_console_messages",
+    "mcp__playwright__browser_navigate",
+    "mcp__playwright__browser_press_key",
+    "mcp__playwright__browser_resize",
+    "mcp__playwright__browser_snapshot",
+    "mcp__playwright__browser_take_screenshot"
+  ],
+  "forbidden_tools_used": [],
+  "reported_token_usage": {
+    "input_tokens": 4310121,
+    "cached_input_tokens": 4148736,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 40123,
+    "reasoning_output_tokens": 6081,
+    "total_tokens": 4350244
+  },
+  "usage_note": "Aggregate provider-reported usage across requests, not one context window. Cached and reasoning subsets are not added again. No dollar-cost estimate.",
+  "operator_prompt_count": 13,
+  "saved_screenshot_count": 19,
+  "saved_page_snapshot_count": 61,
+  "project": {
+    "added_count": 8,
+    "modified_count": 3,
+    "deleted_count": 0,
+    "verified_file_count": 13,
+    "all_exported_file_sha256_match_guest_after_manifest": true,
+    "assembly": "Unchanged files from the exact input snapshot plus actual collected changed files. No transcript replay or new build. node_modules excluded. Collected build kept byte-for-byte; build/source correspondence not independently rebuilt."
+  },
+  "comparison_notes": [
+    "Operator changed prompt order to prioritize easter eggs before sharks/whales.",
+    "Operator reports easter eggs finished and the deadline arrived during sharks/whales.",
+    "Generated README lists seven screensavers and three hidden extras; this export does not independently validate every feature.",
+    "Operator reports Codex site felt more polished/modern; Opus better matched the requested GeoCities/Myspace aesthetic.",
+    "Codex main build brief arrived about +06:11; Claude original about +05:40. Follow-up order/timing differs. Sharks/whales were requested with about 31 seconds remaining in the Codex run."
+  ],
+  "provenance_sha256": {
+    "raw_record_json": "faf8700744397f60b8ec4f3e002cc93e667577c79b3237eca7f45591b5470bf9",
+    "raw_rollouts": [
+      "40ea8b8ae4bfe74610cec9a87bc418f219753d91a4527f0c41562b4d6cfc044e"
+    ],
+    "input_project_archive": "64850840db7035a2b660320f03b57ad11930bac408c48c248bf3621b5a1edd3b",
+    "guest_project_manifest": "2f985e0c7e4777749e64b524149d054ecbb3b6e5a5ca6fe90885878b7fc49f00",
+    "collected_project_changes": "47f2790be9326452a38c049b0c615db2a3a7afa26ba8fde67f7371e42c715ff8",
+    "source_and_build_zip": "066e80cb82d1ffe5fca83e4eb831070aee73862aa347817c68ff076bbd117d1d",
+    "prompts_json": "0ed23879ae6dd934232dd944d87d69642e449dbeaaf9efa671278109f6e0348a"
+  },
+  "screenshots": [
+    {
+      "file": "screenshots/page-2026-11-11T20-24-58-380Z.png",
+      "sha256": "403f4d7b70e9d59dcda0a903cb645da27735d06d96428c71cb9c698d9e36d2b4",
+      "bytes": 228056
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-25-26-369Z.png",
+      "sha256": "5698d615f95579529f06a64759d6f39e138c9ae10f04a054ffc2918922dee90a",
+      "bytes": 344071
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-26-07-963Z.png",
+      "sha256": "89282190a0b38c9540bae0b152d906e501f54f29afb8f79dadd10f9e6fd1b400",
+      "bytes": 107261
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-26-36-983Z.png",
+      "sha256": "7d2e53a00fb5bc9cafc2183aecc96b2cd39c9fa71b27e1d28593c5f29dbec4e4",
+      "bytes": 224233
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-27-04-938Z.png",
+      "sha256": "c1b31cc4074c71a7f89448e49c0ac0a876140250b15558c1a23b1cb68cef0f9d",
+      "bytes": 676046
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-27-10-709Z.png",
+      "sha256": "9a15e6ee2f97165eb8f453109ecc5aca60839b9ff21b47d0e9d4039f790467b5",
+      "bytes": 1059252
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-27-23-813Z.png",
+      "sha256": "648fefca25aab12364c7dc6488ebac5ec3df8bc251e70c85cf65ee72ef69eb61",
+      "bytes": 147564
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-28-17-273Z.png",
+      "sha256": "eb771c0235b4c77d6abefd5883c31928cfcfe6859263740f8b3fb6b56cd8ca97",
+      "bytes": 76404
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-28-58-259Z.png",
+      "sha256": "067a27e42614da25fb844bc10df6bd9f181db86c0473ab30ff3a2ea333c4343c",
+      "bytes": 142047
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-33-35-557Z.png",
+      "sha256": "7621e91c61ada0fac78a6fc94a012512abd9c17fb76fd2b10063a297e95e42a1",
+      "bytes": 954537
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-33-49-301Z.png",
+      "sha256": "483634c0a1c8541aa0fc9d84ce3203099f0089f1276b9bb12dd2a4d338935a5f",
+      "bytes": 521547
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-34-51-619Z.png",
+      "sha256": "fae1ab3c093fdb852031653ccd98122409727a04be081c3b071ceefd932c7ddb",
+      "bytes": 512178
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-35-01-481Z.png",
+      "sha256": "350d66b24d2ff15291b10b04c24641b14d23384b0578cb3f12d99b30610d1980",
+      "bytes": 183924
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-38-39-441Z.png",
+      "sha256": "e39d42b5bd95cdc8ce2096f4b65c700e7edd739a51a96154ae6027711c4a7a09",
+      "bytes": 241356
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-38-51-290Z.png",
+      "sha256": "9dff841e9beff8f24209ed55f0c147811545e12cbbe7ca2c7d866f80603702e6",
+      "bytes": 136851
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-42-08-543Z.png",
+      "sha256": "8c95e3a6759ffdf645ce1767abf773913e5713d9e878c7b6577fe4fb89c1cf4c",
+      "bytes": 199560
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-42-21-843Z.png",
+      "sha256": "0fe9d91fd2c8ce9dc470a4e43839c363838248da944e8cfe8f16222b8aff77c3",
+      "bytes": 162624
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-42-54-476Z.png",
+      "sha256": "8776300ca282942f5f5f652dc6815cbc3a7e0fbe0b9ea2c65f7e4e1414195309",
+      "bytes": 80161
+    },
+    {
+      "file": "screenshots/page-2026-11-11T20-43-15-000Z.png",
+      "sha256": "e4156b94723844dc646489c7eb35743cedcad453c187975cf91fc3ee9d3dc559",
+      "bytes": 272338
+    }
+  ],
+  "privacy": "Whitelisted export excludes account/rate-limit/credit data, raw transcripts, terminal/network logs, machine/network identifiers and certificates. Screenshots/source are publication candidates for visual/content review, not automatically approved publication.",
+  "prompt_milestones": {
+    "main_build_brief": {
+      "prompt_index": 7,
+      "elapsed_seconds_approx": 371.0,
+      "seconds_remaining_approx": 1429.0
+    },
+    "easter_eggs": {
+      "prompt_index": 12,
+      "elapsed_seconds_approx": 1570.0,
+      "seconds_remaining_approx": 230.0
+    },
+    "sharks_and_whales": {
+      "prompt_index": 13,
+      "elapsed_seconds_approx": 1769.0,
+      "seconds_remaining_approx": 31.0
+    }
+  }
+}

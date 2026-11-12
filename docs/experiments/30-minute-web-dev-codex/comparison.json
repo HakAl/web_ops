@@ -1,0 +1,156 @@
+{
+  "date": "2026-11-11",
+  "codex_model": "gpt-6.1-sol",
+  "codex_usage": {
+    "input_tokens": 4310121,
+    "cached_input_tokens": 4148736,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 40123,
+    "reasoning_output_tokens": 6081,
+    "total_tokens": 4350244
+  },
+  "uncached_input_tokens": 161385,
+  "standard_api_equivalent": {
+    "usd": 1.1388736,
+    "rates_per_million": {
+      "uncached_input": 2,
+      "cached_input": 0.1,
+      "output": 10
+    },
+    "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+    "note": "Standard short-context token estimate; subscription usage, not a bill. No cache-write tokens reported. Maximum recorded request input 121759 tokens."
+  },
+  "opus_source": "../30-minute-web-dev/run-summary.json",
+  "operator_observations": {
+    "opus": "Literally faster; author was impressed by the speed for graphics code. Closer to the requested 90s aesthetic, including the Windows settings screen styles.",
+    "sol": "Better overall site and Tetris; seven screensavers, no sharks or whales.",
+    "vibe": "Claude had a MIDI button and sound. Codex included a visitor counter and coffee cup; the author thinks it may have interpreted the brief as a modern website with an old theme.",
+    "sol_play": "Feels smoother, has a density feature, and Asteroid Field is chill and matches the polished look. Digital Rain gets the Matrix/Hackers vibe.",
+    "tetris": "Codex piece distribution felt closer to real Tetris. Author reports too few long pieces from Claude, even early on when difficulty should be lower. These are author play impressions, not a statistical distribution test.",
+    "windows_settings": "Blue header with white text, corner X returns to carousel, CRT screensaver display, dropdown, preview, speed, and silly descriptions.",
+    "density": "Codex adds density alongside speed; Claude has no density control. Author explicitly keeps this in prose, without another table point.",
+    "teapots": "Claude added teapots to the pipes. Author looked for the rare teapots without spotting one, but did see all-teapots mode."
+  },
+  "timing": {
+    "main_brief": {
+      "opus_seconds": 339.519,
+      "sol_seconds_approx": 371
+    },
+    "easter_eggs": {
+      "opus_seconds": 1510.9,
+      "sol_seconds_approx": 1570
+    },
+    "sharks_whales": {
+      "opus_seconds": 1343.207,
+      "sol_seconds_approx": 1769
+    }
+  },
+  "selected_original_screenshots": [
+    {
+      "path": "images/toasters.png",
+      "original_name": "page-2026-11-11T20-43-15-000Z.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "e4156b94723844dc646489c7eb35743cedcad453c187975cf91fc3ee9d3dc559"
+    },
+    {
+      "path": "images/fishbowl-before.png",
+      "original_name": "page-2026-11-11T20-33-49-301Z.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "483634c0a1c8541aa0fc9d84ce3203099f0089f1276b9bb12dd2a4d338935a5f"
+    },
+    {
+      "path": "images/fishbowl.png",
+      "original_name": "page-2026-11-11T20-38-39-441Z.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "e39d42b5bd95cdc8ce2096f4b65c700e7edd739a51a96154ae6027711c4a7a09"
+    },
+    {
+      "path": "images/blocks.png",
+      "original_name": "page-2026-11-11T20-42-21-843Z.png",
+      "width": 1440,
+      "height": 1000,
+      "sha256": "0fe9d91fd2c8ce9dc470a4e43839c363838248da944e8cfe8f16222b8aff77c3"
+    }
+  ],
+  "demo_hosting_change": "Only dist/index.html asset URLs changed from /assets/ to ./assets/. Asset JS and CSS copied byte-for-byte; no rebuild.",
+  "feature_status_note": "Operator observations and preserved screenshots/source; browser checks are recorded separately.",
+  "fresh_preview_captures": [
+    {
+      "kind": "fresh-browser-capture",
+      "source": "Collected final build, unchanged JavaScript and CSS; relative HTML asset paths.",
+      "browser": "Chromium",
+      "viewport": {
+        "width": 1280,
+        "height": 1440
+      },
+      "fullPage": false,
+      "taskbar": {
+        "x": 0,
+        "y": 1410,
+        "width": 1280,
+        "height": 30
+      },
+      "path": "images/home-preview.png",
+      "sha256": "0f988b0e52c8c8a201931f055e29bc9ed1e83cd2306ca168d035ee5f53e2ece0",
+      "note": "Replacement for a full-page original capture whose fixed taskbar crossed the content. No demo code or image retouching."
+    }
+  ],
+  "operator_projection": {
+    "additional_minutes": 15,
+    "additional_api_equivalent_usd": 0.75,
+    "basis": "Author napkin math based on what the run completed; an estimate, not a measured continuation."
+  },
+  "operator_feature_comparison": [
+    {
+      "feature": "Faster",
+      "claude": true,
+      "codex": false
+    },
+    {
+      "feature": "Cheaper",
+      "claude": false,
+      "codex": true
+    },
+    {
+      "feature": "Overall 90s Vibe",
+      "claude": true,
+      "codex": false
+    },
+    {
+      "feature": "Digital Rain vibe",
+      "claude": false,
+      "codex": true
+    },
+    {
+      "feature": "MIDI Sound",
+      "claude": true,
+      "codex": false
+    },
+    {
+      "feature": "Sharks & whales",
+      "claude": true,
+      "codex": false
+    },
+    {
+      "feature": "Literal fishbowl",
+      "claude": false,
+      "codex": true
+    }
+  ],
+  "operator_final_score": {
+    "claude": 4,
+    "codex": 3,
+    "cost_comment": "Codex could make 3 of Claude's sites for the same price.",
+    "footnote": "Napkin math."
+  },
+  "homepage_comparison_display": "Both source captures are shown in full at their natural aspect ratios; click either for the full-size image.",
+  "demo_accessibility": {
+    "check": "Later Chromium accessibility check, separate from original harness PASS",
+    "home_text_elements_with_low_contrast": 19,
+    "affected_content": "Small category counts, years and technical labels",
+    "handling": "Limitation documented in article run notes; collected demo and ZIP preserved unchanged."
+  }
+}
